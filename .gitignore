@@ -1,0 +1,11 @@
+# Data (large, and precise1k is itself a git repo — never track it)
+student_a_intracellular/data/
+
+# Jupyter
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# Python
+__pycache__/
+*.pyc
+.DS_Store
