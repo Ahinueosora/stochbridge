@@ -1,0 +1,117 @@
+source,target,sign,layer,evidence,strength,params,in_a3_model,note,tier
+cAMP,CRP,+,input,Kuhlman2007_intervention;RegulonDB_effector,"non-cooperative: Hill m = 1.0 +/- 0.1 (paper), 1.15 [1.03-1.28] (our refit)","{""C_cAMP_uM"": 320, ""m"": 1.0}",True,extracellular cAMP in delta-cyaA delta-cpdA cells,causal
+cyaA (makes cAMP),cAMP,+,input,metabolism,adenylate cyclase,,False,,curated
+glucose,LacY,-,input,Ozbudak2004;literature,"inducer exclusion: LacY activity 0.65 of max at saturating glucose, half-effect 7.4 uM","{""min"": 0.65, ""K_glc_uM"": 7.4}",True,,curated
+glucose,cAMP,-,input,Ozbudak2004;literature,"CRP activity at saturating glucose = 0.20 of max, half-effect 3.9 uM","{""c_min"": 0.2, ""K_glc_uM"": 3.9}",True,A3 fit to Ozbudak Fig 2c; PRECISE-1K: gat 2.2x lower on glucose,curated
+CRP,LacI DNA loop,+,core,Kuhlman2007_intervention;literature_in_vitro,"CRP bends DNA and helps LacI loop. Measured ON/OFF: 258 (0 cAMP), 228 (10 uM), 1,190 (100 uM), 1,650 (1 mM) = ~6x tighter OFF","{""Omega_paper"": 10.3, ""Omega_refit_fig2a"": 12.4, ""L0"": 3.7}",False,"NEW EDGE. Model-free evidence: ON/OFF rises ~6x with cAMP. Omega rests on the paper route; our free joint fit of Fig 2b cannot pin it (2.8 [1.0-6.1], dAIC 0.9). Not yet in A3: needs rho(theta) and a glucose refit.",causal
+CRP,lac promoter (lacZYA),+,core,Kuhlman2007_intervention;Ozbudak2004;RegulonDB_Confirmed_grade1,201x rise from 0 to 1 mM cAMP with LacI off; crp-null: no response (fold 1.00); output ~ proportional to CRP occupancy,"{""b0_MU_hr"": 5.9, ""f_cAMP"": 240, ""C_cAMP_uM"": 320, ""m_cAMP"": 1.0, ""basal_without_CRP_frac_of_max"": 0.005}",True,causal: graded intervention + crp-null control (Kuhlman Fig 1b). A3 currently sets CRP-free output to 0; Kuhlman says ~1/200 of max.,causal
+LacI,lac promoter (lacZYA),-,core,Kuhlman2007_intervention;Ozbudak2004;RegulonDB_Confirmed_grade1,no-loop repression R ~ 50; loop strength L0 = 3.7; ON/OFF ~250 without CRP,"{""R"": 50, ""L0"": 3.7, ""K_IPTG_uM"": 12.3, ""rho_A3"": 170, ""n_A3"": 2}",True,"Kuhlman Eq 3: activity = a0 / (1 + R/s^2 + R*L/s^4), s = 1 + I/K. A3 uses Ozbudak form (1+u^2)/(rho+u^2).",causal
+LacI DNA loop,lac promoter (lacZYA),-,core,Kuhlman2007_intervention,looping raises IPTG Hill from ~1.5 to ~2.0 (no CRP) and 2.6-2.8 (with CRP),"{""L"": ""L0 (1 + Omega x)/(1 + x), x = cAMP/C""}",False,,causal
+LacY,inducer inside cell,+,core,Kuhlman2007_intervention;Ozbudak2004,"uptake ~ TMG^0.6 (Ozbudak Fig 3d). LacY feedback steepens the IPTG response: Hill 4.5 (wild type) vs 2.6 (delta-lacY), Kuhlman Table 1","{""uptake_exponent"": 0.6, ""k_up"": 1.84}",True,,causal
+inducer (TMG/IPTG),LacI,-,core,Kuhlman2007_intervention;Ozbudak2004;RegulonDB_effector,IPTG-LacI dissociation K = 12.3 uM; only weakly cooperative (Hill ~1.5 with DNA),"{""K_IPTG_uM"": 12.3}",True,RegulonDB lists allolactose as the natural effector,causal
+inducer (TMG/IPTG),inducer inside cell,+,core,Ozbudak2004,external -> internal,,True,,curated
+inducer inside cell,LacI,-,core,Ozbudak2004,A3: inducer-LacI Hill n = 2 (assumed; gives cusp at rho = 9),"{""n"": 2}",True,,curated
+lac promoter (lacZYA),LacY,+,core,Ozbudak2004;definition,"max/basal LacY 1,506/9 molecules (A3 units)",,True,,curated
+AraC,araJ,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+CRP,AraC,+,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+CRP,Fis,-,regulatory,MINER_LASSO_association;RegulonDB_Strong,LASSO coef -0.009 | Strong,,False,,curated
+CRP,Fur,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+CRP,GalS,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+CRP,IdnR,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+CRP,LacI,+,regulatory,RegulonDB_Strong,Strong,,False,via mhpR-lacI read-through (mhpRp1); LacI kept constant in A3,curated
+CRP,MalT,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+CRP,MarA,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+CRP,MhpR,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+CRP,TdcA,+,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+CRP,cyaA (makes cAMP),-,regulatory,RegulonDB_Strong,Strong; negative feedback on cAMP production,,False,,curated
+Cra,CRP,+,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+Cra,MarA,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+FNR,TdcA,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+FNR,tdcB,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+Fis,CRP,-,regulatory,MINER_LASSO_association;RegulonDB_Confirmed,LASSO coef -0.011 | Confirmed,,False,,curated
+Fis,H-NS,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+Fis,MarA,+,regulatory,MINER_LASSO_association;RegulonDB_Confirmed,LASSO coef +0.039 | Confirmed,,False,,curated
+Fis,gyrA,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+FlhDC,93 flagella genes,+,regulatory,RegulonDB_listed,"FlhDC regulon, 93 genes",,False,,curated
+FliZ,flhC,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+FliZ,flhD,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+Fur,fecE,-,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+Fur,flhC,-,regulatory,RegulonDB_Weak,Weak,,False,,curated
+Fur,flhD,-,regulatory,RegulonDB_Weak,Weak,,False,,curated
+GalS,galK,±,regulatory,RegulonDB_Strong,Strong,,False,,curated
+H-NS,flhC,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+H-NS,flhD,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+H-NS,galK,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+H-NS,lac promoter (lacZYA),-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+IdnR,idnO,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+Lrp,MalT,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+MalT,lamB,+,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+MalT,malK,+,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+MarA,lac promoter (lacZYA),-,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+MhpR,mhpF,+,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+Nac,TdcA,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+Nac,nadC,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+QseB,flhC,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+QseB,flhD,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+RbsR,rbsA,-,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+RbsR,rbsB,-,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+RbsR,rbsC,-,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+TdcA,tdcB,+,regulatory,RegulonDB_Strong,Strong,,False,,curated
+UhpA,uhpT,+,regulatory,RegulonDB_Confirmed,Confirmed,,False,,curated
+XylR,AraC,-,regulatory,RegulonDB_Strong,Strong,,False,,curated
+flhC,FlhDC,+,regulatory,definition,flhD + flhC make the FlhDC regulator,,False,,curated
+flhD,FlhDC,+,regulatory,definition,flhD + flhC make the FlhDC regulator,,False,,curated
+gadX,H-NS,+,regulatory,RegulonDB_Weak,Weak,,False,,curated
+lac promoter (lacZYA),galK,+,regulatory,metabolism,"LacZ splits lactose -> galactose, which induces gal genes",,False,,curated
+CRP,araJ,-,target,A2_causal,weak fit to PRECISE-1K,,False,,causal
+CRP,cas3,+,target,A2_causal,,,False,,causal
+CRP,fecE,-,target,A2_causal,weak fit to PRECISE-1K,,False,"SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: CRP -> Fur -| fecE gives a net negative sign, matching A2.",causal_in_A2_sign_conflict
+CRP,flhC,+,target,A2_causal,,,False,,causal
+CRP,flhD,+,target,A2_causal,,,False,,causal
+CRP,galK,+,target,A2_causal,,,False,,causal
+CRP,gyrA,-,target,A2_causal,,,False,"SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: CRP -| Fis -| gyrA (LASSO/RegulonDB) would be positive; unresolved.",causal_in_A2_sign_conflict
+CRP,hflC,-,target,A2_causal,,,False,,causal
+CRP,idnO,+,target,A2_causal,,,False,,causal
+CRP,lamB,+,target,A2_causal,,,False,,causal
+CRP,malK,+,target,A2_causal,,,False,,causal
+CRP,mhpF,-,target,A2_causal,weak fit to PRECISE-1K,,False,"SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: CRP -> MhpR -> mhpF is positive, so does NOT explain A2; unresolved.",causal_in_A2_sign_conflict
+CRP,nadC,-,target,A2_causal,,,False,"SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: Nac -| nadC; no CRP -> Nac edge in this set; unresolved.",causal_in_A2_sign_conflict
+CRP,preA,+,target,A2_causal,,,False,,causal
+CRP,rbsA,+,target,A2_causal,,,False,,causal
+CRP,rbsB,+,target,A2_causal,,,False,,causal
+CRP,rbsC,+,target,A2_causal,,,False,,causal
+CRP,rbsR,+,target,A2_causal;MINER_LASSO_association,LASSO coef +0.010 | weak fit to PRECISE-1K,,False,,causal
+CRP,tdcB,+,target,A2_causal,,,False,,causal
+CRP,uhpT,+,target,A2_causal,,,False,,causal
+CRP,yahN,+,target,A2_causal,,,False,,causal
+CRP,XylR,+,association,MINER_LASSO_association,LASSO coef +0.060,,False,"statistical, not causal",association
+CRP,fucR,+,association,MINER_LASSO_association,LASSO coef +0.025,,False,"statistical, not causal",association
+CRP,glcC,-,association,MINER_LASSO_association,LASSO coef -0.009,,False,"statistical, not causal",association
+CRP,lsrR,+,association,MINER_LASSO_association,LASSO coef +0.000,,False,"statistical, not causal",association
+FNR,Nac,-,association,MINER_LASSO_association,LASSO coef -0.019,,False,"statistical, not causal",association
+FliZ,csgD,+,association,MINER_LASSO_association,LASSO coef +0.104,,False,"statistical, not causal",association
+Lrp,Nac,+,association,MINER_LASSO_association,LASSO coef +0.003,,False,"statistical, not causal",association
+Lrp,argR,+,association,MINER_LASSO_association,LASSO coef +0.154,,False,"statistical, not causal",association
+Lrp,rpoN,-,association,MINER_LASSO_association,LASSO coef -0.104,,False,"statistical, not causal",association
+Nac,leuO,+,association,MINER_LASSO_association,LASSO coef +0.034,,False,"statistical, not causal",association
+argR,Lrp,+,association,MINER_LASSO_association,LASSO coef +0.158,,False,"statistical, not causal",association
+basR,QseB,+,association,MINER_LASSO_association,LASSO coef +0.614,,False,"statistical, not causal",association
+basR,csgD,+,association,MINER_LASSO_association,LASSO coef +0.121,,False,"statistical, not causal",association
+csgD,fliA,+,association,MINER_LASSO_association,LASSO coef +0.272,,False,"statistical, not causal",association
+fliA,FliZ,+,association,MINER_LASSO_association,LASSO coef +0.691,,False,"statistical, not causal",association
+gadW,gadX,+,association,MINER_LASSO_association,LASSO coef +0.474,,False,"statistical, not causal",association
+gadX,gadE,+,association,MINER_LASSO_association,LASSO coef +0.256,,False,"statistical, not causal",association
+gadX,gadW,+,association,MINER_LASSO_association,LASSO coef +0.502,,False,"statistical, not causal",association
+gadX,rpoS,+,association,MINER_LASSO_association,LASSO coef +0.272,,False,"statistical, not causal",association
+mqsA,csgD,+,association,MINER_LASSO_association,LASSO coef +0.447,,False,"statistical, not causal",association
+rpoD,FNR,+,association,MINER_LASSO_association,LASSO coef +0.076,,False,"statistical, not causal",association
+rpoD,Fis,+,association,MINER_LASSO_association,LASSO coef +0.131,,False,"statistical, not causal",association
+rpoD,Lrp,-,association,MINER_LASSO_association,LASSO coef -0.025,,False,"statistical, not causal",association
+rpoD,gadE,-,association,MINER_LASSO_association,LASSO coef -0.226,,False,"statistical, not causal",association
+rpoD,iscR,+,association,MINER_LASSO_association,LASSO coef +0.173,,False,"statistical, not causal",association
+rpoD,leuO,-,association,MINER_LASSO_association,LASSO coef -0.067,,False,"statistical, not causal",association
+rpoD,lsrR,-,association,MINER_LASSO_association,LASSO coef -0.031,,False,"statistical, not causal",association
+rpoD,metJ,+,association,MINER_LASSO_association,LASSO coef +0.028,,False,"statistical, not causal",association
+rpoD,purR,+,association,MINER_LASSO_association,LASSO coef +0.234,,False,"statistical, not causal",association
+rpoN,Nac,+,association,MINER_LASSO_association,LASSO coef +0.003,,False,"statistical, not causal",association
+rpoS,gadX,+,association,MINER_LASSO_association,LASSO coef +0.198,,False,"statistical, not causal",association

@@ -1,0 +1,516 @@
+{
+  "n_cells_per_population": 2000,
+  "replicates": 3,
+  "circuit_genes_b": [
+    "b0109",
+    "b0328",
+    "b0342",
+    "b0343",
+    "b0344",
+    "b0345",
+    "b0351",
+    "b0396",
+    "b0757",
+    "b1891",
+    "b1892",
+    "b2147",
+    "b2231",
+    "b2761",
+    "b3117",
+    "b3357",
+    "b3666",
+    "b3749",
+    "b3750",
+    "b3751",
+    "b3753",
+    "b3806",
+    "b4035",
+    "b4036",
+    "b4175",
+    "b4266",
+    "b4287"
+  ],
+  "imodulons_containing_circuit_genes": [
+    "BW25113",
+    "Capsule",
+    "Cellulose",
+    "Crp-1",
+    "Ferric Citrate",
+    "FlhDC-2",
+    "FliA",
+    "Fur-2",
+    "Galactose",
+    "Gluconate",
+    "IS1",
+    "Maltose",
+    "Molybdenum",
+    "PAL 10 Del",
+    "PAL Amp",
+    "Ribose",
+    "SoxS",
+    "Thr/Ser-1",
+    "Thr/Ser-2",
+    "UC-7",
+    "baeR KO",
+    "crp KO-1",
+    "crp KO-2",
+    "e14 Del",
+    "pts ALE"
+  ],
+  "lac_tpm_anchor": {
+    "b0344": 275.6864731441276,
+    "b0343": 145.83845840212038,
+    "b0342": 702.8046589277058
+  },
+  "panel": {
+    "readable": [
+      "FlhDC-2",
+      "Ferric Citrate",
+      "Fur-2",
+      "Cellulose",
+      "Galactose",
+      "Crp-1",
+      "Ribose",
+      "Thr/Ser-1",
+      "Gluconate",
+      "Thr/Ser-2",
+      "FliA",
+      "Maltose"
+    ],
+    "fidelity": {
+      "FlhDC-2": 0.652,
+      "Ferric Citrate": 0.769,
+      "SoxS": -0.139,
+      "baeR KO": 0.244,
+      "IS1": 0.125,
+      "PAL 10 Del": 0.768,
+      "Fur-2": 0.582,
+      "Cellulose": 0.541,
+      "Galactose": 0.687,
+      "crp KO-1": 0.277,
+      "Crp-1": 0.858,
+      "Ribose": 0.928,
+      "Molybdenum": 0.285,
+      "e14 Del": 0.321,
+      "Thr/Ser-1": 0.827,
+      "BW25113": 0.914,
+      "pts ALE": -0.063,
+      "Gluconate": 0.612,
+      "Thr/Ser-2": 0.724,
+      "FliA": 0.705,
+      "Capsule": 0.299,
+      "PAL Amp": 0.009,
+      "Maltose": 0.987,
+      "UC-7": -0.184,
+      "crp KO-2": 0.37
+    },
+    "members": {
+      "FlhDC-2": [
+        "flhC",
+        "flhD"
+      ],
+      "Ferric Citrate": [
+        "fecE"
+      ],
+      "SoxS": [
+        "lacA"
+      ],
+      "baeR KO": [
+        "fecE"
+      ],
+      "IS1": [
+        "cyaA"
+      ],
+      "PAL 10 Del": [
+        "rbsB"
+      ],
+      "Fur-2": [
+        "preA"
+      ],
+      "Cellulose": [
+        "yahN"
+      ],
+      "Galactose": [
+        "galK"
+      ],
+      "crp KO-1": [
+        "crp"
+      ],
+      "Crp-1": [
+        "yahN",
+        "tdcB",
+        "rbsA"
+      ],
+      "Ribose": [
+        "rbsA",
+        "rbsC",
+        "rbsB"
+      ],
+      "Molybdenum": [
+        "uhpT"
+      ],
+      "e14 Del": [
+        "crp"
+      ],
+      "Thr/Ser-1": [
+        "tdcB",
+        "uhpT"
+      ],
+      "BW25113": [
+        "lacZ",
+        "mhpF"
+      ],
+      "pts ALE": [
+        "crp",
+        "uhpT"
+      ],
+      "Gluconate": [
+        "idnO"
+      ],
+      "Thr/Ser-2": [
+        "tdcB"
+      ],
+      "FliA": [
+        "uhpT"
+      ],
+      "Capsule": [
+        "crp"
+      ],
+      "PAL Amp": [
+        "galK"
+      ],
+      "Maltose": [
+        "malK",
+        "lamB"
+      ],
+      "UC-7": [
+        "flhD"
+      ],
+      "crp KO-2": [
+        "crp"
+      ]
+    }
+  },
+  "summary": [
+    {
+      "perturbation": "glucose_to_glycerol",
+      "matched": "control:wt_glc -> crp:wt_glyc",
+      "held_out": false,
+      "real_dimas_fig6": 7,
+      "sim_dimas_fig6": 0,
+      "recovered_fig6": 0,
+      "recovered_names_fig6": "",
+      "real_dimas_default": 15,
+      "sim_dimas_default": 0,
+      "recovered_default": 0,
+      "recovered_names_default": "",
+      "ceiling_recovered_default": 0,
+      "r_all_imodulons": 0.145778147174885,
+      "r_circuit_imodulons": 0.13589668216261366,
+      "r_sim_vs_ceiling": 0.7088396004967575,
+      "ceiling_r_vs_real": 0.2049335990315257,
+      "sign_agreement_circuit_imodulons": 0.6,
+      "panel_real_dimas": 7,
+      "panel_sim_dimas": 2,
+      "panel_recovered": 1,
+      "panel_recovered_names": "Crp-1",
+      "panel_false_positive_names": "Cellulose",
+      "gene_r": 0.39605678971671876,
+      "gene_sign_agreement_moved": 0.9090909090909091,
+      "gene_n_moved": 11,
+      "panel_fig6_real_dimas": 4,
+      "panel_fig6_sim_dimas": 2,
+      "panel_fig6_recovered": 0,
+      "panel_multigene_real_dimas": 4,
+      "panel_multigene_sim_dimas": 1,
+      "panel_multigene_recovered": 1,
+      "panel_r": 0.3829179207582268,
+      "panel_sign_agreement": 1.0
+    },
+    {
+      "perturbation": "glucose_to_acetate",
+      "matched": "control:wt_glc -> cra_crp:wt_ac",
+      "held_out": false,
+      "real_dimas_fig6": 9,
+      "sim_dimas_fig6": 0,
+      "recovered_fig6": 0,
+      "recovered_names_fig6": "",
+      "real_dimas_default": 23,
+      "sim_dimas_default": 0,
+      "recovered_default": 0,
+      "recovered_names_default": "",
+      "ceiling_recovered_default": 0,
+      "r_all_imodulons": 0.2384393212833437,
+      "r_circuit_imodulons": 0.4541736460467394,
+      "r_sim_vs_ceiling": 0.8450523545809991,
+      "ceiling_r_vs_real": 0.2508804406258665,
+      "sign_agreement_circuit_imodulons": 0.6666666666666666,
+      "panel_real_dimas": 10,
+      "panel_sim_dimas": 2,
+      "panel_recovered": 2,
+      "panel_recovered_names": "Cellulose;Crp-1",
+      "panel_false_positive_names": "",
+      "gene_r": 0.5432150317305959,
+      "gene_sign_agreement_moved": 0.9230769230769231,
+      "gene_n_moved": 13,
+      "panel_fig6_real_dimas": 8,
+      "panel_fig6_sim_dimas": 2,
+      "panel_fig6_recovered": 2,
+      "panel_multigene_real_dimas": 5,
+      "panel_multigene_sim_dimas": 1,
+      "panel_multigene_recovered": 1,
+      "panel_r": 0.9589368612853775,
+      "panel_sign_agreement": 1.0
+    },
+    {
+      "perturbation": "dcrp_glucose",
+      "matched": "control:wt_glc -> crp:delcrp_glc",
+      "held_out": false,
+      "real_dimas_fig6": 7,
+      "sim_dimas_fig6": 0,
+      "recovered_fig6": 0,
+      "recovered_names_fig6": "",
+      "real_dimas_default": 24,
+      "sim_dimas_default": 0,
+      "recovered_default": 0,
+      "recovered_names_default": "",
+      "ceiling_recovered_default": 0,
+      "r_all_imodulons": 0.423973498600664,
+      "r_circuit_imodulons": 0.5312592611952018,
+      "r_sim_vs_ceiling": 0.7845732136258727,
+      "ceiling_r_vs_real": 0.48092781063188667,
+      "sign_agreement_circuit_imodulons": 0.7692307692307693,
+      "panel_real_dimas": 4,
+      "panel_sim_dimas": 1,
+      "panel_recovered": 1,
+      "panel_recovered_names": "FlhDC-2",
+      "panel_false_positive_names": "",
+      "gene_r": 0.3749891278938251,
+      "gene_sign_agreement_moved": 0.75,
+      "gene_n_moved": 8,
+      "panel_fig6_real_dimas": 3,
+      "panel_fig6_sim_dimas": 0,
+      "panel_fig6_recovered": 0,
+      "panel_multigene_real_dimas": 4,
+      "panel_multigene_sim_dimas": 1,
+      "panel_multigene_recovered": 1,
+      "panel_r": 0.9101548209448553,
+      "panel_sign_agreement": 0.9090909090909091
+    },
+    {
+      "perturbation": "dcrp_glycerol",
+      "matched": "crp:wt_glyc -> crp:delcrp_glyc",
+      "held_out": false,
+      "real_dimas_fig6": 22,
+      "sim_dimas_fig6": 0,
+      "recovered_fig6": 0,
+      "recovered_names_fig6": "",
+      "real_dimas_default": 42,
+      "sim_dimas_default": 0,
+      "recovered_default": 0,
+      "recovered_names_default": "",
+      "ceiling_recovered_default": 0,
+      "r_all_imodulons": 0.3225487910836677,
+      "r_circuit_imodulons": 0.48431332568503704,
+      "r_sim_vs_ceiling": 0.8538999500876293,
+      "ceiling_r_vs_real": 0.3662603999548769,
+      "sign_agreement_circuit_imodulons": 0.7894736842105263,
+      "panel_real_dimas": 11,
+      "panel_sim_dimas": 6,
+      "panel_recovered": 5,
+      "panel_recovered_names": "FlhDC-2;Fur-2;Cellulose;Crp-1;Ribose",
+      "panel_false_positive_names": "Gluconate",
+      "gene_r": 0.5192271271048461,
+      "gene_sign_agreement_moved": 0.9444444444444444,
+      "gene_n_moved": 18,
+      "panel_fig6_real_dimas": 8,
+      "panel_fig6_sim_dimas": 3,
+      "panel_fig6_recovered": 3,
+      "panel_multigene_real_dimas": 5,
+      "panel_multigene_sim_dimas": 3,
+      "panel_multigene_recovered": 3,
+      "panel_r": 0.906680721283607,
+      "panel_sign_agreement": 1.0
+    }
+  ],
+  "populations": {
+    "glucose_to_glycerol": {
+      "populations": {
+        "1": {
+          "control": {
+            "Y_mean": 1.6705,
+            "frac_ON": 0.0025
+          },
+          "perturbed": {
+            "Y_mean": 8.9475,
+            "frac_ON": 0.0
+          }
+        },
+        "2": {
+          "control": {
+            "Y_mean": 1.8335,
+            "frac_ON": 0.002
+          },
+          "perturbed": {
+            "Y_mean": 8.863,
+            "frac_ON": 0.0
+          }
+        },
+        "3": {
+          "control": {
+            "Y_mean": 1.673,
+            "frac_ON": 0.001
+          },
+          "perturbed": {
+            "Y_mean": 8.829,
+            "frac_ON": 0.0
+          }
+        }
+      },
+      "real_samples": {
+        "control": [
+          "p1k_00001",
+          "p1k_00002"
+        ],
+        "perturbed": [
+          "p1k_00106",
+          "p1k_00107"
+        ]
+      }
+    },
+    "glucose_to_acetate": {
+      "populations": {
+        "1": {
+          "control": {
+            "Y_mean": 1.6705,
+            "frac_ON": 0.0025
+          },
+          "perturbed": {
+            "Y_mean": 8.9475,
+            "frac_ON": 0.0
+          }
+        },
+        "2": {
+          "control": {
+            "Y_mean": 1.8335,
+            "frac_ON": 0.002
+          },
+          "perturbed": {
+            "Y_mean": 8.863,
+            "frac_ON": 0.0
+          }
+        },
+        "3": {
+          "control": {
+            "Y_mean": 1.673,
+            "frac_ON": 0.001
+          },
+          "perturbed": {
+            "Y_mean": 8.829,
+            "frac_ON": 0.0
+          }
+        }
+      },
+      "real_samples": {
+        "control": [
+          "p1k_00001",
+          "p1k_00002"
+        ],
+        "perturbed": [
+          "p1k_00082",
+          "p1k_00083"
+        ]
+      }
+    },
+    "dcrp_glucose": {
+      "populations": {
+        "1": {
+          "control": {
+            "Y_mean": 1.6705,
+            "frac_ON": 0.0025
+          },
+          "perturbed": {
+            "Y_mean": 0.284,
+            "frac_ON": 0.0555
+          }
+        },
+        "2": {
+          "control": {
+            "Y_mean": 1.8335,
+            "frac_ON": 0.002
+          },
+          "perturbed": {
+            "Y_mean": 0.3155,
+            "frac_ON": 0.0595
+          }
+        },
+        "3": {
+          "control": {
+            "Y_mean": 1.673,
+            "frac_ON": 0.001
+          },
+          "perturbed": {
+            "Y_mean": 0.341,
+            "frac_ON": 0.0645
+          }
+        }
+      },
+      "real_samples": {
+        "control": [
+          "p1k_00001",
+          "p1k_00002"
+        ],
+        "perturbed": [
+          "p1k_00119",
+          "p1k_00120",
+          "p1k_00121"
+        ]
+      }
+    },
+    "dcrp_glycerol": {
+      "populations": {
+        "1": {
+          "control": {
+            "Y_mean": 8.797,
+            "frac_ON": 0.0
+          },
+          "perturbed": {
+            "Y_mean": 0.284,
+            "frac_ON": 0.0555
+          }
+        },
+        "2": {
+          "control": {
+            "Y_mean": 8.6895,
+            "frac_ON": 0.0
+          },
+          "perturbed": {
+            "Y_mean": 0.3155,
+            "frac_ON": 0.0595
+          }
+        },
+        "3": {
+          "control": {
+            "Y_mean": 8.7655,
+            "frac_ON": 0.0
+          },
+          "perturbed": {
+            "Y_mean": 0.341,
+            "frac_ON": 0.0645
+          }
+        }
+      },
+      "real_samples": {
+        "control": [
+          "p1k_00106",
+          "p1k_00107"
+        ],
+        "perturbed": [
+          "p1k_00122",
+          "p1k_00123",
+          "p1k_00124"
+        ]
+      }
+    }
+  }
+}

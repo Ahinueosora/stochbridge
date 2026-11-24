@@ -1,0 +1,49 @@
+{
+  "n_samples": 18,
+  "ours_significant": {
+    "ArcA": 26.55,
+    "Fur-2": 17.52,
+    "Fur-1": 13.88,
+    "cyoB/kdpE/qseB KO": 13.36,
+    "sdh KO": 9.95,
+    "IS Elements-1": 9.19,
+    "Putrescine": 9.0,
+    "FDH-N/NRA": -9.08,
+    "Cytochrome c": -10.01,
+    "Microaerobic": -10.01,
+    "Fnr-2": -11.48,
+    "Fnr-1": -14.73
+  },
+  "paper_significant": {
+    "ArcA": 26.53,
+    "Fur-2": 17.51,
+    "Fur-1": 13.87,
+    "cyoB/kdpE/qseB KO": 13.35,
+    "sdh KO": 9.95,
+    "IS Elements-1": 9.18,
+    "FDH-N/NRA": -9.08,
+    "Cytochrome c": -10.01,
+    "Microaerobic": -10.01,
+    "Fnr-2": -11.48,
+    "Fnr-1": -14.72
+  },
+  "overlap": [
+    "ArcA",
+    "Cytochrome c",
+    "FDH-N/NRA",
+    "Fnr-1",
+    "Fnr-2",
+    "Fur-1",
+    "Fur-2",
+    "IS Elements-1",
+    "Microaerobic",
+    "cyoB/kdpE/qseB KO",
+    "sdh KO"
+  ],
+  "only_ours": [
+    "Putrescine"
+  ],
+  "only_paper": [],
+  "difference_r_vs_paper": 0.9999999755076822,
+  "max_abs_diff_vs_paper": 0.015760131869125615
+}

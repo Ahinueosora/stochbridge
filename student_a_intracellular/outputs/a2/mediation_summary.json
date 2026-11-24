@@ -1,0 +1,63 @@
+{
+  "samples": {
+    "knockout": 9,
+    "domain_deletion": 8,
+    "wild_type": 3
+  },
+  "targets_tested": 543,
+  "perturbation_effect": 188,
+  "causal": 21,
+  "causal_genes": [
+    "hflC",
+    "tdcB",
+    "uhpT",
+    "cas3",
+    "rbsC",
+    "yahN",
+    "fecE",
+    "mhpF",
+    "flhC",
+    "araJ",
+    "flhD",
+    "rbsA",
+    "nadC",
+    "galK",
+    "rbsB",
+    "gyrA",
+    "rbsR",
+    "lamB",
+    "preA",
+    "malK",
+    "idnO"
+  ],
+  "causal_that_are_Crp1_members": [
+    "tdcB",
+    "yahN",
+    "rbsA"
+  ],
+  "causal_with_mRNA_mediator": 0,
+  "r_leave_none_out_vs_published_Crp1": 0.999734949400799,
+  "r_knockout_vs_crp_mRNA": -0.995870873119423,
+  "lac": [
+    {
+      "gene": "lacZ",
+      "total_effect": -0.829,
+      "fdr_total": 0.297
+    },
+    {
+      "gene": "lacY",
+      "total_effect": -0.214,
+      "fdr_total": 0.612
+    },
+    {
+      "gene": "lacI",
+      "total_effect": -0.027,
+      "fdr_total": 0.938
+    },
+    {
+      "gene": "lacA",
+      "total_effect": -0.023,
+      "fdr_total": 0.944
+    }
+  ]
+}

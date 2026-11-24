@@ -1,0 +1,22 @@
+src/io_schema.py:143: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  g, k = stats.skew(x), stats.kurtosis(x)
+{
+ "ssa_hysteresis": {
+  "switch_on_T50_uM": 37.25533074002837,
+  "switch_on_T95_uM": null,
+  "switch_off_T50_uM": 3.4140556380398936,
+  "switch_off_T95_uM": 2.150909786605063,
+  "analytic_switch_on_uM": 29.999999999999993,
+  "analytic_switch_off_uM": 4.10445165810363,
+  "ode_20h_switch_on_uM": 36.4,
+  "ode_20h_switch_off_uM": 2.94,
+  "ozbudak_paper_uM": [
+   3,
+   30
+  ],
+  "n_cells_per_point": 1000
+ },
+ "T_sub_uM": 37.3
+}
+src/io_schema.py:143: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  g, k = stats.skew(x), stats.kurtosis(x)

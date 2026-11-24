@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="crp_lac_circuit_v3" name="CRP/lac circuit A3 v3, TMG 15 uM, glucose 0 uM, uninduced start" substanceUnits="item" timeUnits="minute" volumeUnits="litre" extentUnits="item">
+    <listOfUnitDefinitions>
+      <unitDefinition id="minute">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="per_minute">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="item_per_minute">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="cell" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="P_free" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="P_rep" compartment="cell" initialAmount="1" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="M" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Y" compartment="cell" initialAmount="9" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="X" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_hflC" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_tdcB" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_uhpT" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_cas3" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_rbsC" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_yahN" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_fecE" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_mhpF" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_flhC" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_flhD" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_araJ" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_rbsA" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_nadC" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_galK" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_rbsB" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_gyrA" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_rbsR" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_lamB" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_malK" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_preA" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="mRNA_idnO" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="k_rep_max" value="16.9" constant="true"/>
+      <parameter id="k_unrep" value="0.1" constant="true"/>
+      <parameter id="x0" value="500" constant="true"/>
+      <parameter id="n" value="2" constant="true"/>
+      <parameter id="k_tx_eff" value="0.58" constant="true"/>
+      <parameter id="d_m" value="0.46" constant="true"/>
+      <parameter id="k_tl" value="9.2" constant="true"/>
+      <parameter id="d_y" value="0.00770163533955495" constant="true"/>
+      <parameter id="k_up_eff" value="9.36361403636799" constant="true"/>
+      <parameter id="d_x" value="0.5" constant="true"/>
+      <parameter id="k_hflC" value="0.406889626466833" constant="true"/>
+      <parameter id="k_tdcB" value="0.00148588136672382" constant="true"/>
+      <parameter id="k_uhpT" value="0.00710703702049964" constant="true"/>
+      <parameter id="k_cas3" value="0.00461911488890915" constant="true"/>
+      <parameter id="k_rbsC" value="0.0597272383182184" constant="true"/>
+      <parameter id="k_yahN" value="0.00876480636681782" constant="true"/>
+      <parameter id="k_fecE" value="0.0138732187051377" constant="true"/>
+      <parameter id="k_mhpF" value="0.00552415607046417" constant="true"/>
+      <parameter id="k_flhC" value="0.0554212431703957" constant="true"/>
+      <parameter id="k_flhD" value="0.0786818083008629" constant="true"/>
+      <parameter id="k_araJ" value="0.0181247949894844" constant="true"/>
+      <parameter id="k_rbsA" value="0.0464497257336447" constant="true"/>
+      <parameter id="k_nadC" value="0.0933429070771288" constant="true"/>
+      <parameter id="k_galK" value="0.0909009157942463" constant="true"/>
+      <parameter id="k_rbsB" value="0.243376779925435" constant="true"/>
+      <parameter id="k_gyrA" value="0.384596602207999" constant="true"/>
+      <parameter id="k_rbsR" value="0.0219024188353095" constant="true"/>
+      <parameter id="k_lamB" value="0.0476520897939219" constant="true"/>
+      <parameter id="k_malK" value="0.0195164742194078" constant="true"/>
+      <parameter id="k_preA" value="0.0084544381199612" constant="true"/>
+      <parameter id="k_idnO" value="0.00808145718576196" constant="true"/>
+      <parameter id="TMG_ext_uM" value="15" constant="true"/>
+      <parameter id="glucose_uM" value="0" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="R1_repress" reversible="false">
+        <listOfReactants>
+          <speciesReference species="P_free" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P_rep" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="X"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <divide/>
+                <ci> k_rep_max </ci>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <power/>
+                    <apply>
+                      <divide/>
+                      <ci> X </ci>
+                      <ci> x0 </ci>
+                    </apply>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <ci> P_free </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R2_derepress" reversible="false">
+        <listOfReactants>
+          <speciesReference species="P_rep" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P_free" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_unrep </ci>
+              <ci> P_rep </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R3_transcribe" reversible="false">
+        <listOfReactants>
+          <speciesReference species="P_free" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P_free" stoichiometry="1" constant="true"/>
+          <speciesReference species="M" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_tx_eff </ci>
+              <ci> P_free </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R4_mrna_decay" reversible="false">
+        <listOfReactants>
+          <speciesReference species="M" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> M </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R5_translate" reversible="false">
+        <listOfReactants>
+          <speciesReference species="M" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M" stoichiometry="1" constant="true"/>
+          <speciesReference species="Y" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_tl </ci>
+              <ci> M </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R6_lacY_dilute" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Y" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_y </ci>
+              <ci> Y </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R7_uptake" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Y" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Y" stoichiometry="1" constant="true"/>
+          <speciesReference species="X" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_up_eff </ci>
+              <ci> Y </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R8_tmg_loss" reversible="false">
+        <listOfReactants>
+          <speciesReference species="X" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_x </ci>
+              <ci> X </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_hflC" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_hflC" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_hflC </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_hflC" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_hflC" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_hflC </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_tdcB" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_tdcB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_tdcB </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_tdcB" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_tdcB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_tdcB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_uhpT" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_uhpT" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_uhpT </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_uhpT" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_uhpT" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_uhpT </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_cas3" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_cas3" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_cas3 </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_cas3" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_cas3" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_cas3 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_rbsC" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_rbsC" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_rbsC </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_rbsC" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_rbsC" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_rbsC </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_yahN" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_yahN" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_yahN </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_yahN" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_yahN" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_yahN </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_fecE" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_fecE" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_fecE </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_fecE" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_fecE" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_fecE </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_mhpF" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_mhpF" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_mhpF </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_mhpF" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_mhpF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_mhpF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_flhC" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_flhC" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_flhC </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_flhC" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_flhC" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_flhC </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_flhD" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_flhD" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_flhD </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_flhD" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_flhD" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_flhD </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_araJ" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_araJ" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_araJ </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_araJ" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_araJ" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_araJ </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_rbsA" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_rbsA" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_rbsA </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_rbsA" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_rbsA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_rbsA </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_nadC" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_nadC" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_nadC </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_nadC" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_nadC" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_nadC </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_galK" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_galK" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_galK </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_galK" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_galK" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_galK </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_rbsB" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_rbsB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_rbsB </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_rbsB" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_rbsB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_rbsB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_gyrA" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_gyrA" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_gyrA </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_gyrA" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_gyrA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_gyrA </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_rbsR" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_rbsR" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_rbsR </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_rbsR" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_rbsR" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_rbsR </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_lamB" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_lamB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_lamB </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_lamB" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_lamB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_lamB </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_malK" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_malK" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_malK </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_malK" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_malK" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_malK </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_preA" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_preA" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_preA </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_preA" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_preA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_preA </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="tx_idnO" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_idnO" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> k_idnO </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="deg_idnO" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_idnO" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> d_m </ci>
+              <ci> mRNA_idnO </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

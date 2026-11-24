@@ -1,0 +1,108 @@
+# A6 / Module 2: every implemented perturbation and its matched real condition in the PRECISE-1K knowledge base.
+#
+# A real condition is "project:condition" as in the PRECISE-1K / K-12 modulome sample tables, the same key pymodulon's
+# plot_dima uses. Each entry compares   control -> perturbed   both in silico (sim_control -> steps) and in the data.
+#
+#   dataset: precise1k     samples are inside PRECISE-1K (activities from its own A matrix). The A3 CRP-output fit used
+#                          all PRECISE-1K samples, so these matches are in-sample consistency checks.
+#   dataset: k12_projected samples are in the K-12 modulome but not in PRECISE-1K; they are projected onto the PRECISE-1K
+#                          iModulons exactly as Lamoureux et al. 2023 Fig. 6 projected the anaerobic-aerobic transition
+#                          (AAT) data. Not used in any fit: held out.
+#
+# Glucose: 2 g/L = 11,100 uM (0.2% = 2 g/L). Glycerol, acetate and LB give glucose 0 in the circuit (see perturbation.py).
+# Run settings are shared unless an entry overrides them; replicate populations differ only in seed.
+
+version: 1
+knowledge_base: {name: PRECISE-1K, reference_samples: [p1k_00001, p1k_00002], reference_condition: "control:wt_glc",
+                 source: "Lamoureux et al. 2023 Nucleic Acids Res 51:10176; data/precise1k/p1k_precise1k.json.gz"}
+dima_settings:
+  fig6: {fdr: 0.05, threshold: 9}        # the settings of the AAT DiMA in the paper's workflow notebook
+  default: {fdr: 0.1, threshold: 5}      # pymodulon plot_dima defaults
+defaults:
+  run: {n_cells: 300, t_end_min: 1200, dt_min: 600, initial_state: uninduced}
+  replicates: 3
+
+perturbations:
+  - name: glucose_to_glycerol
+    description: WT shifted from glucose to glycerol (cAMP-CRP rises)
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glycerol}]
+    matched: {dataset: precise1k, control: "control:wt_glc", perturbed: "crp:wt_glyc", held_out: false,
+              note: "both M9, MG1655, Palsson lab; glycerol 2 g/L"}
+
+  - name: glucose_to_acetate
+    description: WT shifted from glucose to acetate
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: acetate}]
+    matched: {dataset: precise1k, control: "control:wt_glc", perturbed: "cra_crp:wt_ac", held_out: false,
+              note: "M9 acetate 2 g/L; acetate also triggers gluconeogenic programs (Cra) that are outside the circuit"}
+
+  - name: dcrp_glucose
+    description: crp deletion on glucose
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}, {kind: GeneKnockout, gene: crp}]
+    matched: {dataset: precise1k, control: "control:wt_glc", perturbed: "crp:delcrp_glc", held_out: false,
+              note: "crp project WT glucose arm absent; control:wt_glc is the same strain, medium and lab"}
+
+  - name: dcrp_glycerol
+    description: crp deletion on glycerol (where CRP is most active)
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glycerol}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glycerol}, {kind: GeneKnockout, gene: crp}]
+    matched: {dataset: precise1k, control: "crp:wt_glyc", perturbed: "crp:delcrp_glyc", held_out: false,
+              note: "same project, same day"}
+
+  - name: dcyaA_LB
+    description: cyaA deletion (no cAMP) in LB, exponential
+    sim_control: [{kind: CarbonSourceShift, carbon_source: LB}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: LB}, {kind: GeneKnockout, gene: cyaA}]
+    matched: {dataset: k12_projected, control: "raman:wt", perturbed: "raman:del_cyaA", held_out: true,
+              note: "K-12 modulome 'raman' project (DRX0938xx); A3 used it only as an out-of-sample check of CRP outputs"}
+
+  - name: dcyaA_LB_stationary
+    description: cyaA deletion in LB, stationary phase (same circuit input as dcyaA_LB; growth phase is not in the circuit)
+    sim_control: [{kind: CarbonSourceShift, carbon_source: LB}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: LB}, {kind: GeneKnockout, gene: cyaA}]
+    matched: {dataset: k12_projected, control: "cyt_supp:wt", perturbed: "cyt_supp:del_cyaA", held_out: true,
+              note: "K-12 modulome 'cyt_supp' project (ERX59577xx), LB stationary"}
+
+  - name: IPTG_50uM_glucose
+    description: lac induction with 50 uM IPTG on glucose
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}, {kind: InducerLevelChange, IPTG_uM: 50}]
+    matched: {dataset: k12_projected, control: "metb_promisc:pORF1", perturbed: "metb_promisc:pORF1_iptg", held_out: true,
+              note: "only IPTG +/- pair in PRECISE-1K/K-12 (no TMG data exists). Strain carries an ASKA-type plasmid
+                     (lacIq, IPTG-inducible ORF), so IPTG also over-expresses the plasmid ORF: off-circuit effects expected"}
+
+  - name: IPTG_50uM_glucose_svi3
+    description: second IPTG pair from the same project (different plasmid ORF)
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}, {kind: InducerLevelChange, IPTG_uM: 50}]
+    matched: {dataset: k12_projected, control: "metb_promisc:svi3_comp", perturbed: "metb_promisc:svi3_comp_iptg",
+              held_out: true, note: "replicate pair with a different plasmid ORF; same circuit input as IPTG_50uM_glucose"}
+
+  # ---- implemented, simulated by Student B, but no matched condition exists in PRECISE-1K / K-12 modulome
+  - name: TMG_30uM_glucose_free
+    description: Ozbudak-style TMG dose (validated against Ozbudak 2004 in A3/A4, not against PRECISE-1K)
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glycerol}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glycerol}, {kind: InducerLevelChange, TMG_uM: 30}]
+    matched: null
+    unmatched_reason: "no TMG experiment in PRECISE-1K or the K-12 modulome"
+
+  - name: dlacI
+    description: lacI deletion (constitutive lac)
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glucose, g_per_L: 2}, {kind: GeneKnockout, gene: lacI}]
+    matched: null
+    unmatched_reason: "no lacI deletion in PRECISE-1K or the K-12 modulome"
+
+  - name: dlacY_TMG_100uM
+    description: lacY deletion with TMG (no positive feedback)
+    sim_control: [{kind: CarbonSourceShift, carbon_source: glycerol}, {kind: InducerLevelChange, TMG_uM: 100}]
+    steps:       [{kind: CarbonSourceShift, carbon_source: glycerol}, {kind: InducerLevelChange, TMG_uM: 100},
+                  {kind: GeneKnockout, gene: lacY}]
+    matched: null
+    unmatched_reason: "no lacY deletion in PRECISE-1K or the K-12 modulome"
+
+not_implemented:
+  - {condition: "crp:delcrp_fru / cra_crp:wt_fru", reason: "fructose is a PTS sugar; the circuit has no independent CRP activity value for it"}
+  - {condition: "raman:del_cyaA_01mM .. 1mM (cAMP rescue)", reason: "external cAMP is not an input of the circuit"}

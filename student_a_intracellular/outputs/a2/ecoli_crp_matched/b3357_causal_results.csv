@@ -1,0 +1,4 @@
+,Mutation,Regulator,Regulon,MutationRegulatorEdge,-log10(p)_MutationRegulatorEdge,RegulatorRegulon_Spearman_R,RegulatorRegulon_Spearman_p-value,Regulon_stratification_t-statistic,-log10(p)_Regulon_stratification,Fraction_of_edges_correctly_aligned,Fraction_of_aligned_and_diff_exp_edges,number_downstream_regulons,number_differentially_expressed_regulons
+45,b3357,b3868,45,-1.0,4.929371132428934,0.0706766917293233,0.7671582206450904,-4.646996963028582,3.2721264620132406,1.0,1.0,1,1
+71,b3357,b3512,71,1.0,3.8469990580207107,0.9609022556390976,1.759049358343191e-11,6.122360777697737,4.805829764241933,1.0,1.0,1,1
+16,b3357,b1040,16,1.0,3.2323354971952645,-0.22406015037593985,0.3422863508112142,-6.211674806296749,4.535546159643813,1.0,1.0,1,1

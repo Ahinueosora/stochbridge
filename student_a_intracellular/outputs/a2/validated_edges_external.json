@@ -1,0 +1,637 @@
+[
+ {
+  "regulator": "CRP",
+  "target": "lacZ",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "12881519",
+   "15385551",
+   "1569008",
+   "1649816",
+   "16934214",
+   "29728462",
+   "3907860",
+   "8990294",
+   "9737918"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "lacY",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "12881519",
+   "15385551",
+   "1569008",
+   "1649816",
+   "16934214",
+   "29728462",
+   "3907860",
+   "8990294",
+   "9737918"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "lacA",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "12881519",
+   "15385551",
+   "1569008",
+   "1649816",
+   "16934214",
+   "29728462",
+   "3907860",
+   "8990294",
+   "9737918"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "LacI",
+  "target": "lacZ",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; genomic SELEX; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS; DAP-seq; genomic SELEX",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "15950160",
+   "29529243",
+   "29728462",
+   "8411152",
+   "34824476",
+   "2182324",
+   "3143112"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "LacI",
+  "target": "lacY",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; genomic SELEX; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS; DAP-seq; genomic SELEX",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "15950160",
+   "29529243",
+   "29728462",
+   "8411152",
+   "34824476",
+   "2182324",
+   "3143112"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "LacI",
+  "target": "lacA",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; genomic SELEX; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS; DAP-seq; genomic SELEX",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "15950160",
+   "29529243",
+   "29728462",
+   "8411152",
+   "34824476",
+   "2182324",
+   "3143112"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "MarA",
+  "target": "lacZ",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "30850424"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "MarA",
+  "target": "lacY",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "30850424"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "MarA",
+  "target": "lacA",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "30850424"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "H-NS",
+  "target": "lacZ",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS",
+  "effect_evidence": NaN,
+  "causal_grade": "4 Binding only: effect not tested",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": false,
+  "pmids": [
+   "2160266",
+   "6379600"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "H-NS",
+  "target": "lacY",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS",
+  "effect_evidence": NaN,
+  "causal_grade": "4 Binding only: effect not tested",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": false,
+  "pmids": [
+   "2160266",
+   "6379600"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "H-NS",
+  "target": "lacA",
+  "transcription_unit": "lacZYA (lacZp1)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS",
+  "effect_evidence": NaN,
+  "causal_grade": "4 Binding only: effect not tested",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": false,
+  "pmids": [
+   "2160266",
+   "6379600"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "lacI",
+  "transcription_unit": "mhpR-lacI (mhpRp1)",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "2 Cause shown, binding also shown (likely direct)",
+  "a2_result": "not testable (no inducer in PRECISE-1K)",
+  "agrees_with_a2": NaN,
+  "externally_validated": true,
+  "pmids": [
+   "20966094"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "hflC",
+  "transcription_unit": "hfq-hflXKC (hfqp3)",
+  "trn_effect": "repressor",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "2 Cause shown, binding also shown (likely direct)",
+  "a2_result": "switches off (−)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "21840983"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "tdcB",
+  "transcription_unit": "tdcABCDEFG",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; cell extract; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "11251844"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "uhpT",
+  "transcription_unit": "uhpTU",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; cell extract; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "11976297"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "cas3",
+  "transcription_unit": "cas3",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "31941083"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "rbsC",
+  "transcription_unit": "rbsDACBZKR",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": "computer prediction",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": false,
+  "pmids": [
+   "15520470",
+   "3011793"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "rbsA",
+  "transcription_unit": "rbsDACBZKR",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": "computer prediction",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": false,
+  "pmids": [
+   "15520470",
+   "3011793"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "rbsB",
+  "transcription_unit": "rbsDACBZKR",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": "computer prediction",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": false,
+  "pmids": [
+   "15520470",
+   "3011793"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "rbsR",
+  "transcription_unit": "rbsDACBZKR",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": "computer prediction",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": false,
+  "pmids": [
+   "15520470",
+   "3011793"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "yahN",
+  "transcription_unit": "yahN",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS; computer",
+  "effect_evidence": "RNA-SEQ (high-throughput)",
+  "causal_grade": "2 Cause shown, binding also shown (likely direct)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "30536863"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "fecE",
+  "transcription_unit": "fecABCDE",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": NaN,
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches off (−)",
+  "agrees_with_a2": "NO",
+  "externally_validated": false,
+  "pmids": [
+   "15659676"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "mhpF",
+  "transcription_unit": "mhpABCDFE",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "cell extract; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "2 Cause shown, binding also shown (likely direct)",
+  "a2_result": "switches off (−)",
+  "agrees_with_a2": "NO",
+  "externally_validated": true,
+  "pmids": [
+   "12748194"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "flhD",
+  "transcription_unit": "flhDC",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "2 Cause shown, binding also shown (likely direct)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "29196655",
+   "8729576",
+   "10601207"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "flhC",
+  "transcription_unit": "flhDC",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "2 Cause shown, binding also shown (likely direct)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "29196655",
+   "8729576",
+   "10601207"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "araJ",
+  "transcription_unit": "araJ",
+  "trn_effect": "activator AND repressor",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": NaN,
+  "causal_grade": "4 Binding only: effect not tested",
+  "a2_result": "switches off (−)",
+  "agrees_with_a2": "yes (database lists both)",
+  "externally_validated": false,
+  "pmids": [
+   "2231717"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "nadC",
+  "transcription_unit": "nadC",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": "computer prediction",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches off (−)",
+  "agrees_with_a2": "NO",
+  "externally_validated": false,
+  "pmids": [
+   "21460078"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "galK",
+  "transcription_unit": "galETK (galEp1 on / galEp2 off)",
+  "trn_effect": "activator (galEp1) and repressor (galEp2)",
+  "regulondb_confidence": "Strong",
+  "binding_evidence": "SITE-MUTATION; consensus",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes (database lists both)",
+  "externally_validated": true,
+  "pmids": [
+   "10760580",
+   "17630975"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "gyrA",
+  "transcription_unit": "gyrA",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": NaN,
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches off (−)",
+  "agrees_with_a2": "NO",
+  "externally_validated": false,
+  "pmids": [
+   "8655515"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "lamB",
+  "transcription_unit": "malK-lamB-malM",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": NaN,
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "2664421"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "malK",
+  "transcription_unit": "malK-lamB-malM",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Confirmed",
+  "binding_evidence": "SITE-MUTATION; BINDING-OF-PURIFIED-PROTEINS; consensus",
+  "effect_evidence": NaN,
+  "causal_grade": "1 Direct cause: mutating the binding site changes expression",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": true,
+  "pmids": [
+   "2664421"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "preA",
+  "transcription_unit": "preTA",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": "computer prediction",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": false,
+  "pmids": [
+   "18482579",
+   "29343727"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ },
+ {
+  "regulator": "CRP",
+  "target": "idnO",
+  "transcription_unit": "idnDOTR",
+  "trn_effect": "activator",
+  "regulondb_confidence": "Weak",
+  "binding_evidence": "computer prediction",
+  "effect_evidence": "GENE-EXPRESSION-ANALYSIS",
+  "causal_grade": "3 Cause shown, could be indirect (expression change, no binding test)",
+  "a2_result": "switches on (+)",
+  "agrees_with_a2": "yes",
+  "externally_validated": false,
+  "pmids": [
+   "14593252",
+   "14973046",
+   "29343727"
+  ],
+  "source": "RegulonDB 14.5.1 TF-RISet (regulondb.ccg.unam.mx), accessed 2026-11-24"
+ }
+]

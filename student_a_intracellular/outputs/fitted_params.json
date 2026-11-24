@@ -1,0 +1,215 @@
+{
+  "params": {
+    "rho": 170.0,
+    "rho_crp_coupling": "knockout",
+    "loop_L0": 3.91,
+    "loop_omega": 12.4,
+    "crp_occ_ref": 0.76,
+    "k_unrep": 0.1,
+    "n": 2.0,
+    "x0": 500.0,
+    "k_tx": 0.58,
+    "d_m": 0.46,
+    "k_tl": 9.2,
+    "doubling_min": 90.0,
+    "d_x": 0.5,
+    "k_up": 1.8441181768348565,
+    "uptake_form": "power",
+    "uptake_h": 0.6,
+    "uptake_K": 680.0,
+    "crp_min": 0.2,
+    "crp_K": 3.888148753814075,
+    "excl_min": 0.65,
+    "excl_K": 7.425548389869606,
+    "crp_free_basal": 0.004166666666666667
+  },
+  "derived": {
+    "Y_max_LacY_molecules": 1506.1736226880776,
+    "basal_LacY_molecules": 8.859844839341633,
+    "k_rep_max_per_min": 16.900000000000002,
+    "d_y_per_min": 0.007701635339554948,
+    "rho_by_condition": {
+      "no_glucose": 170.0,
+      "glucose_1mM": 170.0,
+      "crp_knockout": 22.393927330929735
+    },
+    "switching_drives": [
+      25.922498885010626,
+      85.50598816098598
+    ]
+  },
+  "fit": {
+    "switch_on_rmse_log10": 0.03745316059806327,
+    "switch_off_rmse_log10_heldout": 0.09016566578841494,
+    "crp_rho_coupling": "knockout"
+  },
+  "rho_free_fit_to_fig2c": 173.28826300037088,
+  "rnaseq": {
+    "rho": [
+      {
+        "gene": "lacY",
+        "uninduced_reference": "same batch (K-12 srna_oe WT, n=3)",
+        "rho": 65.68985362839706,
+        "ci_lo": 31.817472056561726,
+        "ci_hi": 117.66703954886538
+      },
+      {
+        "gene": "lacY",
+        "uninduced_reference": "PRECISE-1K MG1655 WT (n=560)",
+        "rho": 160.14261240510223,
+        "ci_lo": 143.50279427696415,
+        "ci_hi": 287.76846635206647
+      },
+      {
+        "gene": "lacZ",
+        "uninduced_reference": "same batch (K-12 srna_oe WT, n=3)",
+        "rho": 91.72653273995586,
+        "ci_lo": 69.04476715827099,
+        "ci_hi": 188.5394221280971
+      },
+      {
+        "gene": "lacZ",
+        "uninduced_reference": "PRECISE-1K MG1655 WT (n=560)",
+        "rho": 434.98098275860525,
+        "ci_lo": 403.2297161978281,
+        "ci_hi": 723.6198088592977
+      }
+    ],
+    "induced_lacY_over_gat_by_group": {
+      "del_arcZ": 0.161,
+      "del_arcZ_m1": 0.1447,
+      "del_arcZ_m2": 0.1515,
+      "del_gcvB": 0.1223,
+      "gcvB": 0.1514,
+      "micA": 0.3286,
+      "micA_empty": 0.3024
+    },
+    "crp_scaling": {
+      "gat": {
+        "median_glucose_TPM": 1340.0191756966647,
+        "median_other_TPM": 2738.810895428118,
+        "fold_other_over_glucose": 2.0438594798497816,
+        "mwu_p": 4.003981962628401e-34,
+        "n_glucose": 338,
+        "n_other": 154
+      },
+      "lacY": {
+        "median_glucose_TPM": 1.632306467715466,
+        "median_other_TPM": 2.5615445658090072,
+        "fold_other_over_glucose": 1.5692791865207023,
+        "mwu_p": 3.294743741303317e-21,
+        "n_glucose": 338,
+        "n_other": 154
+      },
+      "lacZ": {
+        "median_glucose_TPM": 1.7490203099457529,
+        "median_other_TPM": 2.9714711132622393,
+        "fold_other_over_glucose": 1.6989345957648723,
+        "mwu_p": 7.073316791922278e-34,
+        "n_glucose": 338,
+        "n_other": 154
+      },
+      "basal_lacY_vs_gat_loglog": {
+        "slope": 0.3027999437883604,
+        "se": 0.02691728700660469,
+        "r": 0.4353954139829472,
+        "n": 543
+      }
+    }
+  },
+  "sensitivity": {
+    "rho_66_batch_matched_lacY": {
+      "params": {
+        "rho": 66.0,
+        "k_up": 0.722841188193422,
+        "crp_K": 3.8881491970973094,
+        "excl_K": 7.425545586295192,
+        "uptake_form": "power",
+        "rho_crp_coupling": "knockout",
+        "crp_occ_ref": 0.76,
+        "loop_omega": 12.4
+      },
+      "rho_at_1mM_glucose": 66.0,
+      "on_rmse_log10": 0.03745316059818302,
+      "off_rmse_log10": 0.38234805317224607
+    },
+    "rho_435_PRECISE1K_MG1655_lacZ": {
+      "params": {
+        "rho": 435.0,
+        "k_up": 4.701682726345035,
+        "crp_K": 3.8881488515811142,
+        "excl_K": 7.425547756706438,
+        "uptake_form": "power",
+        "rho_crp_coupling": "knockout",
+        "crp_occ_ref": 0.76,
+        "loop_omega": 12.4
+      },
+      "rho_at_1mM_glucose": 435.0,
+      "on_rmse_log10": 0.03745316059809029,
+      "off_rmse_log10": 0.2992111942940575
+    },
+    "uptake_hill_K680": {
+      "params": {
+        "rho": 170.0,
+        "k_up": 106.51222361853489,
+        "crp_K": 100.9311049740259,
+        "excl_K": 0.10000000000000002,
+        "uptake_form": "hill",
+        "rho_crp_coupling": "knockout",
+        "crp_occ_ref": 0.76,
+        "loop_omega": 12.4
+      },
+      "rho_at_1mM_glucose": 170.0,
+      "on_rmse_log10": 0.4786079830787771,
+      "off_rmse_log10": 0.5132168977270994
+    },
+    "rho_falls_with_glucose_full_kuhlman": {
+      "params": {
+        "rho": 170.0,
+        "k_up": 1.8441181768348565,
+        "crp_K": 0.10000000000029603,
+        "excl_K": 0.10000000000035283,
+        "uptake_form": "power",
+        "rho_crp_coupling": "glucose",
+        "crp_occ_ref": 0.76,
+        "loop_omega": 12.4
+      },
+      "rho_at_1mM_glucose": 51.92694916982685,
+      "on_rmse_log10": 0.5827704033159777,
+      "off_rmse_log10": 0.3161112720472398
+    },
+    "rho_falls_with_glucose_weak_occ0.05": {
+      "params": {
+        "rho": 170.0,
+        "k_up": 1.8441181768348565,
+        "crp_K": 1.7341896050919465,
+        "excl_K": 4.035604559463485,
+        "uptake_form": "power",
+        "rho_crp_coupling": "glucose",
+        "crp_occ_ref": 0.05,
+        "loop_omega": 12.4
+      },
+      "rho_at_1mM_glucose": 127.86367290994448,
+      "on_rmse_log10": 0.11243766457975687,
+      "off_rmse_log10": 0.16372286192781094
+    },
+    "rho_falls_with_glucose_paper_omega10.3": {
+      "params": {
+        "rho": 170.0,
+        "k_up": 1.8441181768348565,
+        "crp_K": 0.10000000000552321,
+        "excl_K": 0.10000000000654989,
+        "uptake_form": "power",
+        "rho_crp_coupling": "glucose",
+        "crp_occ_ref": 0.76,
+        "loop_omega": 10.3
+      },
+      "rho_at_1mM_glucose": 55.4081219216699,
+      "on_rmse_log10": 0.5433301688610481,
+      "off_rmse_log10": 0.306003099751305
+    }
+  },
+  "notes": {
+    "crp_free_basal": "v3: Kuhlman 2007 Table 2, 1/f_cAMP; acts only in a crp knockout"
+  }
+}

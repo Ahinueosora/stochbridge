@@ -1,0 +1,19 @@
+{
+  "what": "PETRI-seq numbers recomputed with src/load_scrnaseq.py from the raw GEO file vs the earlier in-browser extraction",
+  "cells_exp_stat": [
+    3430,
+    4499
+  ],
+  "cells_identical": true,
+  "operons_for_pca": 2204,
+  "auc_all_operons": [
+    1.0,
+    0.999998833560033
+  ],
+  "auc_17_circuit_operons": [
+    0.806,
+    0.821
+  ],
+  "per_gene_histograms_identical": true,
+  "max_relative_difference_in_gene_means": 0.002627364485555168
+}

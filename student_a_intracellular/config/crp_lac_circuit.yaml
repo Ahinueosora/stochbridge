@@ -1,0 +1,515 @@
+name: crp_lac_circuit_A3
+units:
+  time: min
+  species: molecules per cell
+  TMG_ext: uM
+  glucose: uM
+inputs:
+  TMG_ext: extracellular TMG (uM)
+  glucose: extracellular glucose (uM)
+edges:
+- source: CRP-cAMP
+  target: P_lac
+  sign: +
+  provenance: 'published_intervention: Kuhlman et al. 2007 PNAS 104:6043 Fig 1b (dcyaA
+    dcpdA dlacY, cAMP titration at 1 mM IPTG; 201x rise 0 -> 1 mM, flat in dcrp);
+    also RegulonDB + Ozbudak Fig 3b'
+  evidence: published_intervention
+  a2_validated: false
+  a2_note: lacZYA showed no CRP-perturbation effect in PRECISE-1K (no inducer in any
+    sample)
+  quantitative_check: output close to linear in CRP occupancy (Hill m = 1.15, CI 1.03-1.28;
+    paper 1.0 +/- 0.1), as in R3
+- source: CRP-cAMP
+  target: LacI-P_lac loop
+  sign: + (tighter repression)
+  provenance: 'published_intervention: Kuhlman et al. 2007 Fig 2a (looping L vs cAMP;
+    Omega = 12.4, CI 10.2-15.4 refit, paper 10.3)'
+  evidence: published_intervention
+  a2_validated: false
+  model_term: 'rho_eff in R1; default applies it to crp knockout only (rho 170 ->
+    ~22); glucose form (rho_crp_coupling: glucose) fails Ozbudak Fig 2c, see fitted_params
+    sensitivity'
+- source: LacI
+  target: P_lac
+  sign: '-'
+  provenance: 'prior: RegulonDB + Ozbudak Fig 3c'
+  a2_validated: false
+- source: TMG_in
+  target: LacI
+  sign: '-'
+  provenance: 'prior: literature'
+  a2_validated: false
+- source: LacY
+  target: TMG_in
+  sign: +
+  provenance: 'prior: Ozbudak Fig 3d'
+  a2_validated: false
+- source: glucose
+  target: CRP-cAMP
+  sign: '-'
+  provenance: PRECISE-1K (gat 2.3x lower on glucose) + Ozbudak Fig 3a
+  a2_validated: false
+- source: glucose
+  target: LacY
+  sign: '-'
+  provenance: 'prior: inducer exclusion, Ozbudak Fig 3e'
+  a2_validated: false
+- source: CRP-cAMP
+  target: hflC
+  sign: '-'
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: tdcB
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: uhpT
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: cas3
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: rbsC
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: yahN
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: fecE
+  sign: '-'
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: weak
+- source: CRP-cAMP
+  target: mhpF
+  sign: '-'
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: weak
+- source: CRP-cAMP
+  target: flhC
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: flhD
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: araJ
+  sign: '-'
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: weak
+- source: CRP-cAMP
+  target: rbsA
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: nadC
+  sign: '-'
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: galK
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: rbsB
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: gyrA
+  sign: '-'
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: rbsR
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: weak
+- source: CRP-cAMP
+  target: lamB
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: malK
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: preA
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+- source: CRP-cAMP
+  target: idnO
+  sign: +
+  provenance: A2 causal-mediation test (PRECISE-1K crp project)
+  a2_validated: true
+  fit_quality: ok
+species:
+  P_free:
+    initial: 0
+  P_rep:
+    initial: 1
+  M:
+    initial: 0
+  Y:
+    initial: 9
+  X:
+    initial: 0
+parameters:
+  rho: 170.0
+  rho_crp_coupling: knockout
+  loop_L0: 3.91
+  loop_omega: 12.4
+  crp_occ_ref: 0.76
+  k_unrep: 0.1
+  n: 2.0
+  x0: 500.0
+  k_tx: 0.58
+  d_m: 0.46
+  k_tl: 9.2
+  doubling_min: 90.0
+  d_x: 0.5
+  k_up: 1.8441181768348565
+  uptake_form: power
+  uptake_h: 0.6
+  uptake_K: 680.0
+  crp_min: 0.2
+  crp_K: 3.888148753814075
+  excl_min: 0.65
+  excl_K: 7.425548389869606
+derived:
+  Y_max_LacY_molecules: 1506.1736226880776
+  basal_LacY_molecules: 8.859844839341633
+  k_rep_max_per_min: 16.900000000000002
+  d_y_per_min: 0.007701635339554948
+  rho_by_condition:
+    no_glucose: 170.0
+    glucose_1mM: 170.0
+    crp_knockout: 22.393927330929735
+  switching_drives:
+  - 25.922498885010626
+  - 85.50598816098598
+input_functions:
+  c_crp: crp_min + (1 - crp_min) / (1 + glucose / crp_K)
+  beta_G: excl_min + (1 - excl_min) / (1 + glucose / excl_K)
+  beta_T: TMG_ext ** uptake_h   (power law, uM units)
+  rho_eff: 1 + (rho - 1) * (1 + L(theta)) / (1 + L(crp_occ_ref)), L(theta) = loop_L0
+    * (1 + (loop_omega - 1) * theta); theta = 0 for crp knockout; with rho_crp_coupling
+    'glucose' also theta = crp_occ_ref * c_crp(glucose); otherwise rho_eff = rho
+reactions:
+- id: R1_repress
+  reactants:
+    P_free: 1
+  products:
+    P_rep: 1
+  propensity: k_rep_max(glucose) / (1 + (X/x0)**n) * P_free,  k_rep_max = (rho_eff(glucose)
+    - 1) * k_unrep
+  k_rep_max_no_glucose: 16.900000000000002
+  k_rep_max_glucose_1mM: 16.900000000000002
+- id: R2_derepress
+  reactants:
+    P_rep: 1
+  products:
+    P_free: 1
+  propensity: k_unrep * P_rep
+- id: R3_transcribe
+  reactants:
+    P_free: 1
+  products:
+    P_free: 1
+    M: 1
+  propensity: k_tx * c_crp(glucose) * P_free
+- id: R4_mrna_decay
+  reactants:
+    M: 1
+  products: {}
+  propensity: d_m * M
+- id: R5_translate
+  reactants:
+    M: 1
+  products:
+    M: 1
+    Y: 1
+  propensity: k_tl * M
+- id: R6_lacY_dilute
+  reactants:
+    Y: 1
+  products: {}
+  propensity: ln(2)/doubling_min * Y
+- id: R7_uptake
+  reactants:
+    Y: 1
+  products:
+    Y: 1
+    X: 1
+  propensity: k_up * beta_T(TMG_ext) * beta_G(glucose) * Y
+- id: R8_tmg_loss
+  reactants:
+    X: 1
+  products: {}
+  propensity: d_x * X
+validation:
+  ozbudak_fig2c_switch_on_rmse_log10: 0.03745316059806327
+  ozbudak_fig2c_switch_off_rmse_log10_heldout: 0.09016566578841494
+  cusp_rho: 9.01
+  rho_by_condition:
+    no_glucose: 170.0
+    glucose_1mM: 170.0
+    crp_knockout: 22.393927330929735
+  crp_outputs_ko_effect_r: 0.8481512948365224
+  crp_outputs_raman_r: 0.7857149339893609
+crp_outputs:
+  description: A2-validated CRP targets as outputs; mRNA (TPM) = basal + amplitude
+    * Hill(c_crp(glucose)); repressed targets use 1 - Hill. Same c_crp drives the
+    lac promoter; crp knockout -> c = 0. Fitted on PRECISE-1K (n = 1009, DGF-298 excluded);
+    c read from gat TPM / reference.
+  gat_reference_TPM: 2738.810895428118
+  tpm_to_molecules: 0.0024
+  targets:
+    hflC:
+      basal_TPM: 9.457568286371941e-07
+      amplitude_TPM: 391.5332155521728
+      K_crp: 6.049480304771749
+      hill_n: 1.5418285477236984
+      direction: repressed
+      R2_all_samples: 0.2963115084410377
+      a2_ko_effect_log2: 0.59
+      pred_ko_effect_log2: 0.2575964667827968
+      fit_quality: ok
+    tdcB:
+      basal_TPM: 0.6981889063072119
+      amplitude_TPM: 11.72418710383609
+      K_crp: 2.0335451565239246
+      hill_n: 3.9999999999999996
+      direction: activated
+      R2_all_samples: 0.3175750549620966
+      a2_ko_effect_log2: -1.22
+      pred_ko_effect_log2: -2.176146343648167
+      fit_quality: ok
+    uhpT:
+      basal_TPM: 5.987982295372012
+      amplitude_TPM: 17.356929361525793
+      K_crp: 2.4764197956544804
+      hill_n: 3.9999999999999685
+      direction: activated
+      R2_all_samples: 0.09258045462766351
+      a2_ko_effect_log2: -2.89
+      pred_ko_effect_log2: -0.8748721747999273
+      fit_quality: ok
+    cas3:
+      basal_TPM: 3.3246602669875176
+      amplitude_TPM: 4.734489903165961
+      K_crp: 1.5606917028219887
+      hill_n: 3.383742973818881
+      direction: activated
+      R2_all_samples: 0.21773721444384841
+      a2_ko_effect_log2: -0.85
+      pred_ko_effect_log2: -0.8338384234528329
+      fit_quality: ok
+    rbsC:
+      basal_TPM: 36.507457660749445
+      amplitude_TPM: 100.09491316669676
+      K_crp: 1.8154575805636433
+      hill_n: 2.5913169343712736
+      direction: activated
+      R2_all_samples: 0.31169996323703664
+      a2_ko_effect_log2: -2.86
+      pred_ko_effect_log2: -1.3519992569700383
+      fit_quality: ok
+    yahN:
+      basal_TPM: 2.0711893451405388
+      amplitude_TPM: 19.277670065197114
+      K_crp: 1.3309091658450054
+      hill_n: 2.8911656963517127
+      direction: activated
+      R2_all_samples: 0.4800525762663507
+      a2_ko_effect_log2: -1.69
+      pred_ko_effect_log2: -2.551754745335363
+      fit_quality: ok
+    fecE:
+      basal_TPM: 7.451452765055316
+      amplitude_TPM: 17.941524951811378
+      K_crp: 0.1590164398806355
+      hill_n: 0.5000000000000001
+      direction: repressed
+      R2_all_samples: 0.054322410033234014
+      a2_ko_effect_log2: 1.57
+      pred_ko_effect_log2: 0.7641522408567689
+      fit_quality: weak
+    mhpF:
+      basal_TPM: 5.003764556579863
+      amplitude_TPM: 1.059885485800438e-09
+      K_crp: 0.001000000000522767
+      hill_n: 3.999999999127513
+      direction: repressed
+      R2_all_samples: -6.661338147750939e-16
+      a2_ko_effect_log2: 0.87
+      pred_ko_effect_log2: 4.440892098500626e-16
+      fit_quality: weak
+    flhC:
+      basal_TPM: 10.309892686132589
+      amplitude_TPM: 39.9131575721691
+      K_crp: 0.15436330811867477
+      hill_n: 3.9999999999989764
+      direction: activated
+      R2_all_samples: 0.11470081258561615
+      a2_ko_effect_log2: -3.91
+      pred_ko_effect_log2: -2.171705535141162
+      fit_quality: ok
+    flhD:
+      basal_TPM: 13.968783773494343
+      amplitude_TPM: 57.33934354405414
+      K_crp: 0.1608670649933994
+      hill_n: 3.9999999997017417
+      direction: activated
+      R2_all_samples: 0.11524334916929468
+      a2_ko_effect_log2: -4.04
+      pred_ko_effect_log2: -2.265282365229983
+      fit_quality: ok
+    araJ:
+      basal_TPM: 14.989806417361185
+      amplitude_TPM: 1.5418470978989476
+      K_crp: 1.8804604769568634
+      hill_n: 3.99862850526233
+      direction: repressed
+      R2_all_samples: 0.006956150667150274
+      a2_ko_effect_log2: 0.78
+      pred_ko_effect_log2: 0.07772042196967277
+      fit_quality: weak
+    rbsA:
+      basal_TPM: 14.461981217700586
+      amplitude_TPM: 47.495396865734115
+      K_crp: 0.6986655982900133
+      hill_n: 0.9157414418328814
+      direction: activated
+      R2_all_samples: 0.1162327167475602
+      a2_ko_effect_log2: -3.92
+      pred_ko_effect_log2: -1.4789493196672154
+      fit_quality: ok
+    nadC:
+      basal_TPM: 54.19308121287336
+      amplitude_TPM: 33.50772016113914
+      K_crp: 2.8090564729031398
+      hill_n: 2.193230035890465
+      direction: repressed
+      R2_all_samples: 0.1240679966508409
+      a2_ko_effect_log2: 0.34
+      pred_ko_effect_log2: 0.20174822561789885
+      fit_quality: ok
+    galK:
+      basal_TPM: 51.79973173489991
+      amplitude_TPM: 64.69660754904329
+      K_crp: 1.0509469253814108
+      hill_n: 2.254695895434835
+      direction: activated
+      R2_all_samples: 0.22076672726933178
+      a2_ko_effect_log2: -0.81
+      pred_ko_effect_log2: -1.0016352392675065
+      fit_quality: ok
+    rbsB:
+      basal_TPM: 147.5057950659233
+      amplitude_TPM: 567.1124580632495
+      K_crp: 1.7998850558107078
+      hill_n: 3.255244631488506
+      direction: activated
+      R2_all_samples: 0.42751310025197553
+      a2_ko_effect_log2: -3.63
+      pred_ko_effect_log2: -1.7277850668302746
+      fit_quality: ok
+    gyrA:
+      basal_TPM: 244.66523019291375
+      amplitude_TPM: 138.6503529020435
+      K_crp: 1.41906571087794
+      hill_n: 3.1075019226822396
+      direction: repressed
+      R2_all_samples: 0.2035421891609055
+      a2_ko_effect_log2: 0.44
+      pred_ko_effect_log2: 0.4626757223085711
+      fit_quality: ok
+    rbsR:
+      basal_TPM: 15.291003868664077
+      amplitude_TPM: 13.97357573694569
+      K_crp: 4.294713375759778
+      hill_n: 0.5000000098899515
+      direction: activated
+      R2_all_samples: 0.024815677578469364
+      a2_ko_effect_log2: -1.75
+      pred_ko_effect_log2: -0.342656236003565
+      fit_quality: weak
+    lamB:
+      basal_TPM: 11.98613228349301
+      amplitude_TPM: 2813.7149367921866
+      K_crp: 7.083604090190451
+      hill_n: 2.2941453188958136
+      direction: activated
+      R2_all_samples: 0.5649141349579766
+      a2_ko_effect_log2: -5.88
+      pred_ko_effect_log2: -3.7348512921721237
+      fit_quality: ok
+    malK:
+      basal_TPM: 3.879193589592678
+      amplitude_TPM: 577.7631122770989
+      K_crp: 5.690680919535862
+      hill_n: 2.133855291959602
+      direction: activated
+      R2_all_samples: 0.48623250259680795
+      a2_ko_effect_log2: -6.17
+      pred_ko_effect_log2: -3.740495956836512
+      fit_quality: ok
+    preA:
+      basal_TPM: 3.9538300161688253
+      amplitude_TPM: 25.257338906288194
+      K_crp: 1.5816255044028948
+      hill_n: 3.841312935243428
+      direction: activated
+      R2_all_samples: 0.4716948323294923
+      a2_ko_effect_log2: -1.19
+      pred_ko_effect_log2: -2.2302332954609794
+      fit_quality: ok
+    idnO:
+      basal_TPM: 2.115918422469317
+      amplitude_TPM: 17.43056058962768
+      K_crp: 1.856512936662777
+      hill_n: 1.3805024387877323
+      direction: activated
+      R2_all_samples: 0.4186222810772846
+      a2_ko_effect_log2: -1.32
+      pred_ko_effect_log2: -1.9758592895268081
+      fit_quality: ok

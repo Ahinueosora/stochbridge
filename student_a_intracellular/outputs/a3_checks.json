@@ -1,0 +1,87 @@
+{
+  "rho_by_condition": {
+    "no_glucose": 170.0,
+    "glucose_1mM": 170.0,
+    "crp_knockout": 22.393927330929735
+  },
+  "crp_outputs": {
+    "gat_reference_TPM": 2738.810895428118,
+    "median_R2": 0.21773721444384841,
+    "ko_effect_pearson_r": 0.8481512948365224,
+    "ko_effect_p": 1.1968357240400008e-06,
+    "ko_effect_slope_pred_over_obs": 0.5013769655344791,
+    "raman_pearson_r": 0.7857149339893609,
+    "raman_p": 8.714861601750173e-19,
+    "raman_sign_agreement": 0.9166666666666666,
+    "raman_crp_activity_by_condition": {
+      "del_cyaA": 0.013,
+      "del_cyaA_01mM": 0.032,
+      "del_cyaA_05mM": 0.169,
+      "del_cyaA_1mM": 0.515,
+      "wt": 1.447
+    }
+  },
+  "lac_floor": {
+    "induced_lacY_vs_gat_loglog_slope": 1.0656567176743255,
+    "induced_slope_se": 0.1020474088040046,
+    "induced_r": 0.9301259230375879,
+    "induced_n": 19,
+    "raman_median_by_condition": {
+      "gat": {
+        "del_cyaA": 36.57,
+        "del_cyaA_01mM": 88.46,
+        "del_cyaA_05mM": 461.66,
+        "del_cyaA_1mM": 1410.63,
+        "wt": 3964.22
+      },
+      "lacY": {
+        "del_cyaA": 1.07,
+        "del_cyaA_01mM": 1.49,
+        "del_cyaA_05mM": 1.56,
+        "del_cyaA_1mM": 1.34,
+        "wt": 3.77
+      }
+    },
+    "raman_expected_basal_lacY": {
+      "del_cyaA": 0.034,
+      "del_cyaA_01mM": 0.082,
+      "del_cyaA_05mM": 0.427,
+      "del_cyaA_1mM": 1.305,
+      "wt": 3.666
+    }
+  },
+  "ode_sweep_G0": {
+    "switch_off_ode": 2.94130001963882,
+    "switch_on_ode": 36.36421001609473,
+    "switch_off_analytic": 4.10445165810363,
+    "switch_on_analytic": 29.999999999999993,
+    "on_off_fold_expression": 169.65888014147404
+  },
+  "ode_sweep_G1000": {
+    "switch_off_ode": 84.0851108639069,
+    "switch_on_ode": 1141.0465725443305,
+    "switch_off_analytic": 119.13005926957842,
+    "switch_on_analytic": 870.7379391425441,
+    "on_off_fold_expression": 168.52933777639402
+  },
+  "fold_induced_vs_uninduced_at_15uM_G0": 141.12939687042712,
+  "cusp_rho": 9.01,
+  "strain_rho170": {
+    "hysteretic": true,
+    "hill_coefficient_up": 29.876300311689498
+  },
+  "strain_rho50": {
+    "hysteretic": true,
+    "hill_coefficient_up": 20.222581920982847
+  },
+  "strain_rho5": {
+    "hysteretic": false,
+    "hill_coefficient_up": 2.7052221942282397
+  },
+  "sbml_export": "ok",
+  "gillespy2_smoke_test": {
+    "ok": true,
+    "final_LacY": 6,
+    "solver": "NumPySSASolver"
+  }
+}

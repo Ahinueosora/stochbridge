@@ -1,0 +1,975 @@
+{
+ "description": "Every edge of the A3 v3 circuit and where its validation comes from. a2_validated = our own causal test on PRECISE-1K; validated_by lists all sources.",
+ "sources": {
+  "A2": "causal-mediation test on PRECISE-1K (a2_mediation_report.md)",
+  "Kuhlman2007_intervention": "graded cAMP / IPTG titration with crp-null control, PNAS 104:6043",
+  "RegulonDB_Confirmed_grade1": "RegulonDB 14.5.1: binding-site mutation + binding + expression",
+  "RegulonDB_<level>": "RegulonDB 14.5.1 confidence level",
+  "RegulonDB_grade<1-4>": "causal grade from RegulonDB evidence type (1 site mutation, 2 effect + binding, 3 effect only, 4 binding only); only grades 1-2 with agreeing sign count",
+  "Ozbudak2004_measured": "measured in Ozbudak et al. 2004 Nature 427:737 (Fig 3)"
+ },
+ "edges": [
+  {
+   "source": "cAMP",
+   "target": "CRP",
+   "sign": "+",
+   "validated_by": [
+    "Kuhlman2007_intervention",
+    "RegulonDB_effector"
+   ],
+   "evidence": [
+    "Kuhlman2007_intervention",
+    "RegulonDB_effector"
+   ],
+   "tier": "causal",
+   "strength": "non-cooperative: Hill m = 1.0 +/- 0.1 (paper), 1.15 [1.03-1.28] (our refit)",
+   "params": {
+    "C_cAMP_uM": 320,
+    "m": 1.0
+   },
+   "note": "extracellular cAMP in delta-cyaA delta-cpdA cells",
+   "model_source": "cAMP",
+   "model_target": "CRP-cAMP",
+   "model_term": "folded into c_crp (Hill m = 1)",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "glucose",
+   "target": "LacY",
+   "sign": "-",
+   "validated_by": [
+    "Ozbudak2004_measured"
+   ],
+   "evidence": [
+    "Ozbudak2004",
+    "literature"
+   ],
+   "tier": "curated",
+   "strength": "inducer exclusion: LacY activity 0.65 of max at saturating glucose, half-effect 7.4 uM",
+   "params": {
+    "min": 0.65,
+    "K_glc_uM": 7.4
+   },
+   "note": null,
+   "model_source": "glucose",
+   "model_target": "LacY activity",
+   "model_term": "beta_G in R7",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "glucose",
+   "target": "cAMP",
+   "sign": "-",
+   "validated_by": [
+    "Ozbudak2004_measured"
+   ],
+   "evidence": [
+    "Ozbudak2004",
+    "literature"
+   ],
+   "tier": "curated",
+   "strength": "CRP activity at saturating glucose = 0.20 of max, half-effect 3.9 uM",
+   "params": {
+    "c_min": 0.2,
+    "K_glc_uM": 3.9
+   },
+   "note": "A3 fit to Ozbudak Fig 2c; PRECISE-1K: gat 2.2x lower on glucose",
+   "model_source": "glucose",
+   "model_target": "CRP-cAMP",
+   "model_term": "c_crp(glucose) in R3",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "CRP",
+   "target": "LacI DNA loop",
+   "sign": "+",
+   "validated_by": [
+    "Kuhlman2007_intervention"
+   ],
+   "evidence": [
+    "Kuhlman2007_intervention",
+    "literature_in_vitro"
+   ],
+   "tier": "causal",
+   "strength": "CRP bends DNA and helps LacI loop. Measured ON/OFF: 258 (0 cAMP), 228 (10 uM), 1,190 (100 uM), 1,650 (1 mM) = ~6x tighter OFF",
+   "params": {
+    "Omega_paper": 10.3,
+    "Omega_refit_fig2a": 12.4,
+    "L0": 3.7
+   },
+   "note": "NEW EDGE. Model-free evidence: ON/OFF rises ~6x with cAMP. Omega rests on the paper route; our free joint fit of Fig 2b cannot pin it (2.8 [1.0-6.1], dAIC 0.9). Not yet in A3: needs rho(theta) and a glucose refit.",
+   "model_source": "CRP-cAMP",
+   "model_target": "LacI-P_lac loop",
+   "model_term": "rho_eff (crp knockout: rho 170 -> 22)",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "CRP",
+   "target": "lac promoter (lacZYA)",
+   "sign": "+",
+   "validated_by": [
+    "Kuhlman2007_intervention",
+    "Ozbudak2004_measured",
+    "RegulonDB_Confirmed_grade1"
+   ],
+   "evidence": [
+    "Kuhlman2007_intervention",
+    "Ozbudak2004",
+    "RegulonDB_Confirmed_grade1"
+   ],
+   "tier": "causal",
+   "strength": "201x rise from 0 to 1 mM cAMP with LacI off; crp-null: no response (fold 1.00); output ~ proportional to CRP occupancy",
+   "params": {
+    "b0_MU_hr": 5.9,
+    "f_cAMP": 240,
+    "C_cAMP_uM": 320,
+    "m_cAMP": 1.0,
+    "basal_without_CRP_frac_of_max": 0.005
+   },
+   "note": "causal: graded intervention + crp-null control (Kuhlman Fig 1b). A3 currently sets CRP-free output to 0; Kuhlman says ~1/200 of max.",
+   "model_source": "CRP-cAMP",
+   "model_target": "P_lac",
+   "model_term": "R3 (k_tx * c_crp)",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "LacI",
+   "target": "lac promoter (lacZYA)",
+   "sign": "-",
+   "validated_by": [
+    "Kuhlman2007_intervention",
+    "Ozbudak2004_measured",
+    "RegulonDB_Confirmed_grade1"
+   ],
+   "evidence": [
+    "Kuhlman2007_intervention",
+    "Ozbudak2004",
+    "RegulonDB_Confirmed_grade1"
+   ],
+   "tier": "causal",
+   "strength": "no-loop repression R ~ 50; loop strength L0 = 3.7; ON/OFF ~250 without CRP",
+   "params": {
+    "R": 50,
+    "L0": 3.7,
+    "K_IPTG_uM": 12.3,
+    "rho_A3": 170,
+    "n_A3": 2
+   },
+   "note": "Kuhlman Eq 3: activity = a0 / (1 + R/s^2 + R*L/s^4), s = 1 + I/K. A3 uses Ozbudak form (1+u^2)/(rho+u^2).",
+   "model_source": "LacI",
+   "model_target": "P_lac",
+   "model_term": "R1/R2 (rho)",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "LacY",
+   "target": "inducer inside cell",
+   "sign": "+",
+   "validated_by": [
+    "Kuhlman2007_intervention",
+    "Ozbudak2004_measured"
+   ],
+   "evidence": [
+    "Kuhlman2007_intervention",
+    "Ozbudak2004"
+   ],
+   "tier": "causal",
+   "strength": "uptake ~ TMG^0.6 (Ozbudak Fig 3d). LacY feedback steepens the IPTG response: Hill 4.5 (wild type) vs 2.6 (delta-lacY), Kuhlman Table 1",
+   "params": {
+    "uptake_exponent": 0.6,
+    "k_up": 1.84
+   },
+   "note": null,
+   "model_source": "LacY",
+   "model_target": "TMG_in",
+   "model_term": "R7 (uptake)",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "inducer (TMG/IPTG)",
+   "target": "inducer inside cell",
+   "sign": "+",
+   "validated_by": [
+    "Ozbudak2004_measured"
+   ],
+   "evidence": [
+    "Ozbudak2004"
+   ],
+   "tier": "curated",
+   "strength": "external -> internal",
+   "params": null,
+   "note": null,
+   "model_source": "TMG_ext",
+   "model_target": "TMG_in",
+   "model_term": "R7 (beta_T)",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "inducer inside cell",
+   "target": "LacI",
+   "sign": "-",
+   "validated_by": [
+    "Ozbudak2004_measured"
+   ],
+   "evidence": [
+    "Ozbudak2004"
+   ],
+   "tier": "curated",
+   "strength": "A3: inducer-LacI Hill n = 2 (assumed; gives cusp at rho = 9)",
+   "params": {
+    "n": 2
+   },
+   "note": null,
+   "model_source": "TMG_in",
+   "model_target": "LacI",
+   "model_term": "R1 (1 + (X/x0)^n)",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "lac promoter (lacZYA)",
+   "target": "LacY",
+   "sign": "+",
+   "validated_by": [
+    "Ozbudak2004_measured"
+   ],
+   "evidence": [
+    "Ozbudak2004",
+    "definition"
+   ],
+   "tier": "curated",
+   "strength": "max/basal LacY 1,506/9 molecules (A3 units)",
+   "params": null,
+   "note": null,
+   "model_source": "P_lac",
+   "model_target": "LacY",
+   "model_term": "R3-R5",
+   "simulated": true,
+   "a2_validated": false
+  },
+  {
+   "source": "CRP",
+   "target": "araJ",
+   "sign": "-",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": "weak fit to PRECISE-1K",
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator AND repressor",
+    "confidence": "Strong",
+    "causal_grade": 4,
+    "pmids": [
+     "2231717"
+    ],
+    "sign_agrees_with_A2": "yes (database lists both)"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_araJ",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "repressed",
+   "a2_ko_effect_log2": 0.78,
+   "fit_quality": "weak",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "cas3",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade1"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Confirmed",
+    "causal_grade": 1,
+    "pmids": [
+     "31941083"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_cas3",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -0.85,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "fecE",
+   "sign": "-",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal_in_A2_sign_conflict",
+   "strength": "weak fit to PRECISE-1K",
+   "params": null,
+   "note": "SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: CRP -> Fur -| fecE gives a net negative sign, matching A2.",
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "15659676"
+    ],
+    "sign_agrees_with_A2": "NO"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_fecE",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "repressed",
+   "a2_ko_effect_log2": 1.57,
+   "fit_quality": "weak",
+   "sign_conflict_with_RegulonDB": true
+  },
+  {
+   "source": "CRP",
+   "target": "flhC",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Strong",
+    "causal_grade": 2,
+    "pmids": [
+     "29196655",
+     "8729576",
+     "10601207"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_flhC",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -3.91,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "flhD",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Strong",
+    "causal_grade": 2,
+    "pmids": [
+     "29196655",
+     "8729576",
+     "10601207"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_flhD",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -4.04,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "galK",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade1"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator (galEp1) and repressor (galEp2)",
+    "confidence": "Strong",
+    "causal_grade": 1,
+    "pmids": [
+     "10760580",
+     "17630975"
+    ],
+    "sign_agrees_with_A2": "yes (database lists both)"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_galK",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -0.81,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "gyrA",
+   "sign": "-",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal_in_A2_sign_conflict",
+   "strength": null,
+   "params": null,
+   "note": "SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: CRP -| Fis -| gyrA (LASSO/RegulonDB) would be positive; unresolved.",
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "8655515"
+    ],
+    "sign_agrees_with_A2": "NO"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_gyrA",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "repressed",
+   "a2_ko_effect_log2": 0.44,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": true
+  },
+  {
+   "source": "CRP",
+   "target": "hflC",
+   "sign": "-",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "repressor",
+    "confidence": "Strong",
+    "causal_grade": 2,
+    "pmids": [
+     "21840983"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_hflC",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "repressed",
+   "a2_ko_effect_log2": 0.59,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "idnO",
+   "sign": "+",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "14593252",
+     "14973046",
+     "29343727"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_idnO",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -1.32,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "lamB",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade1"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Confirmed",
+    "causal_grade": 1,
+    "pmids": [
+     "2664421"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_lamB",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -5.88,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "malK",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade1"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Confirmed",
+    "causal_grade": 1,
+    "pmids": [
+     "2664421"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_malK",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -6.17,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "mhpF",
+   "sign": "-",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal_in_A2_sign_conflict",
+   "strength": "weak fit to PRECISE-1K",
+   "params": null,
+   "note": "SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: CRP -> MhpR -> mhpF is positive, so does NOT explain A2; unresolved.",
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Strong",
+    "causal_grade": 2,
+    "pmids": [
+     "12748194"
+    ],
+    "sign_agrees_with_A2": "NO"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_mhpF",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "repressed",
+   "a2_ko_effect_log2": 0.87,
+   "fit_quality": "weak",
+   "sign_conflict_with_RegulonDB": true
+  },
+  {
+   "source": "CRP",
+   "target": "nadC",
+   "sign": "-",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal_in_A2_sign_conflict",
+   "strength": null,
+   "params": null,
+   "note": "SIGN CONFLICT: A2 says CRP lowers it, RegulonDB lists activation (Weak/Strong). Indirect route: Nac -| nadC; no CRP -> Nac edge in this set; unresolved.",
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "21460078"
+    ],
+    "sign_agrees_with_A2": "NO"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_nadC",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "repressed",
+   "a2_ko_effect_log2": 0.34,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": true
+  },
+  {
+   "source": "CRP",
+   "target": "preA",
+   "sign": "+",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "18482579",
+     "29343727"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_preA",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -1.19,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "rbsA",
+   "sign": "+",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "15520470",
+     "3011793"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_rbsA",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -3.92,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "rbsB",
+   "sign": "+",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "15520470",
+     "3011793"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_rbsB",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -3.63,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "rbsC",
+   "sign": "+",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "15520470",
+     "3011793"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_rbsC",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -2.86,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "rbsR",
+   "sign": "+",
+   "validated_by": [
+    "A2"
+   ],
+   "evidence": [
+    "A2_causal",
+    "MINER_LASSO_association"
+   ],
+   "tier": "causal",
+   "strength": "LASSO coef +0.010 | weak fit to PRECISE-1K",
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Weak",
+    "causal_grade": 3,
+    "pmids": [
+     "15520470",
+     "3011793"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_rbsR",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -1.75,
+   "fit_quality": "weak",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "tdcB",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade1"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Confirmed",
+    "causal_grade": 1,
+    "pmids": [
+     "11251844"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_tdcB",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -1.22,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "uhpT",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade1"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Confirmed",
+    "causal_grade": 1,
+    "pmids": [
+     "11976297"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_uhpT",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -2.89,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  },
+  {
+   "source": "CRP",
+   "target": "yahN",
+   "sign": "+",
+   "validated_by": [
+    "A2",
+    "RegulonDB_grade2"
+   ],
+   "evidence": [
+    "A2_causal"
+   ],
+   "tier": "causal",
+   "strength": null,
+   "params": null,
+   "note": null,
+   "regulondb": {
+    "effect": "activator",
+    "confidence": "Strong",
+    "causal_grade": 2,
+    "pmids": [
+     "30536863"
+    ],
+    "sign_agrees_with_A2": "yes"
+   },
+   "model_source": "CRP-cAMP",
+   "model_target": "mRNA_yahN",
+   "simulated": true,
+   "model_term": "Hill output of c_crp (tx_/deg_ reactions)",
+   "a2_validated": true,
+   "a2_direction": "activated",
+   "a2_ko_effect_log2": -1.69,
+   "fit_quality": "ok",
+   "sign_conflict_with_RegulonDB": false
+  }
+ ]
+}
