@@ -28,18 +28,20 @@ flowchart LR
 
 | Task | Paper reproduced | Main result |
 |---|---|---|
-| A1 | Lamoureux et al. 2023, Fig. 4 | Crp-1 / Crp-2 activity phase plane rebuilt from the raw PRECISE-1K matrices |
-| A2 | Turkarslan et al. 2024 (gbmMINER), Fig. 5B–D | 21 CRP → gene edges pass the causal-mediation test (543 genes tested) |
+| A1 | Lamoureux et al. 2023, Fig. 4 | Crp-1 / Crp-2 activity plot reproduced exactly from the PRECISE-1K matrices (R² = 1.00 for all 1,035 samples; gene lists identical) |
+| A2 | Turkarslan et al. 2024 (gbmMINER), Fig. 5B–D | 21 of 543 CRP target genes pass the causal-mediation test; 17 agree with RegulonDB. *lac* cannot be tested in this data (taken from RegulonDB and Kuhlman 2007) |
 | A3 | Ozbudak et al. 2004, Fig. 1–2 | Fitted *lac* circuit is bistable; predicts the held-out switch-off thresholds within ~23% |
 | A4 | Vilar et al. 2003, Fig. 2–3 | Gillespie simulation shows all-or-none (bimodal) induction; a strain without feedback stays unimodal |
 | A5 | Blattman et al. 2020 (PETRI-seq) | Noise fitted on ~7,900 cells; matches growing-cell count distributions; the growth-phase split is only partly reproduced |
 | A6 | Lamoureux et al. 2023, Fig. 6 | Fig. 6 workflow reproduced exactly (11/11); on our own perturbations 73% of calls are correct (16/22), and this holds on held-out data |
 
 Known gaps: simulated effect sizes are about 3.6× smaller than measured, IPTG induction is too strong in strains carrying extra LacI,
-and growth-phase biology is not modelled. Details are in each task's report under `student_a_intracellular/outputs/`.
+growth-phase biology is not modelled, and A2 has only 3 wild-type samples, so it can miss real CRP edges. Details are in each task's report under `student_a_intracellular/outputs/`.
 
-| A3: hysteresis | A4: bimodal induction |
+| A1: CRP iModulons (Fig. 4 reproduced) | A2: 21 causal CRP edges |
 |---|---|
+| ![A1 Crp-1 vs Crp-2](student_a_intracellular/outputs/condition_response_curve.png) | ![A2 causal edges](student_a_intracellular/outputs/a2/fig_a2_edges.png) |
+| **A3: hysteresis** | **A4: bimodal induction** |
 | ![A3 hysteresis](student_a_intracellular/outputs/fig_a3_hysteresis.png) | ![A4 Vilar reproduction](student_a_intracellular/outputs/a4/fig_a4_vilar3.png) |
 | **A5: simulated vs real counts** | **A6: perturbation DiMA check** |
 | ![A5 distributions](student_a_intracellular/outputs/a5/fig_distributions.png) | ![A6 panel DiMA](student_a_intracellular/outputs/a6/fig_a6_panel_dima.png) |
