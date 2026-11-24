@@ -1,7 +1,7 @@
 """
 Module 1 - stochastic_engine (A4). Gillespie SSA of the A3 v3 CRP/lac circuit via GillesPy2 (C++ SSACSolver).
 
-    sc = StochasticCircuit("outputs/circuit_model.yaml")            # compiles once
+    sc = StochasticCircuit("outputs/a3/circuit_model.yaml")            # compiles once
     traj = sc.run(InducerLevelChange(40, n_cells=1000, seed=1))     # -> io_schema.Trajectory
     traj.to_parquet("outputs/a4/traj.parquet"); traj.write_summary("outputs/a4/summary_stats.json")
 
@@ -43,7 +43,7 @@ def _pow(expr: str) -> str:
 
 
 class StochasticCircuit:
-    def __init__(self, yaml_path="outputs/circuit_model.yaml", mode="fast", include_outputs=True):
+    def __init__(self, yaml_path="outputs/a3/circuit_model.yaml", mode="fast", include_outputs=True):
         """yaml_path: path to a circuit-model YAML, or the dict returned by Perturbation.apply() (A6 Module 2)."""
         import gillespy2 as g
         if mode not in ("fast", "exact"):

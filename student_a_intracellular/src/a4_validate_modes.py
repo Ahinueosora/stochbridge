@@ -11,7 +11,7 @@ from io_schema import Trajectory
 
 OUT = Path("outputs/a4"); OUT.mkdir(parents=True, exist_ok=True)
 n = int(sys.argv[1]) if len(sys.argv) > 1 else 150
-modes = {m: StochasticCircuit("outputs/circuit_model.yaml", mode=m, include_outputs=False) for m in ("exact", "fast")}
+modes = {m: StochasticCircuit("outputs/a3/circuit_model.yaml", mode=m, include_outputs=False) for m in ("exact", "fast")}
 cases = [InducerLevelChange(40, initial_state="uninduced", n_cells=n, seed=101, name="T40_from_OFF"),
          InducerLevelChange(15, initial_state="uninduced", n_cells=n, seed=102, name="T15_from_OFF"),
          InducerLevelChange(15, initial_state="induced", n_cells=max(n // 4, 30), seed=103, name="T15_from_ON")]   # ON cells: ~30 s each exact

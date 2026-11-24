@@ -1,14 +1,14 @@
 """
 A3 v3 build: the final parameterized CRP/lac circuit on the v3 network (A2 + RegulonDB 14.5.1 + Kuhlman 2007 + Ozbudak 2004).
 
-Reuses the A3 fit (outputs/fitted_params.json, outputs/crp_outputs_fit.csv; refit needs PRECISE-1K: run_a3.py) and writes
-    outputs/circuit_model.yaml        full spec: species, reactions, rates, initial conditions, edges + evidence
-    outputs/circuit_model.xml         SBML L3V2 of the same model (COPASI + GillesPy2), TMG 15 uM, 0 glucose, cells start OFF
-    outputs/validated_edges.json      every circuit edge with where its validation comes from
-    outputs/hysteresis_check.png      (+ the four panel PNGs)
-    outputs/a3_checks_v3.json         all numbers quoted in parameter_fit_report.md
+Reuses the A3 fit (outputs/a3/fitted_params.json, outputs/a3/crp_outputs_fit.csv; refit needs PRECISE-1K: run_a3.py) and writes
+    outputs/a3/circuit_model.yaml        full spec: species, reactions, rates, initial conditions, edges + evidence
+    outputs/a3/circuit_model.xml         SBML L3V2 of the same model (COPASI + GillesPy2), TMG 15 uM, 0 glucose, cells start OFF
+    outputs/a3/validated_edges.json      every circuit edge with where its validation comes from
+    outputs/a3/hysteresis_check.png      (+ the four panel PNGs)
+    outputs/a3/a3_checks_v3.json         all numbers quoted in parameter_fit_report.md
 
-Usage: python src/build_a3_v3.py <network_v3_edges.csv> [outputs dir]
+Usage: python src/build_a3_v3.py <network_v3_edges.csv> [outputs dir, default outputs/a3]
 """
 from __future__ import annotations
 
@@ -325,7 +325,7 @@ def figures(p, out: Path, res, sweeps, strains, Ts, Tg, ko_sweep):
 
 
 # ------------------------------------------------------------------ main
-def main(net_csv, out="outputs"):
+def main(net_csv, out="outputs/a3"):
     out = Path(out)
     p, fitted, outputs = load_inputs(out)
     res = {"version": "A3 v3 (network v3: A2 + RegulonDB 14.5.1 + Kuhlman 2007 + Ozbudak 2004)",

@@ -156,7 +156,7 @@ def fig_hist(df, P):
 
 
 if __name__ == "__main__":
-    df = pd.read_csv(ROOT / "outputs" / "perturbation_dima_comparison.csv")
+    df = pd.read_csv(A6 / "perturbation_dima_comparison.csv")
     S = pd.read_csv(A6 / "perturbation_summary.csv")
     P = pd.read_csv(A6 / "panel_dima_comparison.csv")
     G = pd.read_csv(A6 / "gene_level_comparison.csv")

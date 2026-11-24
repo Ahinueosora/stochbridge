@@ -16,7 +16,7 @@ from io_schema import CORE_COLUMNS, Trajectory, validate  # noqa: E402
 from perturbation import GeneKnockout, InducerLevelChange, OperatorDecoy, Perturbation  # noqa: E402
 from ssa_simulator import StochasticCircuit  # noqa: E402
 
-YAML = ROOT / "outputs" / "circuit_model.yaml"
+YAML = ROOT / "outputs" / "a3" / "circuit_model.yaml"
 GOLDEN = Path(__file__).parent / "golden_ssa_fast.json"
 GOLDEN_CASES = [InducerLevelChange(40, n_cells=50, t_end_min=600, seed=2026, name="g_T40"),
                 InducerLevelChange(11, initial_state="induced", n_cells=30, t_end_min=600, seed=7, name="g_T11_ON"),

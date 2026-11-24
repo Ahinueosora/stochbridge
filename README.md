@@ -40,9 +40,9 @@ growth-phase biology is not modelled, and A2 has only 3 wild-type samples, so it
 
 | A1: CRP iModulons (Fig. 4 reproduced) | A2: 21 causal CRP edges |
 |---|---|
-| ![A1 Crp-1 vs Crp-2](student_a_intracellular/outputs/condition_response_curve.png) | ![A2 causal edges](student_a_intracellular/outputs/a2/fig_a2_edges.png) |
+| ![A1 Crp-1 vs Crp-2](student_a_intracellular/outputs/a1/condition_response_curve.png) | ![A2 causal edges](student_a_intracellular/outputs/a2/fig_a2_edges.png) |
 | **A3: hysteresis** | **A4: bimodal induction** |
-| ![A3 hysteresis](student_a_intracellular/outputs/fig_a3_hysteresis.png) | ![A4 Vilar reproduction](student_a_intracellular/outputs/a4/fig_a4_vilar3.png) |
+| ![A3 hysteresis](student_a_intracellular/outputs/a3/fig_a3_hysteresis.png) | ![A4 Vilar reproduction](student_a_intracellular/outputs/a4/fig_a4_vilar3.png) |
 | **A5: simulated vs real counts** | **A6: perturbation DiMA check** |
 | ![A5 distributions](student_a_intracellular/outputs/a5/fig_distributions.png) | ![A6 panel DiMA](student_a_intracellular/outputs/a6/fig_a6_panel_dima.png) |
 
@@ -50,7 +50,8 @@ growth-phase biology is not modelled, and A2 has only 3 wild-type samples, so it
 
 ```
 stochbridge/
-├── student_a_intracellular/   Track A (this work): src/, config/, notebooks/, outputs/, tests/
+├── student_a_intracellular/   Track A (this work): src/, config/, notebooks/, tests/
+│   ├── outputs/a1 … a6/       results, one folder per task (index: outputs/README.md)
 │   └── README.md              per-task entry points, module usage, data set-up
 ├── shared/schemas/            interface contracts between Student A and Student B
 │   ├── trajectory_schema.md   Module 1 output format
@@ -75,7 +76,7 @@ import yaml
 from ssa_simulator import StochasticCircuit
 from perturbation import GeneKnockout, InducerLevelChange
 
-model = yaml.safe_load(open("outputs/calibrated_circuit_model.yaml"))
+model = yaml.safe_load(open("outputs/a5/calibrated_circuit_model.yaml"))
 traj = StochasticCircuit(GeneKnockout("crp").apply(model)).run(seed=1)   # crp deletion
 traj = StochasticCircuit(model).run(InducerLevelChange(30, n_cells=1000, seed=1))  # 30 µM TMG
 traj.to_parquet("traj.parquet")

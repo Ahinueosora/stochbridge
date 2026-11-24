@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 import reaction_network as rn  # noqa: E402
 
-P = json.loads((ROOT / "outputs" / "fitted_params.json").read_text())["params"]
+P = json.loads((ROOT / "outputs" / "a3" / "fitted_params.json").read_text())["params"]
 
 
 def test_rho_equals_max_over_basal():
@@ -85,7 +85,7 @@ def test_crp_free_basal_from_kuhlman():
 
 def test_sbml_loads_in_gillespy2():
     import gillespy2
-    sbml = ROOT / "outputs" / "circuit_model.xml"
+    sbml = ROOT / "outputs" / "a3" / "circuit_model.xml"
     m, errs = gillespy2.import_SBML(str(sbml))
     assert not errs and {"P_free", "P_rep", "M", "Y", "X"} <= set(m.listOfSpecies)
     assert len(m.listOfReactions) == 8 + 2 * 21

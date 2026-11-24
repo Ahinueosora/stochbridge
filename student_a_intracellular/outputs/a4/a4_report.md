@@ -6,14 +6,14 @@
 
 | File | Role |
 |---|---|
-| `src/ssa_simulator.py` | `StochasticCircuit(yaml)` loads `outputs/circuit_model.yaml` (A3 v3), compiles once (GillesPy2 C++ SSA, `variable=True`), `run(perturbation) -> Trajectory` |
+| `src/ssa_simulator.py` | `StochasticCircuit(yaml)` loads `outputs/a3/circuit_model.yaml` (A3 v3), compiles once (GillesPy2 C++ SSA, `variable=True`), `run(perturbation) -> Trajectory` |
 | `src/io_schema.py` | the Trajectory contract: columns, types, metadata, `validate`, parquet I/O, summary stats (mean, variance, Fano, ON fraction, bimodality) |
 | `src/perturbation.py` | `Perturbation` + the four brief classes: `InducerLevelChange`, `CarbonSourceShift`, `GeneKnockout('crp')`, `OperatorDecoy(rho)` (A6 extends) |
 | `shared/schemas/trajectory_schema.md` | the contract for Student B (version 1.0.0, change policy) |
 | `tests/test_ssa_reproducibility.py` | 12 tests: fixed seeds bit-identical, golden regression, schema, and behaviour (basal = ODE, memory, bimodal vs unimodal, Δcrp OFF) |
 | `notebooks/03_vilar_reproduction.ipynb` | the reproduction, executed (reads cached runs; one line reruns everything) |
 | `src/a4_vilar.py`, `src/a4_validate_modes.py` | simulations behind the notebook |
-| `outputs/summary_stats.json` | canonical Module 1 summary (the 37.3 µM run, 2,000 cells, 30 h) |
+| `outputs/a4/summary_stats.json` | canonical Module 1 summary (the 37.3 µM run, 2,000 cells, 30 h) |
 | `outputs/a4/trajectory_*.parquet` | example Trajectories (2,000 cells × 361 time points incl. 21 CRP-target mRNAs) |
 
 **Two modes, same output columns.**

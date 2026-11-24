@@ -12,7 +12,7 @@ For each entry of config/precise1k_condition_map.yaml that has a matched real co
   ceiling   the real perturbed values of the circuit genes only, written into the real control profile: the most any
             model of these genes could recover through the knowledge base.
 
-Outputs: outputs/perturbation_dima_comparison.csv (one row per perturbation x iModulon)
+Outputs: outputs/a6/perturbation_dima_comparison.csv (one row per perturbation x iModulon)
          outputs/a6/perturbation_summary.csv, outputs/a6/simulated_samples_log_tpm.csv, outputs/a6/a6_results.json
 """
 from __future__ import annotations
@@ -37,7 +37,7 @@ from ssa_simulator import StochasticCircuit  # noqa: E402
 ROOT = HERE.parent
 OUT = ROOT / "outputs"
 A6 = OUT / "a6"
-MODEL = OUT / "calibrated_circuit_model.yaml"
+MODEL = OUT / "a5" / "calibrated_circuit_model.yaml"
 LAC_GENES = {"lacZ": "b0344", "lacY": "b0343", "lacA": "b0342"}
 DELETABLE = {"crp": "b3357", "cyaA": "b3806", "lacI": "b0345", "lacY": "b0343"}
 KEY_IMODULONS = ["Crp-1", "Crp-2", "crp KO-1", "crp KO-2", "Galactose", "Maltose", "Ribose", "FlhDC-1", "FlhDC-2",
@@ -134,7 +134,7 @@ def main(n_cells=2000, reps=None, model=MODEL, a6_dir=A6, main_csv=None, only=No
     """model: circuit model to simulate; a6_dir: where per-run tables go; main_csv: path of the main comparison table;
     only: optional list of perturbation names to run."""
     A6 = Path(a6_dir); A6.mkdir(parents=True, exist_ok=True)
-    main_csv = Path(main_csv) if main_csv else OUT / "perturbation_dima_comparison.csv"
+    main_csv = Path(main_csv) if main_csv else Path(a6_dir) / "perturbation_dima_comparison.csv"
     cmap = load_condition_map()
     S = cmap["dima_settings"]
     reps = reps or cmap["defaults"].get("replicates", 3)

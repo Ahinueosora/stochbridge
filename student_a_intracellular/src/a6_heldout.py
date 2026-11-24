@@ -69,7 +69,7 @@ def main():
         | set(md.index[(md.project == "control") & (md.condition == "wt_glc")])
     tab, n_fit, n_ref = refit(exclude)
     tab.to_csv(OUTD / "crp_outputs_fit_heldout.csv")
-    model = yaml.safe_load((ROOT / "outputs" / "calibrated_circuit_model.yaml").read_text())
+    model = yaml.safe_load((ROOT / "outputs" / "a5" / "calibrated_circuit_model.yaml").read_text())
     old = copy.deepcopy(model["crp_outputs"]["targets"])
     for name, r in tab.iterrows():
         t = model["crp_outputs"]["targets"][name]

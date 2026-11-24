@@ -20,7 +20,7 @@ the cell the way the real experiment does? We judge this through the PRECISE-1K 
 
 ```python
 from perturbation import load_perturbations, GeneKnockout, InducerLevelChange, CarbonSourceShift
-model = yaml.safe_load(open("outputs/calibrated_circuit_model.yaml"))          # A5 output
+model = yaml.safe_load(open("outputs/a5/calibrated_circuit_model.yaml"))          # A5 output
 for pert in load_perturbations("config/precise1k_condition_map.yaml"):          # every defined perturbation
     modified = pert.apply(model)                # -> new model dict; the input model is never changed
     for rep in range(1, 4):
@@ -44,7 +44,7 @@ for pert in load_perturbations("config/precise1k_condition_map.yaml"):          
 3. Deleted genes are set to 0.
 4. The sample is then projected exactly like the AAT data.
 
-The full table is `outputs/perturbation_dima_comparison.csv`: 8 perturbations × 201 iModulons, with simulated and real activities, differences, q-values and DiMA calls.
+The full table is `outputs/a6/perturbation_dima_comparison.csv`: 8 perturbations × 201 iModulons, with simulated and real activities, differences, q-values and DiMA calls.
 
 ### 3a · Genome-wide readout (Fig. 6 exactly): the circuit is too small to register
 
@@ -113,7 +113,7 @@ The full table is `outputs/perturbation_dima_comparison.csv`: 8 perturbations ×
 | `src/perturbation.py` | Module 2: Perturbation, GeneKnockout, InducerLevelChange, CarbonSourceShift, `apply()`, `load_perturbations()` |
 | `config/precise1k_condition_map.yaml` | Each perturbation → matched PRECISE-1K / K-12 condition (held-out flag, notes, unmatched reasons) |
 | `notebooks/05_dima_workflow.ipynb` | Executed: AAT reproduction → perturbations → comparison |
-| `outputs/perturbation_dima_comparison.csv` | Per perturbation × iModulon: simulated vs real activity, difference, q, DiMA calls, ceiling |
+| `outputs/a6/perturbation_dima_comparison.csv` | Per perturbation × iModulon: simulated vs real activity, difference, q, DiMA calls, ceiling |
 | `outputs/a6/panel_dima_comparison.csv`, `gene_level_comparison.csv`, `perturbation_summary.csv` | Panel and gene-level results |
 | `outputs/a6/aat_dima_reproduction.csv`, `aat_check.json` | Fig. 6 reproduction |
 | `src/dima.py`, `src/a6_reproduce_aat.py`, `src/a6_dima_compare.py`, `src/a6_figures.py` | Code |

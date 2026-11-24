@@ -188,7 +188,7 @@ def switch_threshold_lacy(p, T, G=0.0):
 def main(out=ROOT / "outputs"):
     out = Path(out); (out / "a5").mkdir(parents=True, exist_ok=True)
     S = load_summary()
-    spec = yaml.safe_load((out / "circuit_model.yaml").read_text())
+    spec = yaml.safe_load((out / "a3" / "circuit_model.yaml").read_text())
     p = dict(rn.DEFAULT_PARAMS); p.update(spec["parameters"])
     outputs = spec["crp_outputs"]["targets"]
     rng = np.random.default_rng(0)
@@ -261,7 +261,7 @@ def main(out=ROOT / "outputs"):
         "q0": Q0, "q_g": "per operon, fitted on exponential-phase means in a5_validate.py (outputs/a5/validation.json)",
     }
     cal = json.loads(json.dumps(cal, default=float))
-    (out / "calibrated_circuit_model.yaml").write_text(yaml.safe_dump(cal, sort_keys=False, allow_unicode=True, width=120))
+    (out / "a5" / "calibrated_circuit_model.yaml").write_text(yaml.safe_dump(cal, sort_keys=False, allow_unicode=True, width=120))
     (out / "a5" / "noise_fit.json").write_text(json.dumps(R, indent=2, default=float))
     return R
 

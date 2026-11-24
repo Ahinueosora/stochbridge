@@ -7,7 +7,7 @@ parameter edits) and how the population is run (history, length, sampling, numbe
 Stable API (Student B's screen_runner, task B3, imports this module):
 
     from perturbation import load_perturbations, Perturbation, GeneKnockout, InducerLevelChange, CarbonSourceShift
-    model = yaml.safe_load(open("outputs/calibrated_circuit_model.yaml"))
+    model = yaml.safe_load(open("outputs/a5/calibrated_circuit_model.yaml"))
     for pert in load_perturbations("config/precise1k_condition_map.yaml"):   # every defined perturbation
         modified = pert.apply(model)            # -> new circuit-model dict (input is never changed)
         sc = StochasticCircuit(modified)        # Module 1 accepts the dict; runs the embedded perturbation

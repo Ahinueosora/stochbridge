@@ -7,7 +7,7 @@ import yaml
 from perturbation import load_perturbations, Perturbation, GeneKnockout, InducerLevelChange, CarbonSourceShift, compose
 from ssa_simulator import StochasticCircuit
 
-model = yaml.safe_load(open("outputs/calibrated_circuit_model.yaml"))
+model = yaml.safe_load(open("outputs/a5/calibrated_circuit_model.yaml"))
 perts = load_perturbations("config/precise1k_condition_map.yaml")            # list[Perturbation], file order
 # with_controls=True -> [(perturbation, in_silico_control, matched_real_condition_or_None), ...]
 
@@ -41,4 +41,4 @@ Faster equivalent (one compile for the whole screen, identical trajectories): `s
 ## Validation hook
 Every entry in `config/precise1k_condition_map.yaml` with `matched:` names a real PRECISE-1K / K-12 condition
 (`project:condition`). `src/a6_dima_compare.py` turns simulated populations into pseudo-bulk samples and runs the
-Lamoureux 2023 Fig. 6 DiMA against it; results in `outputs/perturbation_dima_comparison.csv`.
+Lamoureux 2023 Fig. 6 DiMA against it; results in `outputs/a6/perturbation_dima_comparison.csv`.

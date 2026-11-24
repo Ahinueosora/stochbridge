@@ -2,7 +2,7 @@
 A5 validation: does the calibrated simulator produce PETRI-seq-like cells?
 
   1. Simulate exponential (EZ Rich, glucose 11.1 mM) and stationary (glucose exhausted) cells with the A4 engine on
-     outputs/calibrated_circuit_model.yaml (and, for contrast, the uncalibrated A3 v3 model), same cell numbers as the data.
+     outputs/a5/calibrated_circuit_model.yaml (and, for contrast, the uncalibrated A3 v3 model), same cell numbers as the data.
   2. Pass molecules through the observation model: UMI ~ Poisson(q_g * kappa_i * molecules), kappa_i from the phase's
      real total-mRNA-UMI distribution; q_g fitted on EXPONENTIAL means only.
   3. Compare with the real cells:
@@ -171,8 +171,8 @@ def main():
     real = S["phase_split"]["model17_operons_pc1"]
     R = {"real": {"pca17_auc": real["auc"], "pca17_balanced_accuracy": real["balanced_accuracy"],
                   "all_operon_pc1_auc": S["phase_split"]["all_operons_pc1"]["auc"]}}
-    M = {"calibrated": run_model(ROOT / "outputs" / "calibrated_circuit_model.yaml", S, "A5 calibrated"),
-         "uncalibrated": run_model(ROOT / "outputs" / "circuit_model.yaml", S, "A3 v3 (uncalibrated)")}
+    M = {"calibrated": run_model(ROOT / "outputs" / "a5" / "calibrated_circuit_model.yaml", S, "A5 calibrated"),
+         "uncalibrated": run_model(ROOT / "outputs" / "a3" / "circuit_model.yaml", S, "A3 v3 (uncalibrated)")}
     tables = []
     for k, m in M.items():
         R[k] = {kk: v for kk, v in m.items() if kk not in ("stats",)}
@@ -181,8 +181,8 @@ def main():
         df["model"] = k; tables.append(df)
     pd.concat(tables).to_csv(OUT / "per_gene_comparison.csv", index=False)
     np.savez_compressed(OUT / "pc1_scores.npz", **{f"{k}_{ph}": np.array(M[k]["pca17"][f"pc1_scores_{ph}"]) for k in M for ph in ("exp", "stat")})
-    R["memory_check"] = {"calibrated": memory_check(ROOT / "outputs" / "calibrated_circuit_model.yaml"),
-                         "uncalibrated_A4": memory_check(ROOT / "outputs" / "circuit_model.yaml")}
+    R["memory_check"] = {"calibrated": memory_check(ROOT / "outputs" / "a5" / "calibrated_circuit_model.yaml"),
+                         "uncalibrated_A4": memory_check(ROOT / "outputs" / "a3" / "circuit_model.yaml")}
     (OUT / "validation.json").write_text(json.dumps(R, indent=2, default=float))
     return R
 

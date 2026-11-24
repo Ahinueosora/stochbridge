@@ -5,7 +5,7 @@ A5 figures + YAML finishing step. Run after a5_validate.py.
   outputs/a5/fig_qq.png              QQ plots: PC1 scores and pooled per-cell counts, real vs simulated
   outputs/a5/fig_phase_split.png     the exp/stat split on the 17 circuit operons: real vs simulated PC1 + fold changes
   outputs/a5/fig_lac_memory.png      lac leak / switching with the A4 bursts vs the calibrated bursts
-  and fills observation_model.q_g / medium_scale into outputs/calibrated_circuit_model.yaml
+  and fills observation_model.q_g / medium_scale into outputs/a5/calibrated_circuit_model.yaml
 """
 from __future__ import annotations
 
@@ -172,7 +172,7 @@ def fig_lac(V):
 
 
 def finish_yaml(V):
-    p = ROOT / "outputs" / "calibrated_circuit_model.yaml"
+    p = ROOT / "outputs" / "a5" / "calibrated_circuit_model.yaml"
     y = yaml.safe_load(p.read_text())
     c = V["calibrated"]
     y["observation_model"]["q_g"] = "same for every gene: q0 (gene-specific detection folded into medium_scale)"

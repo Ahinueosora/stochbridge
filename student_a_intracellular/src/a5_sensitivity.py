@@ -46,7 +46,7 @@ def main():
     from a5_validate import run_model
     val = {}
     for q in (0.025, 0.05, 0.10):
-        m = run_model(ROOT / "outputs" / "calibrated_circuit_model.yaml", S, f"q={q}", q0=q)
+        m = run_model(ROOT / "outputs" / "a5" / "calibrated_circuit_model.yaml", S, f"q={q}", q0=q)
         a = m["agreement"] if "agreement" in m else None
         from a5_validate import compare
         ag, _ = compare(S, m)

@@ -86,9 +86,9 @@ Summary file: `data/scrnaseq/GSE141018/petri_2_01_summary.json`.
 
 - **Code.** `src/load_scrnaseq.py` (reads the GEO file), `src/fit_noise_params.py` (method of moments + ABC), `src/a5_validate.py` (simulate + compare), `src/a5_figures.py`.
 - **Notebook.** `notebooks/04_noise_calibration.ipynb` (executed).
-- **Outputs.** `outputs/calibrated_circuit_model.yaml`, plus `outputs/a5/` (`noise_fit.json`, `validation.json`, `per_gene_comparison.csv`, `pc1_scores.npz`, figures).
+- **Outputs.** `outputs/a5/calibrated_circuit_model.yaml`, plus `outputs/a5/` (`noise_fit.json`, `validation.json`, `per_gene_comparison.csv`, `pc1_scores.npz`, figures).
 - **Tests.** `tests/test_noise_calibration.py` (3 new; 26 in total, all passing).
-- **Downstream (A6, Student B Module 4).** Load with `StochasticCircuit("outputs/calibrated_circuit_model.yaml")`. The noise layer is applied automatically, and trajectory metadata records `noise` and `crp_outputs_method`.
+- **Downstream (A6, Student B Module 4).** Load with `StochasticCircuit("outputs/a5/calibrated_circuit_model.yaml")`. The noise layer is applied automatically, and trajectory metadata records `noise` and `crp_outputs_method`.
 
 ## Robustness checks (added 24 Nov 2026, `src/a5_sensitivity.py`, `outputs/a5/sensitivity.json`)
 

@@ -11,12 +11,12 @@ sys.path.insert(0, str(ROOT / "src"))
 from perturbation import Perturbation  # noqa: E402
 from ssa_simulator import StochasticCircuit  # noqa: E402
 
-CAL = ROOT / "outputs" / "calibrated_circuit_model.yaml"
+CAL = ROOT / "outputs" / "a5" / "calibrated_circuit_model.yaml"
 
 
 def test_yaml_has_noise_layer_on_top_of_a3():
     y = yaml.safe_load(CAL.read_text())
-    a3 = yaml.safe_load((ROOT / "outputs" / "circuit_model.yaml").read_text())
+    a3 = yaml.safe_load((ROOT / "outputs" / "a3" / "circuit_model.yaml").read_text())
     n = y["noise"]["parameters"]
     assert 0 < n["output_extrinsic_cv2"] < 0.5 and n["lac_protein_burst"] == 4.2
     assert len(y["circuit_edges"] if "circuit_edges" in y else y["edges"]) == len(a3["circuit_edges"] if "circuit_edges" in a3 else a3["edges"])

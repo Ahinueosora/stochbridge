@@ -2,7 +2,7 @@
 A4: reproduce Vilar, Guet & Leibler 2003 (J Cell Biol 161:471) Fig 3 with the A3 v3 circuit, plus the SSA hysteresis
 check. Vilar's parameters are NOT used; the point is that our SSA gives all-or-none (bimodal) induction.
 
-    simulate()  -> outputs/a4/*.parquet, outputs/a4/vilar_results.json, outputs/summary_stats.json
+    simulate()  -> outputs/a4/*.parquet, outputs/a4/vilar_results.json, outputs/a4/summary_stats.json
     figures()   -> outputs/a4/fig_a4_*.png   (also called from notebooks/03_vilar_reproduction.ipynb)
 
 Vilar Fig 3 panels and our analogues (doses scaled to our model's memory zone 4.1-30 uM):
@@ -29,7 +29,7 @@ from perturbation import InducerLevelChange, OperatorDecoy  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "outputs" / "a4"
-YAML = ROOT / "outputs" / "circuit_model.yaml"
+YAML = ROOT / "outputs" / "a3" / "circuit_model.yaml"
 GROWTH_RATIO_INDUCED = 0.85     # assumption: induced cells grow 15% slower (lac burden; Vilar used measured rates)
 T_MAINT = 11.0                  # geometric middle of the 4.1-30 uM memory zone
 T_HIGH = 500.0
@@ -118,8 +118,8 @@ def simulate(n=1000, n_traj=2000):
                            "switch_time_iqr_min": [float(np.percentile(sw, 25)), float(np.percentile(sw, 75))] if len(sw) > 3 else None,
                            "final_cell_avg_Y": float(avg[-1]), "final_population_avg_Y": float(pop[-1]),
                            "summary_stats": s}
-        if key == "vilar3a_sub":            # the canonical Module 1 example output (brief: outputs/summary_stats.json)
-            (ROOT / "outputs" / "summary_stats.json").write_text(json.dumps(s, indent=2, default=float))
+        if key == "vilar3a_sub":            # the canonical Module 1 example output (brief: summary_stats.json)
+            (OUT / "summary_stats.json").write_text(json.dumps(s, indent=2, default=float))
             # how fast is one switch? time from 10% to 90% of the ON level, per switching cell
             W = tr.wide("Y").values; tg = tr.times; yon = tr.meta["Y_on"]
             dur = []
@@ -310,7 +310,7 @@ def postprocess():
         t = Trajectory.from_parquet(OUT / f"trajectory_{key}.parquet")
         R["vilar"][key]["summary_stats"] = t.write_summary(OUT / f"summary_stats_{key}.json")
         if key == "vilar3a_sub":
-            (ROOT / "outputs" / "summary_stats.json").write_text(json.dumps(R["vilar"][key]["summary_stats"], indent=2, default=float))
+            (OUT / "summary_stats.json").write_text(json.dumps(R["vilar"][key]["summary_stats"], indent=2, default=float))
     t5 = tr5.write_summary(OUT / "summary_stats_rho5_graded.json")
     R["rho5_control"]["summary_stats"] = t5
     (OUT / "vilar_results.json").write_text(json.dumps(R, indent=2, default=float))

@@ -15,7 +15,7 @@ from perturbation import (CarbonSourceShift, GeneKnockout, InducerLevelChange, P
                           load_condition_map, load_perturbations)
 from ssa_simulator import StochasticCircuit  # noqa: E402
 
-MODEL = yaml.safe_load((ROOT / "outputs" / "calibrated_circuit_model.yaml").read_text())
+MODEL = yaml.safe_load((ROOT / "outputs" / "a5" / "calibrated_circuit_model.yaml").read_text())
 
 
 def test_apply_returns_new_model_and_leaves_input_alone():
