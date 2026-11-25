@@ -22,33 +22,33 @@
       "mean": 0.8125,
       "variance": 1.1269072036018009,
       "fano": 1.3869627121252934,
-      "second_half_mean": 0.6725773480662983,
-      "second_half_variance": 1.052976873787646,
-      "second_half_fano": 1.565584801235159
+      "second_half_mean": 0.6725745856353591,
+      "second_half_variance": 1.0529888770029419,
+      "second_half_fano": 1.5656090781488834
     },
     "Y_count": {
       "mean": 936.9425,
       "variance": 479413.35587168584,
       "fano": 511.6785244256567,
-      "second_half_mean": 740.5981988950276,
-      "second_half_variance": 498987.6892842955,
-      "second_half_fano": 673.7630337594461
+      "second_half_mean": 740.598226519337,
+      "second_half_variance": 498987.69226782786,
+      "second_half_fano": 673.7630126566328
     },
     "X_count": {
       "mean": 30307.972,
       "variance": 501647627.9571946,
       "fano": 16551.672542035958,
-      "second_half_mean": 23956.667574585634,
-      "second_half_variance": 522129907.441558,
-      "second_half_fano": 21794.763642146045
+      "second_half_mean": 23956.668461325968,
+      "second_half_variance": 522129910.16305226,
+      "second_half_fano": 21794.762949027892
     },
     "mRNA_hflC_count": {
       "mean": 0.913,
       "variance": 0.89687943971986,
       "fano": 0.9823433074697261,
-      "second_half_mean": 0.8846850828729281,
-      "second_half_variance": 0.8858154141294519,
-      "second_half_fano": 1.001277665101861
+      "second_half_mean": 0.8846795580110497,
+      "second_half_variance": 0.8857975652660071,
+      "second_half_fano": 1.0012637426114728
     },
     "mRNA_tdcB_count": {
       "mean": 0.0025,
@@ -78,17 +78,17 @@
       "mean": 0.115,
       "variance": 0.11483241620810405,
       "fano": 0.9985427496356873,
-      "second_half_mean": 0.12986187845303868,
-      "second_half_variance": 0.12963901307440812,
-      "second_half_fano": 0.9982838275459633
+      "second_half_mean": 0.1298646408839779,
+      "second_half_variance": 0.12964658291156417,
+      "second_half_fano": 0.9983208826441946
     },
     "mRNA_yahN_count": {
       "mean": 0.0195,
       "variance": 0.01912931465732866,
       "fano": 0.9809904952476237,
-      "second_half_mean": 0.01935635359116022,
-      "second_half_variance": 0.019351904370969918,
-      "second_half_fano": 0.9997701416142586
+      "second_half_mean": 0.019353591160220996,
+      "second_half_variance": 0.019349248866244083,
+      "second_half_fano": 0.9997756336826088
     },
     "mRNA_fecE_count": {
       "mean": 0.029,
@@ -142,9 +142,9 @@
       "mean": 0.21,
       "variance": 0.20800400200100053,
       "fano": 0.990495247623812,
-      "second_half_mean": 0.2020193370165746,
-      "second_half_variance": 0.20181581679684443,
-      "second_half_fano": 0.9989925705987568
+      "second_half_mean": 0.20202209944751381,
+      "second_half_variance": 0.20181746309576662,
+      "second_half_fano": 0.9989870595726565
     },
     "mRNA_galK_count": {
       "mean": 0.1865,
@@ -158,17 +158,17 @@
       "mean": 0.518,
       "variance": 0.5069294647323661,
       "fano": 0.978628310294143,
-      "second_half_mean": 0.5281988950276243,
-      "second_half_variance": 0.5286095974838549,
-      "second_half_fano": 1.0007775526607439
+      "second_half_mean": 0.5281933701657459,
+      "second_half_variance": 0.5286154339213323,
+      "second_half_fano": 1.000799070528761
     },
     "mRNA_gyrA_count": {
       "mean": 0.849,
       "variance": 0.836617308654327,
       "fano": 0.9854149689685832,
-      "second_half_mean": 0.838475138121547,
-      "second_half_variance": 0.83737612058664,
-      "second_half_fano": 0.9986892664016621
+      "second_half_mean": 0.8384723756906077,
+      "second_half_variance": 0.837355891104,
+      "second_half_fano": 0.9986684300890794
     },
     "mRNA_rbsR_count": {
       "mean": 0.053,
@@ -182,9 +182,9 @@
       "mean": 0.1035,
       "variance": 0.10083816908454225,
       "fano": 0.97428182690379,
-      "second_half_mean": 0.10262430939226519,
-      "second_half_variance": 0.1027724024267397,
-      "second_half_fano": 1.0014430599859965
+      "second_half_mean": 0.10262154696132597,
+      "second_half_variance": 0.10277020696723943,
+      "second_half_fano": 1.0014486237083278
     },
     "mRNA_malK_count": {
       "mean": 0.041,
@@ -214,8 +214,8 @@
   "Y_on_threshold": 115.5182435727165,
   "fraction_ON": 0.67,
   "bimodality_Y": {
-    "sarle_bc": 0.8807012730721757,
-    "dip": 0.05877147103192968,
+    "sarle_bc": 0.8885533383012941,
+    "dip": 0.057936408141075535,
     "dip_p": 0.0
   },
   "perturbation": {
@@ -229,6 +229,10 @@
     "dt_min": 5.0,
     "n_cells": 2000,
     "seed": 7,
-    "kind": "InducerLevelChange"
+    "kind": "InducerLevelChange",
+    "IPTG_uM": 0.0,
+    "carbon_source": "",
+    "deleted_genes": [],
+    "description": ""
   }
 }

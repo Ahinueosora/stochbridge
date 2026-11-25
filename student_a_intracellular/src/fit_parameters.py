@@ -42,9 +42,9 @@ def load_precise1k(root: Path):
     df["gat"] = df[["gatY", "gatZ", "gatA"]].mean(axis=1)
     df["Crp1"], df["Crp2"] = A.loc["Crp-1"], A.loc["Crp-2"]
     df = df.join(md[["project", "condition", "Strain", "Strain Description", "Carbon Source (g/L)", "Evolved Sample"]])
-    sd = df["Strain Description"].astype(str)
+    sd = df["Strain Description"].fillna("nan").astype(str)
     wt = ~sd.str.contains("crp|cya|lac|gat|ptsG|ptsH|ptsI|crr", case=False)
-    wt &= df["Evolved Sample"].astype(str).str.lower() != "yes"
+    wt &= df["Evolved Sample"].fillna("nan").astype(str).str.lower() != "yes"
     # Lac-intact background only: BW25113 carries lacZ4787 deletion (+ lacI^q) and DGF-298 has
     # lost the whole lac region; both bias uninduced lac downward. Other strains (GMOS, W3110)
     # are lac-intact but heterogeneous, so the reference is MG1655 only.
@@ -66,7 +66,7 @@ def load_k12_srna(root: Path):
     out = pd.DataFrame({k: tpm.loc[v] for k, v in GENES.items()})
     out["gat"] = out[["gatY", "gatZ", "gatA"]].mean(axis=1)
     out = out.join(s[["condition", "Strain Description", "Supplement"]])
-    out["iptg"] = out.Supplement.astype(str).str.contains("IPTG")
+    out["iptg"] = out.Supplement.fillna("nan").astype(str).str.contains("IPTG")
     return out
 
 
@@ -94,7 +94,7 @@ def rho_from_rnaseq(p1k, k12, n_boot=5000, seed=1):
 
 def crp_scaling(p1k):
     """Glucose effect on CRP activity and on basal lac (PRECISE-1K, WT-like strains)."""
-    cs = p1k["Carbon Source (g/L)"].astype(str)
+    cs = p1k["Carbon Source (g/L)"].fillna("nan").astype(str)
     glc, other = p1k[cs.str.startswith("glucose")], p1k[~cs.str.startswith("glucose") & (cs != "nan")]
     res = {}
     for k in ["gat", "lacY", "lacZ"]:

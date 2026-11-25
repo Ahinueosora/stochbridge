@@ -1,5 +1,8 @@
-# Data (large, and precise1k is itself a git repo — never track it)
-student_a_intracellular/data/
+# Data: PRECISE-1K is large and is fetched by student_a_intracellular/get_data.py (never track it).
+# The small PETRI-seq files in data/scrnaseq/ ARE tracked so A5 runs without a download.
+student_a_intracellular/data/*
+!student_a_intracellular/data/scrnaseq/
+!student_a_intracellular/data/curated/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -8,4 +11,5 @@ student_a_intracellular/data/
 # Python
 __pycache__/
 *.pyc
+.venv/
 .DS_Store

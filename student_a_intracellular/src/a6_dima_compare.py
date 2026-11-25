@@ -125,7 +125,7 @@ EXCLUDE_SYSTEMS = ("Genetic Alterations", "ALE Effects", "Technical")   # strain
 
 def build_panel(kb, circ_b):
     P = Panel(kb, sorted(circ_b), thresholds(), min_fidelity=0.5)
-    sysc = kb.imodulon_table["system_category"].astype(str)
+    sysc = kb.imodulon_table["system_category"].fillna("nan").astype(str)
     P.readable = [im for im in P.readable if not sysc.get(im, "").startswith(EXCLUDE_SYSTEMS)]
     return P
 

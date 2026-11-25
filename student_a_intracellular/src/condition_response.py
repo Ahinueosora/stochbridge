@@ -61,7 +61,7 @@ def get_condition_response(ica_data, imodulon_x, imodulon_y, category_fn=None,
 
     Parameters
     ----------
-    ica_data : pymodulon.core.IcaData
+    ica_data : imodulon_loader.IcaData
     imodulon_x, imodulon_y : str
         Names of the two iModulons to compare, e.g. "Crp-1", "Crp-2".
     category_fn : callable, optional

@@ -61,27 +61,27 @@
       <parameter id="d_y" value="0.00770163533955495" constant="true"/>
       <parameter id="k_up_eff" value="9.36361403636799" constant="true"/>
       <parameter id="d_x" value="0.5" constant="true"/>
-      <parameter id="k_hflC" value="0.406889626466833" constant="true"/>
-      <parameter id="k_tdcB" value="0.00148588136672382" constant="true"/>
-      <parameter id="k_uhpT" value="0.00710703702049964" constant="true"/>
-      <parameter id="k_cas3" value="0.00461911488890915" constant="true"/>
-      <parameter id="k_rbsC" value="0.0597272383182184" constant="true"/>
-      <parameter id="k_yahN" value="0.00876480636681782" constant="true"/>
-      <parameter id="k_fecE" value="0.0138732187051377" constant="true"/>
-      <parameter id="k_mhpF" value="0.00552415607046417" constant="true"/>
-      <parameter id="k_flhC" value="0.0554212431703957" constant="true"/>
-      <parameter id="k_flhD" value="0.0786818083008629" constant="true"/>
-      <parameter id="k_araJ" value="0.0181247949894844" constant="true"/>
-      <parameter id="k_rbsA" value="0.0464497257336447" constant="true"/>
-      <parameter id="k_nadC" value="0.0933429070771288" constant="true"/>
-      <parameter id="k_galK" value="0.0909009157942463" constant="true"/>
-      <parameter id="k_rbsB" value="0.243376779925435" constant="true"/>
-      <parameter id="k_gyrA" value="0.384596602207999" constant="true"/>
-      <parameter id="k_rbsR" value="0.0219024188353095" constant="true"/>
-      <parameter id="k_lamB" value="0.0476520897939219" constant="true"/>
-      <parameter id="k_malK" value="0.0195164742194078" constant="true"/>
-      <parameter id="k_preA" value="0.0084544381199612" constant="true"/>
-      <parameter id="k_idnO" value="0.00808145718576196" constant="true"/>
+      <parameter id="k_hflC" value="0.406889625254347" constant="true"/>
+      <parameter id="k_tdcB" value="0.00148588138217007" constant="true"/>
+      <parameter id="k_uhpT" value="0.00710703702869625" constant="true"/>
+      <parameter id="k_cas3" value="0.00461911488728814" constant="true"/>
+      <parameter id="k_rbsC" value="0.0597272384285431" constant="true"/>
+      <parameter id="k_yahN" value="0.00876480639219354" constant="true"/>
+      <parameter id="k_fecE" value="0.0138732188552257" constant="true"/>
+      <parameter id="k_mhpF" value="0.00552415605051087" constant="true"/>
+      <parameter id="k_flhC" value="0.0554212433367064" constant="true"/>
+      <parameter id="k_flhD" value="0.0786818082567502" constant="true"/>
+      <parameter id="k_araJ" value="0.0181248403475015" constant="true"/>
+      <parameter id="k_rbsA" value="0.0464497257998484" constant="true"/>
+      <parameter id="k_nadC" value="0.0933429075413983" constant="true"/>
+      <parameter id="k_galK" value="0.0909009159375388" constant="true"/>
+      <parameter id="k_rbsB" value="0.243376778698595" constant="true"/>
+      <parameter id="k_gyrA" value="0.384596595264919" constant="true"/>
+      <parameter id="k_rbsR" value="0.0219024188817879" constant="true"/>
+      <parameter id="k_lamB" value="0.0476520890825927" constant="true"/>
+      <parameter id="k_malK" value="0.0195164741298756" constant="true"/>
+      <parameter id="k_preA" value="0.00845443812185251" constant="true"/>
+      <parameter id="k_idnO" value="0.00808145720953381" constant="true"/>
       <parameter id="TMG_ext_uM" value="15" constant="true"/>
       <parameter id="glucose_uM" value="0" constant="true"/>
     </listOfParameters>

@@ -1,18 +1,39 @@
 """
-Loads PRECISE-1K M, A, sample_table, and TRN matrices, and builds a pymodulon
-IcaData object. Handles known data-quirks in the SBRG/precise1k repo:
+Loads PRECISE-1K M, A, sample_table, and TRN matrices into a small IcaData container.
+Handles known data-quirks in the SBRG/precise1k repo:
 - Must use *_qc.csv files (log_tpm_qc, metadata_qc), not the raw versions,
   to match the 4257 gene x 1035 sample dimensions reported in the paper.
 - 'Superoxide' in M.csv and 'SoxS' in A.csv refer to the same iModulon
   (position 22 in both) but are named differently across files; we rename
   M's column to match A's for consistency.
+
+IcaData below holds the same matrices as pymodulon.core.IcaData and checks the same thing
+(M and A must name the same iModulons). It replaces pymodulon here because the published
+pymodulon 0.2.1 does not install or import with current pandas; A1 only needs the matrices.
+Data: run `python get_data.py` once (puts the SBRG/precise1k files in data/precise1k/precise1k/).
 """
 
-import pandas as pd
-from pymodulon.core import IcaData
+from pathlib import Path
 
-DEFAULT_BASE = "../data/precise1k/precise1k/data/precise1k"
-DEFAULT_TRN_BASE = "../data/precise1k/precise1k/data/regulation"
+import pandas as pd
+
+_DATA = Path(__file__).resolve().parents[1] / "data" / "precise1k" / "precise1k" / "data"
+DEFAULT_BASE = str(_DATA / "precise1k")
+DEFAULT_TRN_BASE = str(_DATA / "regulation")
+
+
+class IcaData:
+    """Container for an ICA decomposition: M (genes x iModulons), A (iModulons x samples), metadata, TRN."""
+
+    def __init__(self, M, A, gene_table=None, sample_table=None, trn=None):
+        if list(M.columns) != list(A.index):
+            raise ValueError("M and A matrices have different iModulon names")
+        self.M, self.A = M, A
+        self.gene_table, self.sample_table, self.trn = gene_table, sample_table, trn
+
+    @property
+    def imodulon_names(self):
+        return list(self.A.index)
 
 
 def load_precise1k_matrices(base=DEFAULT_BASE, trn_base=DEFAULT_TRN_BASE):
@@ -41,7 +62,7 @@ def build_ica_data(base=DEFAULT_BASE, trn_base=DEFAULT_TRN_BASE):
 
     Returns
     -------
-    ica_data : pymodulon.core.IcaData
+    ica_data : IcaData
     """
     M, A, sample_table, trn = load_precise1k_matrices(base, trn_base)
     ica_data = IcaData(M, A, gene_table=None, sample_table=sample_table, trn=trn)
@@ -54,7 +75,7 @@ def get_activity_by_condition(ica_data, imodulon_names):
 
     Parameters
     ----------
-    ica_data : pymodulon.core.IcaData
+    ica_data : IcaData
     imodulon_names : list of str
         e.g. ["Crp-1", "Crp-2"]
 

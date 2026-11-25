@@ -55,9 +55,9 @@ def crp_meter_p1k(root: Path):
     keep = md.Strain != "DGF-298"                      # genome-reduced strain, lacks many genes
     md, lt = md[keep], lt.loc[:, keep]
     gat = (2 ** lt.loc[GAT] - 1).mean()
-    cs = md["Carbon Source (g/L)"].astype(str)
+    cs = md["Carbon Source (g/L)"].fillna("nan").astype(str)
     ref_mask = (md.Strain == "MG1655") & ~cs.str.startswith("glucose") & (cs != "nan") \
-        & ~md["Strain Description"].astype(str).str.contains("crp|cya", case=False)
+        & ~md["Strain Description"].fillna("nan").astype(str).str.contains("crp|cya", case=False)
     ref = gat[ref_mask].median()
     return md, lt, gat / ref, ref
 

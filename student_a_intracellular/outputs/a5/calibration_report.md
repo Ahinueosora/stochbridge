@@ -35,7 +35,7 @@ Summary file: `data/scrnaseq/GSE141018/petri_2_01_summary.json`.
 
 | | Real cells | Simulated, calibrated | Simulated, A3/A4 noise |
 |---|---|---|---|
-| Split on the 17 circuit operons (PC1 AUC) | **0.81** | **0.65** | 0.69 |
+| Split on the 17 circuit operons (PC1 AUC) | **0.81** | **0.65** | 0.71 |
 
 **Partly.** The simulator produces a stationary subpopulation from the circuit genes, but it is weaker than the real one.
 
@@ -44,7 +44,7 @@ Summary file: `data/scrnaseq/GSE141018/petri_2_01_summary.json`.
   - preA and mhpF rise more in the real cells than in the model.
 - **What it misses.** Half of the real split comes from growth genes falling (fecE, gyrA, rbs, malK).
   - That biology lies outside a CRP/lac circuit, so the model cannot reproduce it.
-- **Why calibration lowers the AUC (0.69 → 0.65).** Calibration adds realistic noise. That blurs the simulated split slightly, which is the honest result.
+- **Why calibration lowers the AUC (0.71 → 0.65).** Calibration adds realistic noise. That blurs the simulated split slightly, which is the honest result.
 
 ## Fitted noise parameters (layered onto A3 in `calibrated_circuit_model.yaml`)
 

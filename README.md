@@ -59,35 +59,41 @@ stochbridge/
 └── student_b_population/      Track B (Student B), to be added
 ```
 
-## Quick start
+## Verify the results
 
 ```bash
 git clone https://github.com/Ahinueosora/stochbridge
 cd stochbridge/student_a_intracellular
-pip install -r requirements.txt
-# put the PRECISE-1K data files in data/precise1k/ (see student_a_intracellular/README.md, "Data")
-pytest -q tests          # 38 tests
+python3 -m venv .venv && source .venv/bin/activate      # Python 3.11+ (tested 3.13); needs git and a C++ compiler
+pip install -r requirements.txt                         # exact versions that produced the results
+python get_data.py                                      # downloads PRECISE-1K (~240 MB, pinned version, checksums checked)
+python verify.py                                        # ~10 min: reruns A1-A2 from raw data, 38 tests, checks every headline number
+python run_all.py                                       # optional, ~25 min: regenerates every output A1 -> A6 from scratch
 ```
+
+`verify.py` prints PASS / FAIL for each check and ends with the number passed. Full instructions, expected output,
+the command for each task and the data sources are in [`student_a_intracellular/README.md`](student_a_intracellular/README.md).
 
 Using the two modules:
 
 ```python
+# run from student_a_intracellular/src/
 import yaml
 from ssa_simulator import StochasticCircuit
 from perturbation import GeneKnockout, InducerLevelChange
 
-model = yaml.safe_load(open("outputs/a5/calibrated_circuit_model.yaml"))
-traj = StochasticCircuit(GeneKnockout("crp").apply(model)).run(seed=1)   # crp deletion
+model = yaml.safe_load(open("../outputs/a5/calibrated_circuit_model.yaml"))
+traj = StochasticCircuit(GeneKnockout("crp").apply(model)).run(seed=1)            # crp deletion
 traj = StochasticCircuit(model).run(InducerLevelChange(30, n_cells=1000, seed=1))  # 30 µM TMG
 traj.to_parquet("traj.parquet")
 ```
 
-Run Python from `student_a_intracellular/src/` (or add it to `PYTHONPATH`).
-
 ## Data
 
-Raw data is not stored in git. PRECISE-1K and the public K-12 dataset come from [SBRG/precise1k](https://github.com/SBRG/precise1k)
-(archive: doi:10.5281/zenodo.8284223). PETRI-seq counts come from GEO [GSE141018](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE141018) (sample GSM4489500).
+PRECISE-1K and the public K-12 dataset come from [SBRG/precise1k](https://github.com/SBRG/precise1k) (commit 4829b83;
+archive doi:10.5281/zenodo.8284223) and are downloaded by `get_data.py`. PETRI-seq counts (GEO
+[GSE141018](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE141018), sample GSM4489500) and the curated RegulonDB
+evidence are small and are in the repository under `student_a_intracellular/data/`.
 
 ## Main references
 

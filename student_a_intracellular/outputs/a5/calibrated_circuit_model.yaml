@@ -106,11 +106,11 @@ rate_constants_by_condition:
     k_unrep: 0.1
     x0: 500.0
     n: 2.0
-    k_tx_eff: 0.1177971135768554
+    k_tx_eff: 0.11779711361199575
     d_m: 0.46
     k_tl: 9.2
     d_y: 0.007701635339554948
-    k_up_eff: 6.110505240421007
+    k_up_eff: 6.11050523827944
     d_x: 0.5
   TMG15_G0_crp_knockout:
     k_rep_max: 2.1393927330929734
@@ -153,9 +153,9 @@ parameters:
   uptake_h: 0.6
   uptake_K: 680.0
   crp_min: 0.2
-  crp_K: 3.888148753814075
+  crp_K: 3.8881488301376312
   excl_min: 0.65
-  excl_K: 7.425548389869606
+  excl_K: 7.425547726666778
 parameter_sources:
   rho: Ozbudak 2004 GFP (170); free fit to Fig 2c 173; PRECISE-1K lacY RNA 160
   n: assumption (gives the cusp at rho = 9)
@@ -173,8 +173,8 @@ derived:
     crp_knockout: 22.393927330929735
 validation:
   ozbudak_fig2c:
-    switch_on_rmse_log10_fitted: 0.03745316059806327
-    switch_off_rmse_log10_heldout: 0.09016566578841494
+    switch_on_rmse_log10_fitted: 0.037453160598093345
+    switch_off_rmse_log10_heldout: 0.09016566633879144
   cusp_rho: 9.01
   ode_sweep_G0:
     switch_off_ode_20h: 2.94130001963882
@@ -185,22 +185,22 @@ validation:
   ode_sweep_G1000:
     switch_off_ode_20h: 84.0851108639069
     switch_on_ode_20h: 1141.0465725443305
-    switch_off_analytic: 119.13005926957842
-    switch_on_analytic: 870.7379391425441
-    on_off_fold_expression: 168.52933784604608
+    switch_off_analytic: 119.13005927993491
+    switch_on_analytic: 870.7379392182409
+    on_off_fold_expression: 168.5293378432193
   strain_rho170:
     hysteretic: true
-    hill_coefficient_up: 29.876146680803476
+    hill_coefficient_up: 29.8762219510394
   strain_rho50:
     hysteretic: true
-    hill_coefficient_up: 20.222578919901895
+    hill_coefficient_up: 20.222581967284313
   strain_rho5:
     hysteretic: false
-    hill_coefficient_up: 2.705221918195714
+    hill_coefficient_up: 2.7052221936672676
   crp_knockout:
     rho_eff: 22.393927330929735
     crp_free_basal_fraction: 0.004166666666666667
-    max_LacY_any_TMG_up_to_2000uM: 0.29150879399078466
+    max_LacY_any_TMG_up_to_2000uM: 0.2915087939908082
     wt_max_LacY: 1505.9474986261143
     thresholds_tmg_uM:
     - 6548.442227965471
@@ -2005,214 +2005,214 @@ crp_outputs:
   tpm_to_molecules: 0.00444
   targets:
     hflC:
-      basal_TPM: 9.45756828637194e-07
-      amplitude_TPM: 391.5332155521728
-      K_crp: 6.049480304771749
-      hill_n: 1.5418285477236984
+      basal_TPM: 9.39927172742105e-07
+      amplitude_TPM: 391.5332180116042
+      K_crp: 6.049480266403212
+      hill_n: 1.5418284656166317
       direction: repressed
-      R2_all_samples: 0.2963115084410377
+      R2_all_samples: 0.2963115084410148
       a2_ko_effect_log2: 0.59
-      pred_ko_effect_log2: 0.2575964667827968
+      pred_ko_effect_log2: 0.2575964891192885
       fit_quality: ok
     tdcB:
-      basal_TPM: 0.6981889063072119
-      amplitude_TPM: 11.72418710383609
-      K_crp: 2.0335451565239246
+      basal_TPM: 0.6981889023976974
+      amplitude_TPM: 11.724186822216614
+      K_crp: 2.033545128726558
       hill_n: 4.0
       direction: activated
-      R2_all_samples: 0.3175750549620966
+      R2_all_samples: 0.317575054961326
       a2_ko_effect_log2: -1.22
-      pred_ko_effect_log2: -2.176146343648167
+      pred_ko_effect_log2: -2.1761463479365357
       fit_quality: ok
     uhpT:
-      basal_TPM: 5.987982295372012
-      amplitude_TPM: 17.356929361525793
-      K_crp: 2.4764197956544804
+      basal_TPM: 5.987982262583494
+      amplitude_TPM: 17.356929009888773
+      K_crp: 2.476419725926148
       hill_n: 3.999999999999969
       direction: activated
-      R2_all_samples: 0.0925804546276635
+      R2_all_samples: 0.0925804546286461
       a2_ko_effect_log2: -2.89
-      pred_ko_effect_log2: -0.8748721747999273
+      pred_ko_effect_log2: -0.8748722108360223
       fit_quality: ok
     cas3:
-      basal_TPM: 3.3246602669875176
-      amplitude_TPM: 4.734489903165961
-      K_crp: 1.5606917028219889
-      hill_n: 3.383742973818881
+      basal_TPM: 3.324660270291126
+      amplitude_TPM: 4.734489897169323
+      K_crp: 1.560691705417779
+      hill_n: 3.383742972940802
       direction: activated
-      R2_all_samples: 0.2177372144438484
+      R2_all_samples: 0.2177372144438702
       a2_ko_effect_log2: -0.85
-      pred_ko_effect_log2: -0.8338384234528329
+      pred_ko_effect_log2: -0.8338384211532701
       fit_quality: ok
     rbsC:
-      basal_TPM: 36.507457660749445
-      amplitude_TPM: 100.09491316669676
-      K_crp: 1.8154575805636437
-      hill_n: 2.5913169343712736
+      basal_TPM: 36.507457510010326
+      amplitude_TPM: 100.09491408574333
+      K_crp: 1.815457599549485
+      hill_n: 2.5913168786202823
       direction: activated
-      R2_all_samples: 0.3116999632370366
+      R2_all_samples: 0.3116999632368834
       a2_ko_effect_log2: -2.86
-      pred_ko_effect_log2: -1.3519992569700383
+      pred_ko_effect_log2: -1.3519992564354126
       fit_quality: ok
     yahN:
-      basal_TPM: 2.0711893451405388
-      amplitude_TPM: 19.277670065197118
-      K_crp: 1.3309091658450054
-      hill_n: 2.8911656963517127
+      basal_TPM: 2.0711893767079106
+      amplitude_TPM: 19.277669886768813
+      K_crp: 1.3309091507199209
+      hill_n: 2.891165772098762
       direction: activated
-      R2_all_samples: 0.4800525762663507
+      R2_all_samples: 0.480052576266615
       a2_ko_effect_log2: -1.69
-      pred_ko_effect_log2: -2.551754745335363
+      pred_ko_effect_log2: -2.5517547388730386
       fit_quality: ok
     fecE:
-      basal_TPM: 7.451452765055316
-      amplitude_TPM: 17.941524951811378
-      K_crp: 0.1590164398806355
+      basal_TPM: 7.4514512974415075
+      amplitude_TPM: 17.941520902908344
+      K_crp: 0.1590166797384651
       hill_n: 0.5000000000000001
       direction: repressed
-      R2_all_samples: 0.054322410033234
+      R2_all_samples: 0.0543224100309801
       a2_ko_effect_log2: 1.57
-      pred_ko_effect_log2: 0.7641522408567689
+      pred_ko_effect_log2: 0.764152148195413
       fit_quality: weak
     mhpF:
-      basal_TPM: 5.003764556579863
-      amplitude_TPM: 1.059885485800438e-09
-      K_crp: 0.0010000000005227
-      hill_n: 3.999999999127513
+      basal_TPM: 5.00376453850622
+      amplitude_TPM: 1.0624319324694168e-09
+      K_crp: 0.0010000000005146
+      hill_n: 3.999999999155095
       direction: repressed
       R2_all_samples: -6.661338147750939e-16
       a2_ko_effect_log2: 0.87
-      pred_ko_effect_log2: 4.440892098500626e-16
+      pred_ko_effect_log2: 0.0
       fit_quality: weak
     flhC:
-      basal_TPM: 10.309892686132589
-      amplitude_TPM: 39.9131575721691
-      K_crp: 0.1543633081186747
+      basal_TPM: 10.309892829367053
+      amplitude_TPM: 39.91315757983032
+      K_crp: 0.1543633085407357
       hill_n: 3.999999999998976
       direction: activated
-      R2_all_samples: 0.1147008125856161
+      R2_all_samples: 0.114700812585618
       a2_ko_effect_log2: -3.91
-      pred_ko_effect_log2: -2.171705535141162
+      pred_ko_effect_log2: -2.1717055212938545
       fit_quality: ok
     flhD:
-      basal_TPM: 13.968783773494344
-      amplitude_TPM: 57.33934354405414
-      K_crp: 0.1608670649933994
-      hill_n: 3.9999999997017417
+      basal_TPM: 13.968783689924384
+      amplitude_TPM: 57.33934358725376
+      K_crp: 0.1608670645297124
+      hill_n: 3.9999999997013145
       direction: activated
-      R2_all_samples: 0.1152433491692946
+      R2_all_samples: 0.1152433491692799
       a2_ko_effect_log2: -4.04
-      pred_ko_effect_log2: -2.265282365229983
+      pred_ko_effect_log2: -2.265282372357139
       fit_quality: ok
     araJ:
-      basal_TPM: 14.989806417361184
-      amplitude_TPM: 1.5418470978989476
-      K_crp: 1.8804604769568636
-      hill_n: 3.99862850526233
+      basal_TPM: 14.989824618596431
+      amplitude_TPM: 1.5418335214520749
+      K_crp: 1.8804174065629515
+      hill_n: 3.999304281031635
       direction: repressed
-      R2_all_samples: 0.0069561506671502
+      R2_all_samples: 0.0069572223109271
       a2_ko_effect_log2: 0.78
-      pred_ko_effect_log2: 0.0777204219696727
+      pred_ko_effect_log2: 0.0777243810147583
       fit_quality: weak
     rbsA:
-      basal_TPM: 14.461981217700586
-      amplitude_TPM: 47.49539686573412
-      K_crp: 0.6986655982900133
-      hill_n: 0.9157414418328814
+      basal_TPM: 14.46198050501772
+      amplitude_TPM: 47.495396728937024
+      K_crp: 0.6986655398343127
+      hill_n: 0.915741433755397
       direction: activated
-      R2_all_samples: 0.1162327167475602
+      R2_all_samples: 0.1162327167480916
       a2_ko_effect_log2: -3.92
-      pred_ko_effect_log2: -1.4789493196672154
+      pred_ko_effect_log2: -1.478949352720767
       fit_quality: ok
     nadC:
-      basal_TPM: 54.19308121287336
-      amplitude_TPM: 33.50772016113914
-      K_crp: 2.80905647290314
-      hill_n: 2.193230035890465
+      basal_TPM: 54.19308232638719
+      amplitude_TPM: 33.50771871024418
+      K_crp: 2.809056376378102
+      hill_n: 2.1932303196324665
       direction: repressed
-      R2_all_samples: 0.1240679966508409
+      R2_all_samples: 0.1240679966524243
       a2_ko_effect_log2: 0.34
-      pred_ko_effect_log2: 0.2017482256178988
+      pred_ko_effect_log2: 0.2017482163976334
       fit_quality: ok
     galK:
-      basal_TPM: 51.79973173489991
-      amplitude_TPM: 64.69660754904329
-      K_crp: 1.0509469253814108
-      hill_n: 2.254695895434835
+      basal_TPM: 51.79973178554607
+      amplitude_TPM: 64.69660689346817
+      K_crp: 1.0509469134592888
+      hill_n: 2.2546959251519185
       direction: activated
-      R2_all_samples: 0.2207667272693317
+      R2_all_samples: 0.2207667272694794
       a2_ko_effect_log2: -0.81
-      pred_ko_effect_log2: -1.0016352392675063
+      pred_ko_effect_log2: -1.0016352371357709
       fit_quality: ok
     rbsB:
-      basal_TPM: 147.5057950659233
-      amplitude_TPM: 567.1124580632495
-      K_crp: 1.7998850558107078
-      hill_n: 3.255244631488506
+      basal_TPM: 147.50579541901809
+      amplitude_TPM: 567.1124583501842
+      K_crp: 1.7998850624876424
+      hill_n: 3.255244651129121
       direction: activated
-      R2_all_samples: 0.4275131002519755
+      R2_all_samples: 0.4275131002521916
       a2_ko_effect_log2: -3.63
-      pred_ko_effect_log2: -1.7277850668302746
+      pred_ko_effect_log2: -1.7277850612128385
       fit_quality: ok
     gyrA:
-      basal_TPM: 244.66523019291373
-      amplitude_TPM: 138.6503529020435
-      K_crp: 1.41906571087794
-      hill_n: 3.10750192268224
+      basal_TPM: 244.6652239380968
+      amplitude_TPM: 138.65036341155914
+      K_crp: 1.4190656520213325
+      hill_n: 3.107501428016948
       direction: repressed
-      R2_all_samples: 0.2035421891609055
+      R2_all_samples: 0.2035421891615159
       a2_ko_effect_log2: 0.44
-      pred_ko_effect_log2: 0.4626757223085711
+      pred_ko_effect_log2: 0.4626757514620969
       fit_quality: ok
     rbsR:
-      basal_TPM: 15.291003868664076
-      amplitude_TPM: 13.97357573694569
-      K_crp: 4.294713375759778
-      hill_n: 0.5000000098899515
+      basal_TPM: 15.291003694412495
+      amplitude_TPM: 13.97357576490178
+      K_crp: 4.294712795786837
+      hill_n: 0.5000000098656175
       direction: activated
-      R2_all_samples: 0.0248156775784693
+      R2_all_samples: 0.0248156775784942
       a2_ko_effect_log2: -1.75
-      pred_ko_effect_log2: -0.342656236003565
+      pred_ko_effect_log2: -0.3426562489827702
       fit_quality: weak
     lamB:
-      basal_TPM: 11.98613228349301
-      amplitude_TPM: 2813.7149367921866
-      K_crp: 7.083604090190451
-      hill_n: 2.2941453188958136
+      basal_TPM: 11.98613260499193
+      amplitude_TPM: 2813.71456556732
+      K_crp: 7.083603352227868
+      hill_n: 2.2941453888295453
       direction: activated
-      R2_all_samples: 0.5649141349579766
+      R2_all_samples: 0.5649141349583456
       a2_ko_effect_log2: -5.88
-      pred_ko_effect_log2: -3.734851292172124
+      pred_ko_effect_log2: -3.734851276079582
       fit_quality: ok
     malK:
-      basal_TPM: 3.879193589592678
-      amplitude_TPM: 577.7631122770989
-      K_crp: 5.690680919535862
-      hill_n: 2.133855291959602
+      basal_TPM: 3.8791934913585417
+      amplitude_TPM: 577.763247003605
+      K_crp: 5.690681961501747
+      hill_n: 2.1338552039176006
       direction: activated
-      R2_all_samples: 0.4862325025968079
+      R2_all_samples: 0.486232502596451
       a2_ko_effect_log2: -6.17
-      pred_ko_effect_log2: -3.740495956836512
+      pred_ko_effect_log2: -3.740495934629108
       fit_quality: ok
     preA:
-      basal_TPM: 3.953830016168825
-      amplitude_TPM: 25.257338906288197
-      K_crp: 1.5816255044028948
-      hill_n: 3.841312935243428
+      basal_TPM: 3.953830013767594
+      amplitude_TPM: 25.25733900754904
+      K_crp: 1.581625510507367
+      hill_n: 3.841312910312961
       direction: activated
-      R2_all_samples: 0.4716948323294923
+      R2_all_samples: 0.4716948323293738
       a2_ko_effect_log2: -1.19
-      pred_ko_effect_log2: -2.23023329546098
+      pred_ko_effect_log2: -2.2302332943779173
       fit_quality: ok
     idnO:
-      basal_TPM: 2.115918422469317
-      amplitude_TPM: 17.43056058962768
-      K_crp: 1.856512936662777
-      hill_n: 1.3805024387877325
+      basal_TPM: 2.1159184267893565
+      amplitude_TPM: 17.43056028354305
+      K_crp: 1.8565128848299763
+      hill_n: 1.3805024529993937
       direction: activated
-      R2_all_samples: 0.4186222810772846
+      R2_all_samples: 0.4186222810772845
       a2_ko_effect_log2: -1.32
-      pred_ko_effect_log2: -1.975859289526808
+      pred_ko_effect_log2: -1.9758592899757508
       fit_quality: ok
 files:
   sbml: 'circuit_model.xml (TMG 15 uM, glucose 0, uninduced start; other conditions: build_a3_v3.write_sbml(path, p, T, G, outputs,
@@ -2226,7 +2226,7 @@ noise:
   uncertainty:
     output_extrinsic_cv2_se: 0.04223531735855734
     output_burst_b_upper95: 0.5417130886857928
-    crp_extrinsic_sigma_upper95: 1.8315949709361676
+    crp_extrinsic_sigma_upper95: 1.8315951167965925
     lac_protein_burst_se: 0.5
   sources:
     output_extrinsic_cv2: 'PETRI-seq exp 2.01: slope of Fano-1 vs mean after capture (method of moments; ABC check)'

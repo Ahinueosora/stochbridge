@@ -55,11 +55,11 @@ def load():
 
 def design(md):
     s = md[md.project == "crp"].copy()
-    desc = s["Strain Description"].astype(str)
+    desc = s["Strain Description"].fillna("nan").astype(str)
     s["KO"] = desc.str.contains("del_crp").astype(int)
     s["DD"] = desc.str.contains("crp_delAr").astype(int)
     s["D"] = s.KO | s.DD
-    s["carbon"] = s["Carbon Source (g/L)"].astype(str).str.extract(r"^([a-z]+)")[0]
+    s["carbon"] = s["Carbon Source (g/L)"].fillna("nan").astype(str).str.extract(r"^([a-z]+)")[0]
     return s
 
 

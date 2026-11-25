@@ -1,5 +1,6 @@
 """A4 check: fast mode (quasi-steady internal TMG) vs exact SSA. Same perturbations, independent seeds.
-Usage: python src/a4_validate_modes.py [n_cells]"""
+Usage: python src/a4_validate_modes.py [n_cells]   (the report uses 400; exact runs are cached in outputs/a4/exact_*.parquet,
+delete them to recompute, about 20 min)"""
 import json, sys, time
 from pathlib import Path
 import numpy as np

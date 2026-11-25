@@ -1,12 +1,19 @@
-numpy>=2.0
-pandas>=2.2
-scipy>=1.13
-matplotlib>=3.8
-pyyaml>=6.0
+# Exact versions that produced the results in outputs/ (Python 3.13).
+# Newer versions may run but can change numbers slightly (e.g. pandas 3.1 changed how missing values become text).
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+matplotlib==3.11.2
+PyYAML==6.0.3
 gillespy2==1.8.3
-pyarrow>=15
-python-libsbml>=5.20
-nbformat>=5.9
-nbconvert>=7
-pytest>=8
-diptest>=0.8
+pyarrow==26.0.1
+python-libsbml==5.21.2
+copasi-basico==0.92
+scikit-learn==1.9.1
+statsmodels==0.15.0
+diptest==0.12.0
+openpyxl==3.1.5
+pytest==9.1.1
+nbformat
+nbconvert==7.17.2
+ipykernel==7.4.0

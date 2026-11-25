@@ -38,10 +38,10 @@ Doses scaled to our memory zone (ODE 4.1–30 µM; Vilar used 7 µM sub-optimal,
 |---|---|---|
 | 3a sub-optimal dose: cells switch abruptly at random times; smooth average; population curve below it | 37.3 µM, 2,000 cells, 30 h | One cell goes 10% → 90% ON in **300 min** (median); the 2,000-cell average takes **1,256 min**. Switch times spread from 380 to 1,165 min (IQR). 67.5% switched by 30 h. Population curve (ON cells grow 15% slower, assumed) ends at 557 vs average 937 LacY |
 | 3b maintenance dose: no switching from either history | 11 µM, 1,000 cells per history, 30 h | Cells starting ON: **0 / 1,000 flip OFF** (as Vilar). Cells starting OFF: **17.4% flip ON** within 30 h (Vilar: none) |
-| 3c high dose: everyone switches; average ≈ population | 500 µM, 2,000 cells | 99.6% ON by 30 h, median switch 90 min; average 1,497 vs population 1,453 |
+| 3c high dose: everyone switches; average ≈ population | 500 µM, 2,000 cells | 99.4% ON by 30 h, median switch 90 min; average 1,492 vs population 1,439 |
 | molecular level | exact SSA, one cell at 40 µM | repressor falls off → mRNA bursts → LacY → more TMG inside → promoter stays free (`fig_a4_molecular.png`) |
 
-**Bimodal, not just noisy** (`fig_a4_bimodality.png`): at 37.3 µM the LacY histogram has two peaks from 4 h on (dip test p < 0.001 at 4, 8, 12, 20, 30 h; Sarle coefficient 0.64–0.88). An `OperatorDecoy(rho = 5)` strain at a dose that gives the same 30 h average (0.18 µM, mean 904 vs 937) has one peak at every time (dip p 0.91–1.00; Sarle 0.37–0.50). The dip test is run on de-quantised counts; without that, the spikes at 0, 1, 2 molecules read as extra peaks.
+**Bimodal, not just noisy** (`fig_a4_bimodality.png`): at 37.3 µM the LacY histogram has two peaks from 8 h on (dip test p < 0.001 at 8, 12, 20 and 30 h; Sarle coefficient 0.75–0.89). At 4 h only 10% of cells are ON and the test is not yet significant (p = 0.91). An `OperatorDecoy(rho = 5)` strain at a dose that gives the same 30 h average (0.18 µM, mean 899 vs 937) has one peak at every time (dip p 0.77–0.99; Sarle 0.38–0.56). The dip test is run on de-quantised counts; without that, the spikes at 0, 1, 2 molecules read as extra peaks.
 
 ## 3. SSA hysteresis (1,000 cells per dose and history, 20 h)
 

@@ -1,9 +1,9 @@
 {
   "version": "A3 v3 (network v3: A2 + RegulonDB 14.5.1 + Kuhlman 2007 + Ozbudak 2004)",
-  "rho_free_fit_to_fig2c": 173.28826300037088,
+  "rho_free_fit_to_fig2c": 173.28826314440272,
   "ozbudak_fig2c": {
-    "switch_on_rmse_log10_fitted": 0.03745316059806327,
-    "switch_off_rmse_log10_heldout": 0.09016566578841494
+    "switch_on_rmse_log10_fitted": 0.037453160598093345,
+    "switch_off_rmse_log10_heldout": 0.09016566633879144
   },
   "ode_sweep_G0": {
     "switch_off_ode_20h": 2.94130001963882,
@@ -15,27 +15,27 @@
   "ode_sweep_G1000": {
     "switch_off_ode_20h": 84.0851108639069,
     "switch_on_ode_20h": 1141.0465725443305,
-    "switch_off_analytic": 119.13005926957842,
-    "switch_on_analytic": 870.7379391425441,
-    "on_off_fold_expression": 168.52933784604608
+    "switch_off_analytic": 119.13005927993491,
+    "switch_on_analytic": 870.7379392182409,
+    "on_off_fold_expression": 168.5293378432193
   },
   "cusp_rho": 9.01,
   "strain_rho170": {
     "hysteretic": true,
-    "hill_coefficient_up": 29.876146680803476
+    "hill_coefficient_up": 29.8762219510394
   },
   "strain_rho50": {
     "hysteretic": true,
-    "hill_coefficient_up": 20.222578919901895
+    "hill_coefficient_up": 20.222581967284313
   },
   "strain_rho5": {
     "hysteretic": false,
-    "hill_coefficient_up": 2.705221918195714
+    "hill_coefficient_up": 2.7052221936672676
   },
   "crp_knockout": {
     "rho_eff": 22.393927330929735,
     "crp_free_basal_fraction": 0.004166666666666667,
-    "max_LacY_any_TMG_up_to_2000uM": 0.29150879399078466,
+    "max_LacY_any_TMG_up_to_2000uM": 0.2915087939908082,
     "wt_max_LacY": 1505.9474986261143,
     "thresholds_tmg_uM": [
       6548.442227965471,
@@ -57,9 +57,9 @@
       "solver": "SSACSolver (discrete)",
       "ssa_20_cells_LacY_at_20h": {
         "min": 0,
-        "median": 8.5,
-        "max": 982,
-        "n_ON_over_300": 4
+        "median": 7.0,
+        "max": 1486,
+        "n_ON_over_300": 5
       }
     },
     "copasi": {

@@ -39,9 +39,9 @@ def refit(exclude):
     keep = (md.Strain != "DGF-298") & ~md.index.isin(exclude)
     md, lt = md[keep], lt.loc[:, keep]
     gat = (2 ** lt.loc[GAT] - 1).mean()
-    cs = md["Carbon Source (g/L)"].astype(str)
+    cs = md["Carbon Source (g/L)"].fillna("nan").astype(str)
     ref_mask = (md.Strain == "MG1655") & ~cs.str.startswith("glucose") & (cs != "nan") \
-        & ~md["Strain Description"].astype(str).str.contains("crp|cya", case=False)
+        & ~md["Strain Description"].fillna("nan").astype(str).str.contains("crp|cya", case=False)
     c = gat / gat[ref_mask].median()
     name2b = {n: b for b, n in kb.gene_table.gene_name.items() if n in A2_EDGES}
     rows = []

@@ -142,5 +142,5 @@ The full table is `outputs/a6/perturbation_dima_comparison.csv`: 8 perturbations
 | Four PRECISE-1K pairs, CRP curves refitted without the 32 compared samples | 32 | 11 | 9 | 82% | 28% |
 
 - **Precision holds.** 73–89% of simulated calls are real changes with the right sign in every variant. Stricter thresholds lower recall, not precision.
-- **Held-out refit.** With the CRP curves refitted on the remaining 977 PRECISE-1K samples, gene-level sign agreement stays 75–94%.
+- **Held-out refit.** With the CRP curves refitted on the remaining 977 PRECISE-1K samples, gene-level sign agreement stays 88–94%.
 - **Conclusion.** The agreement does not come from fitting the comparison data.

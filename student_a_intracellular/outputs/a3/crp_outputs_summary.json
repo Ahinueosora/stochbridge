@@ -1,11 +1,11 @@
 {
   "gat_reference_TPM": 2738.810895428118,
-  "median_R2": 0.21773721444384841,
-  "ko_effect_pearson_r": 0.8481512948365224,
-  "ko_effect_p": 1.1968357240400008e-06,
-  "ko_effect_slope_pred_over_obs": 0.5013769655344791,
-  "raman_pearson_r": 0.7857149339893609,
-  "raman_p": 8.714861601750173e-19,
+  "median_R2": 0.21773721444387029,
+  "ko_effect_pearson_r": 0.8481513388087286,
+  "ko_effect_p": 1.1968326476168224e-06,
+  "ko_effect_slope_pred_over_obs": 0.5013770656616978,
+  "raman_pearson_r": 0.7857149118849884,
+  "raman_p": 8.714894272820736e-19,
   "raman_sign_agreement": 0.9166666666666666,
   "raman_crp_activity_by_condition": {
     "del_cyaA": 0.013,

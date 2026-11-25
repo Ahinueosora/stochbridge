@@ -64,7 +64,7 @@ def lac_floor_analysis(root: Path, gat_ref, out: Path):
     rpk = cnt[ok].div(L[ok], axis=0); tpm = rpk / rpk.sum() * 1e6
     df = pd.DataFrame({"lacY": tpm.loc["b0343"], "gat": tpm.loc[["b2096", "b2095", "b2094"]].mean()})
     df = df.join(md[["project", "condition", "Supplement"]])
-    ind = df[(df.project == "srna_oe") & df.Supplement.astype(str).str.contains("IPTG")]
+    ind = df[(df.project == "srna_oe") & df.Supplement.fillna("nan").astype(str).str.contains("IPTG")]
     ram = df[df.project == "raman"]
     ratio_ind = float((ind.lacY / ind.gat).median())
     lr = stats.linregress(np.log2(ind.gat), np.log2(ind.lacY))

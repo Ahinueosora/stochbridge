@@ -369,7 +369,7 @@ def main(net_csv, out="outputs/a3"):
                                    "moves far beyond any physiological dose: crp-deleted cells stay OFF (Traxler 2006)"}
 
     # ---------------- outputs
-    circuit, context = edge_tables(Path(net_csv), outputs, out / "validated_edges_external_regulondb.json")
+    circuit, context = edge_tables(Path(net_csv), outputs, Path(__file__).resolve().parents[1] / "data" / "curated" / "regulondb_crp_edges.json")
     res["edges"] = {"in_circuit_simulated": len(circuit), "context_not_simulated": len(context)}
     q = {k: (v if isinstance(v, str) or v is None or isinstance(v, bool) else float(v)) for k, v in p.items()}
 

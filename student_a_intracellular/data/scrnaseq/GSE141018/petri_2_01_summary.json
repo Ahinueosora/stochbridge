@@ -1,0 +1,68 @@
+{
+ "source": {
+  "series": "GSE141018", "sample": "GSM4489500", "experiment": "PETRI-seq Experiment 2.01 (Blattman et al. 2020 Nat Microbiol 5:1192)",
+  "file": "GSM4489500_SB442_17bp_R2_trimmed_v4_v11_threshold_0_merged_mixed_species_gene_matrix.txt.gz (3,931,412 bytes; 41,217 barcodes x 7,888 operons, tab-separated, rows = barcodes)",
+  "phase_labels": "GEO sample description: exponential wild-type E. coli in RT-plate columns 1-6, stationary in columns 7-12 (round-1 barcodes 7-12, 19-24, ...): stationary if (bc1 - 1) mod 12 >= 6",
+  "medium": "MOPS EZ Rich Defined Medium (glucose 0.2%), MG1655; exponential OD600 ~0.4, stationary OD600 ~3.9 (~5 h)",
+  "extraction": "Computed in the desktop browser from the GEO file (workspace cannot reach NCBI) with the same steps as src/load_scrnaseq.py: E. coli cells = >90% U00096 UMIs, <20 S. aureus UMIs, >=15 total; mRNA = U00096 sense operons minus rRNA, tRNA-only, ssrA, ffs, rnpB; cells >= 15 mRNA UMIs; PCA as in the paper (operons > 5 counts, normalise to cell total x geometric mean, log(x+1), z-score).",
+  "extracted_utc": "2026-11-24"
+ },
+ "cells": {"n_ecoli_cells_15umi": 12560, "n_cells_pca": 7929, "n_exp": 3430, "n_stat": 4499, "n_operons_pca": 2204, "geomean_mrna_umi": 64.9,
+           "paper": {"n_cells_pca": 8171, "median_mrna_umi_exp": 227, "median_mrna_umi_stat": 27, "pc1_tpr": 0.9997}},
+ "mrna_umi": {
+  "exp": {"mean": 222, "quantiles": {"0.05": 29, "0.1": 61, "0.25": 131, "0.5": 215, "0.75": 304, "0.9": 383, "0.95": 438},
+          "hist_log2_halfbins": [[3.5,18],[4,99],[4.5,80],[5,83],[5.5,80],[6,180],[6.5,287],[7,515],[7.5,785],[8,844],[8.5,407],[9,52]]},
+  "stat": {"mean": 32.7, "quantiles": {"0.05": 16, "0.1": 18, "0.25": 22, "0.5": 29, "0.75": 40, "0.9": 51, "0.95": 60},
+           "hist_log2_halfbins": [[3.5,117],[4,1082],[4.5,1317],[5,1235],[5.5,578],[6,149],[6.5,21]]}
+ },
+ "phase_split": {
+  "all_operons_pc1": {"auc": 1.0, "balanced_accuracy": 1.0},
+  "all_operons_pc2": {"auc": 0.517, "balanced_accuracy": 0.585},
+  "total_mrna_umi_only": {"auc": 0.946, "balanced_accuracy": 0.93},
+  "model17_operons_pc1": {"auc": 0.806, "balanced_accuracy": 0.817,
+     "loadings": {"lacZYA":-0.0856,"hflC":0.213,"tdcB":-0.0828,"uhpT":-0.00674,"cas3":-0.103,"rbs":0.333,"yahN":-0.00948,"fecE":0.631,"mhpF":-0.0983,"flhDC":0.00855,"araJ":0.115,"nadC":-0.0225,"galK":-0.128,"gyrA":0.552,"malK":0.19,"preA":-0.151,"idnO":-0.133},
+     "pc1_hist_24bins": {"range": [-6.87, 9.19],
+        "exp":  [0,0,0,0,0,0,1,4,27,1133,641,683,459,265,117,50,25,8,8,4,2,1,1,1],
+        "stat": [1,1,0,4,7,20,50,88,60,3765,323,69,13,22,22,20,13,11,6,3,1,0,0,0]}},
+  "frac_cells_all17_zero": {"exp": 0.228, "stat": 0.833},
+  "circuit21_incl_crp_cyaA_lacI_gat_pc1": {"auc": 0.809, "balanced_accuracy": 0.816}
+ },
+ "operons": {
+  "_format": "per phase: [mean UMIs/cell, variance, histogram of cells with 0,1,2,3,>=4 UMIs, mean of counts normalised to cell total x geomean]",
+  "lacZYA": {"operons": "lacZYA", "exp": [0.0131,0.0135,[3386,43,1,0,0],0.00484], "stat": [0.00622,0.00619,[4471,28,0,0,0],0.0128]},
+  "lacI":   {"operons": "mhpR-lacI", "exp": [0.0178,0.0181,[3370,59,1,0,0],0.00472], "stat": [0.00244,0.00244,[4488,11,0,0,0],0.00433]},
+  "crp":    {"operons": "crp", "exp": [0.0673,0.0692,[3210,209,11,0,0],0.0218], "stat": [0.0473,0.0482,[4293,199,7,0,0],0.0943]},
+  "cyaA":   {"operons": "cyaA", "exp": [0.0743,0.0758,[3185,237,6,2,0],0.0222], "stat": [0.0427,0.044,[4314,178,7,0,0],0.0861]},
+  "gat":    {"operons": "gatYZABCD", "exp": [0.169,0.209,[2949,401,63,16,1],0.0513], "stat": [0.0869,0.0945,[4138,335,22,4,0],0.173]},
+  "hflC":   {"operons": "yjeF-tsaE-amiB-mutL-miaA-hfq-hflXKC", "exp": [0.644,0.813,[1928,1009,336,113,44],0.194], "stat": [0.103,0.112,[4074,393,27,4,1],0.196]},
+  "tdcB":   {"operons": "tdcABCDEFG", "exp": [0.0192,0.0206,[3367,60,3,0,0],0.00579], "stat": [0.00533,0.00531,[4475,24,0,0,0],0.0117]},
+  "uhpT":   {"operons": "uhpT", "exp": [0.00204,0.00204,[3423,7,0,0,0],0.000983], "stat": [0.000889,0.000888,[4495,4,0,0,0],0.00132]},
+  "cas3":   {"operons": "cas3", "exp": [0.0035,0.00349,[3418,12,0,0,0],0.000738], "stat": [0.00333,0.00332,[4484,15,0,0,0],0.00624]},
+  "rbs":    {"operons": "rbsDACBKR", "exp": [0.152,0.176,[2980,386,57,6,1],0.0424], "stat": [0.00978,0.0106,[4457,40,2,0,0],0.017]},
+  "yahN":   {"operons": "yahN", "exp": [0.000583,0.000583,[3428,2,0,0,0],0.000137], "stat": [0.000222,0.000222,[4498,1,0,0,0],0.000277]},
+  "fecE":   {"operons": "fecABCDE", "exp": [0.84,1.27,[1759,938,419,206,108],0.242], "stat": [0.00822,0.00816,[4462,37,0,0,0],0.0152]},
+  "mhpF":   {"operons": "mhpABCDFE", "exp": [0.00554,0.00551,[3411,19,0,0,0],0.00145], "stat": [0.00667,0.00707,[4470,28,1,0,0],0.0133]},
+  "flhDC":  {"operons": "flhDC", "exp": [0.0035,0.00349,[3418,12,0,0,0],0.00094], "stat": [0.000445,0.000444,[4497,2,0,0,0],0.00141]},
+  "araJ":   {"operons": "araJ", "exp": [0.00233,0.00291,[3423,6,1,0,0],0.000542], "stat": [0,0,[4499,0,0,0,0],0]},
+  "nadC":   {"operons": "nadC", "exp": [0.0114,0.0112,[3391,39,0,0,0],0.00312], "stat": [0.00267,0.00311,[4488,10,1,0,0],0.00524]},
+  "galK":   {"operons": "galETKM", "exp": [0.0641,0.0688,[3224,193,12,1,0],0.0178], "stat": [0.0242,0.0272,[4397,96,5,1,0],0.0462]},
+  "gyrA":   {"operons": "gyrA", "exp": [0.326,0.39,[2547,696,147,33,7],0.0936], "stat": [0.00733,0.00817,[4468,29,2,0,0],0.0134]},
+  "malK":   {"operons": "malK-lamB-malM", "exp": [0.0207,0.0232,[3364,61,5,0,0],0.00547], "stat": [0.00156,0.00155,[4492,7,0,0,0],0.00309]},
+  "preA":   {"operons": "preTA", "exp": [0.00583,0.0058,[3410,20,0,0,0],0.00143], "stat": [0.008,0.00883,[4465,32,2,0,0],0.0167]},
+  "idnO":   {"operons": "idnDOTR", "exp": [0.00496,0.00552,[3414,15,1,0,0],0.00124], "stat": [0.00311,0.0031,[4485,14,0,0,0],0.00726]},
+  "ctrl_rplKAJL_rpoBC": {"operons": "rplKAJL-rpoBC", "exp": [12.0,56.6,null,null], "stat": [0.222,0.246,null,null]},
+  "ctrl_ompA": {"operons": "ompA", "exp": [2.4,4.48,null,null], "stat": [0.628,0.794,null,null]}
+ },
+ "capture_scaled_correlations": {
+  "_note": "Pearson r of counts divided by per-cell capture (cell total / phase mean), within phase",
+  "genes": ["gat","rbs","galK","crp","cyaA","hflC","gyrA","fecE","ctrl_rpl","ctrl_ompA"],
+  "exp": [[1,-0.0114,-0.00923,0.0056,-0.0117,0.0837,0.0132,-0.018,-0.0282,-0.00789],[-0.0114,1,-0.000199,-0.0102,-0.0127,-0.0185,-0.00415,-0.000878,-0.0247,0.00924],[-0.00923,-0.000199,1,-0.00256,-0.0033,-0.00413,-0.0167,-0.0299,0.0309,-0.0307],[0.0056,-0.0102,-0.00256,1,-0.0139,0.0103,0.0159,0.0882,-0.0145,-0.0096],[-0.0117,-0.0127,-0.0033,-0.0139,1,-0.0116,0.0376,0.0118,-0.0474,-0.0142],[0.0837,-0.0185,-0.00413,0.0103,-0.0116,1,-0.0346,0.00735,-0.037,-0.00284],[0.0132,-0.00415,-0.0167,0.0159,0.0376,-0.0346,1,0.023,0.0187,-0.0528],[-0.018,-0.000878,-0.0299,0.0882,0.0118,0.00735,0.023,1,-0.0312,-0.00204],[-0.0282,-0.0247,0.0309,-0.0145,-0.0474,-0.037,0.0187,-0.0312,1,-0.0437],[-0.00789,0.00924,-0.0307,-0.0096,-0.0142,-0.00284,-0.0528,-0.00204,-0.0437,1]],
+  "raw_corr_with_cell_total": {"exp": {"gat":0.202,"rbs":0.232,"galK":0.148,"crp":0.118,"cyaA":0.149,"hflC":0.364,"gyrA":0.315,"fecE":0.401,"ctrl_rpl":0.861,"ctrl_ompA":0.621},
+                               "stat": {"gat":0.122,"rbs":0.0935,"galK":0.0806,"crp":0.0796,"cyaA":0.0841,"hflC":0.181,"gyrA":0.0584,"fecE":0.0438,"ctrl_rpl":0.231,"ctrl_ompA":0.331}}
+ },
+ "mean_cv2_normalised": {
+  "_format": "[log10 mean bin (0.25 wide), n operons, median CV2] for normalised counts, operons with mean >= 0.002",
+  "exp": [[-2.75,236,160],[-2.5,294,98.3],[-2.25,214,63.1],[-2,188,38.4],[-1.75,116,22.2],[-1.5,93,13.1],[-1.25,52,7.72],[-1,29,4.44],[-0.75,21,2.8],[-0.5,6,1.3],[-0.25,9,0.836],[0,4,0.583],[0.25,2,0.263],[0.5,2,0.169],[0.75,2,0.0927]],
+  "stat": [[-2.75,241,915],[-2.5,356,549],[-2.25,312,313],[-2,276,184],[-1.75,197,101],[-1.5,154,58.6],[-1.25,75,33.3],[-1,51,18.5],[-0.75,30,9.89],[-0.5,20,6.56],[-0.25,7,3.02],[0,7,1.79],[0.25,1,1.34]]
+ }
+}
