@@ -34,11 +34,12 @@ The model also carries the 21 causal CRP outputs from A2, so later tasks can com
 | `data/curated/lac_network_gene_check.xlsx` | combined network table: RegulonDB + A2 + Kuhlman + Ozbudak | curated, in git |
 | Ozbudak 2004 Fig. 2c thresholds | switch-ON / switch-OFF TMG at each glucose level | digitised in `src/fit_parameters.py` |
 | Kuhlman 2007 | CRP raises *lac* ~200-fold; CRP-free basal 1/240; LacI loop | published values in the code |
+| 19 IPTG-induced + 3 uninduced MG1655 RNA-seq samples | *lac* fully ON: repression strength ρ and the CRP → *lac* slope | NCBI SRA BioProject PRJEB36111 (project `srna_oe` in the K-12 modulome; `get_data.py`) |
 
 ## 3. Method
 1. **Topology.** Species: *lac* promoter (free / LacI-bound), *lac* mRNA, LacY (the permease), internal inducer, plus mRNA and protein for each of the 21 CRP outputs. Reactions: transcription (CRP-activated, LacI-repressed), translation, decay/dilution, LacY-dependent inducer uptake, inducer release of LacI, glucose → lower cAMP and inducer exclusion (`src/reaction_network.py`).
-2. **Where the *lac* edges come from.** A2 could not test *lac* (no inducer in PRECISE-1K). Each edge is instead backed by RegulonDB 'Confirmed' evidence, the Kuhlman 2007 cAMP titration (with a Δcrp control), IPTG-induced NCBI GEO samples, and Ozbudak's own measurements. Every edge's source is recorded in `validated_edges.json`.
-3. **Repression factor ρ** (how much LacI shuts *lac* off) from three routes: Ozbudak's GFP (170), a free fit to his phase diagram (173), and PRECISE-1K *lacY* RNA in MG1655 (160, the only route independent of Ozbudak).
+2. **Where the *lac* edges come from.** A2 could not test *lac* (no inducer in PRECISE-1K). Each edge is instead backed by RegulonDB 'Confirmed' evidence, the Kuhlman 2007 cAMP titration (with a Δcrp control), 19 IPTG-induced RNA-seq samples from NCBI SRA (BioProject PRJEB36111), and Ozbudak's own measurements. Every edge's source is recorded in `validated_edges.json`.
+3. **Repression factor ρ** (how much LacI shuts *lac* off) from three routes: Ozbudak's GFP (170), a free fit to his phase diagram (173), and RNA-seq *lacY* in 19 IPTG-induced MG1655 samples from NCBI SRA (BioProject PRJEB36111) vs uninduced PRECISE-1K MG1655 (160, the only route independent of Ozbudak).
 4. **Fit.** Hill parameters are fitted to Ozbudak's **switch-ON** thresholds only; the **switch-OFF** thresholds are held out and predicted (`src/fit_parameters.py`).
 5. **CRP outputs.** Each of the 21 A2 genes gets a Hill response to CRP activity fitted on PRECISE-1K (`src/crp_outputs.py`), validated on an unseen cAMP-titration experiment.
 6. **Build the final model** (v3): network table → circuit edges with evidence → parameters, initial states for OFF and ON history, a crp-knockout version (CRP-free basal 1/240, LacI loop ρ 170 → 22 as in Kuhlman) → `circuit_model.yaml` and SBML (`src/build_network.py`, `src/build_a3_v3.py`).
@@ -86,7 +87,7 @@ Takes about 3 minutes. `python verify.py --a3` refits A3 and checks the result i
 - **Where each edge comes from:**
   - **RegulonDB 14.5.1:** CRP → lac and LacI ⊣ lac are "Confirmed".
   - **Kuhlman 2007:** cAMP titration with LacI removed; lac rises about 200× and stays flat in Δcrp.
-  - **IPTG-induced samples from NCBI GEO:** repression factor ρ ≈ 160.
+  - **NCBI RNA-seq (19 IPTG-induced RNA-seq samples from NCBI SRA (BioProject PRJEB36111)):** repression factor ρ ≈ 160 (LacI ⊣ lac), and *lacY* tracks CRP activity with slope 1.07, r = 0.93 (CRP → lac).
   - **Ozbudak 2004:** uptake and glucose effects.
 - **Outcome.** Every lac edge is supported by curated or interventional evidence. Each edge's source is recorded in [`validated_edges.json`](validated_edges.json).
 
@@ -141,6 +142,8 @@ Takes about 3 minutes. `python verify.py --a3` refits A3 and checks the result i
 | Cusp (smallest ρ with memory) | ≈ 9 | 9.01 | ✔ |
 | ρ = 170 and 50 switch, ρ = 5 graded | yes | yes | ✔ |
 | Δcrp never induces | flat (Kuhlman) | LacY < 1 per cell up to 2 mM TMG | ✔ |
+| ρ from NCBI RNA-seq (independent of Ozbudak) | > 9 for a switch | 160 (model 170) | – |
+| CRP → *lac* in NCBI RNA-seq | lac ∝ CRP (Ozbudak Fig. 3b) | slope 1.07, r = 0.93 | – |
 | CRP outputs vs A2 knockout effects | – | r = 0.85 | – |
 | CRP outputs vs unseen cAMP titration | – | r = 0.79, direction right 93% | – |
 | SBML in libSBML / COPASI / GillesPy2 | loads and runs | 0 errors; COPASI = Python ODE | – |

@@ -118,7 +118,7 @@ Activities match the published values for all 1,035 samples.
 **Question.** Can a data-grounded reaction network reproduce the bistability and hysteresis of real cells (Ozbudak et al. 2004)?
 **Method.** Species: promoter states, *lac* mRNA, LacY/LacZ, internal inducer, plus the 21 CRP output genes from A2.
 *lac* edges, which A2 could not test, come from RegulonDB (confirmed edges), Kuhlman et al. 2007 (CRP activates *lac* about 200-fold)
-and IPTG-induced NCBI GEO samples (repression factor ρ ≈ 160). Hill parameters were fitted to Ozbudak's switch-ON thresholds only;
+and 19 IPTG-induced RNA-seq samples from NCBI SRA (BioProject PRJEB36111), which give the repression factor ρ ≈ 160 and show *lac* tracking CRP (slope 1.07). Hill parameters were fitted to Ozbudak's switch-ON thresholds only;
 the switch-OFF thresholds were held out.
 **Result.** The model is bistable with a memory window of 4.1–30 µM TMG (paper 3–30 µM); held-out switch-OFF thresholds are predicted
 within ~23%; the smallest ρ that gives memory is 9.01 (paper ≈ 9); ρ = 170 and 50 strains switch, ρ = 5 does not; a *crp* knockout never switches ON.

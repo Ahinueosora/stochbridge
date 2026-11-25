@@ -9,8 +9,8 @@ def head(sign): return 'normal' if sign == '+' else 'tee' if sign == '-' else 'o
 core = [
  ('glucose','cAMP','-','lowers cAMP'),
  ('cAMP','CRP','+','switches CRP on\n(1 cAMP per CRP, no cooperativity)'),
- ('CRP','lac','+','turns lac UP 200x\n(no effect if crp deleted)'),
- ('LacI','lac','-','blocks lac\n(ON/OFF ~250x)'),
+ ('CRP','lac','+','turns lac UP 200x (Kuhlman; no effect if crp deleted)\nNCBI RNA-seq: lacY tracks CRP (slope 1.07, r = 0.93)'),
+ ('LacI','lac','-','blocks lac: model rho = 170\n(Ozbudak 170; NCBI RNA-seq 160; Kuhlman ~250 without CRP)'),
  ('CRP','loop','+','NEW: helps LacI loop\nOFF ~6x tighter'),
  ('loop','lac','-',''),
  ('lac','LacY','+','makes LacY'),
@@ -29,7 +29,7 @@ for s,t,sg,l in core:
     c = NEW if 'NEW' in l else col(sg)
     d.append(f'"{s}" -> "{t}" [color="{c}", fontcolor="{c}", arrowhead={head(sg)}, label="{l}"];')
 d.append('{rank=same; "LacI"; "loop";} {rank=same; "lac";}')
-d.append('labelloc=t; fontsize=18; label="The lac switch: every arrow now has a number (Kuhlman 2007 + Ozbudak 2004 + RegulonDB)";}')
+d.append('labelloc=t; fontsize=18; label="The lac switch: every arrow has a number (Kuhlman 2007 + Ozbudak 2004 + RegulonDB + NCBI RNA-seq)\\nNCBI RNA-seq = 19 IPTG-induced E. coli MG1655 samples + 3 uninduced, NCBI SRA BioProject PRJEB36111";}')
 open('fig_lac_switch_quantified.dot','w').write('\n'.join(d))
 subprocess.run(['dot','-Tpng','-Gdpi=170','fig_lac_switch_quantified.dot','-o','fig_lac_switch_quantified.png'],check=True)
 
