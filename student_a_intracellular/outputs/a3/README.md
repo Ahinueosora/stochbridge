@@ -79,17 +79,18 @@ Takes about 3 minutes. `python verify.py --a3` refits A3 and checks the result i
 - **How to read it.** The grey zone is below what RNA-seq can measure (about 1 TPM). The expected lacY sits inside it, so the change is invisible.
 - **Outcome.** A2's "no lac edge" is a measurement limit, not evidence against the edge.
 
-### 02_lac_switch_with_evidence.png: the switch as modelled, with a source on every arrow
+### 02_crp_lac_gene_network.png: the lac switch wired into the whole CRP gene network
 
-![02_lac_switch_with_evidence.png](figures/02_lac_switch_with_evidence.png)
+![02_crp_lac_gene_network.png](figures/02_crp_lac_gene_network.png)
 
-- **What it shows.** Glucose lowers cAMP and blocks LacY. cAMP-CRP activates lac about 200-fold. LacI represses lac. LacY brings in inducer, which disables LacI. That last step is the positive feedback that makes a switch.
-- **Where each edge comes from:**
+- **What it shows.** One gene network built from five sources: the signals (glucose, cAMP, inducer) at the top, the *lac* switch (green box), CRP as the hub, the 21 genes CRP controls in our A2 data (blue box), and the other regulators of those genes from RegulonDB (grey box).
+- **How to read it.** Arrow = switches on, bar = switches off. Thick green/red = a proven cause (our A2 test or the Kuhlman 2007 experiment). Thin = curated database or literature. Blue = the new link where CRP helps LacI shut *lac* off (DNA loop). Orange dashed = our data and RegulonDB disagree on the sign (fecE, mhpF, nadC, gyrA). Purple labels = numbers from NCBI RNA-seq.
+- **Where the *lac* edges come from:**
   - **RegulonDB 14.5.1:** CRP → lac and LacI ⊣ lac are "Confirmed".
   - **Kuhlman 2007:** cAMP titration with LacI removed; lac rises about 200× and stays flat in Δcrp.
   - **NCBI RNA-seq (19 IPTG-induced RNA-seq samples from NCBI SRA (BioProject PRJEB36111)):** repression factor ρ ≈ 160 (LacI ⊣ lac), and *lacY* tracks CRP activity with slope 1.07, r = 0.93 (CRP → lac).
   - **Ozbudak 2004:** uptake and glucose effects.
-- **Outcome.** Every lac edge is supported by curated or interventional evidence. Each edge's source is recorded in [`validated_edges.json`](validated_edges.json).
+- **Outcome.** Every *lac* edge is supported by curated or interventional evidence, and the *lac* switch sits inside the same CRP network that A2 tested. The figure draws 85 causal and curated edges (53 nodes); the full table has 116 edges, including 31 statistical MINER links left out of the picture. Each edge's source is recorded in [`network_v3_edges.json`](network_v3_edges.json) and [`validated_edges.json`](validated_edges.json). Drawn by `src/draw_network.py` from `network_v3_edges.csv`.
 
 ### 03_hysteresis_phase_diagram_rho.png: the main test against Ozbudak
 

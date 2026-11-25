@@ -125,6 +125,10 @@ within ~23%; the smallest ρ that gives memory is 9.01 (paper ≈ 9); ρ = 170 a
 **Run:** `python src/run_a3.py …`, `python src/build_network.py …`, `python src/build_a3_v3.py …` (exact commands in [`student_a_intracellular/README.md`](student_a_intracellular/README.md)).
 **Full details** (inputs, method, every file, checks, limitations): [`outputs/a3/README.md`](student_a_intracellular/outputs/a3/README.md)
 
+<img src="student_a_intracellular/outputs/a3/figures/02_crp_lac_gene_network.png" width="860">
+
+*The CRP/lac gene network: the lac switch (green) wired into the CRP network, with the 21 A2 genes (blue) and their other RegulonDB regulators (grey). Purple labels are numbers from NCBI RNA-seq (SRA PRJEB36111).*
+
 <img src="student_a_intracellular/outputs/a3/figures/03_hysteresis_phase_diagram_rho.png" width="760">
 
 ### A4 — Stochastic single-cell simulator (Module 1)

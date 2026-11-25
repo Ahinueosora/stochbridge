@@ -53,15 +53,19 @@ d.append('"CRP" [label="CRP\\n(hub)", fillcolor="#bbdefb", fontsize=16, penwidth
 helpers = set(nodes) - inputs - lacmod - A2 - {'CRP','93 flagella genes','galK'}
 cluster('tf','Other regulators (RegulonDB)',helpers,'#f5f5f5')
 cluster('a2','21 genes CRP controls in our data (A2)',(A2 | {'93 flagella genes'}) & set(nodes),'#e3f2fd')
+NCBI_LAB = {('CRP','lac promoter (lacZYA)'): 'NCBI: slope 1.07', ('LacI','lac promoter (lacZYA)'): 'NCBI: rho 160'}
 for _,e in F.iterrows():
     sg = e.sign
     if e.tier == 'causal_in_A2_sign_conflict': c, st, w = CONF, 'dashed', 1.6
     elif 'NEW EDGE' in e.note: c, st, w = NEW, 'bold', 2.6
     elif e.tier == 'causal': c, st, w = col(sg), 'solid', 2.0
     else: c, st, w = GREY if sg!='-' else '#e57373', 'solid', 1.0
-    d.append(f'"{e.source}" -> "{e.target}" [color="{c}", style={st}, penwidth={w}, arrowhead={head(sg)}];')
-d.append('legend [shape=plaintext, fillcolor=white, label=<<TABLE BORDER="0" CELLSPACING="2"><TR><TD ALIGN="LEFT"><FONT COLOR="%s"><B>green/red thick</B></FONT> = proven cause (our A2 test or Kuhlman experiment)</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#888888">thin</FONT> = curated database (RegulonDB) or literature</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="%s"><B>blue</B></FONT> = new link: CRP helps LacI shut lac OFF</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="%s"><B>orange dashed</B></FONT> = our data and the database disagree on sign</TD></TR><TR><TD ALIGN="LEFT">arrow = switches on, bar = switches off</TD></TR></TABLE>>];' % (ACT, NEW, CONF))
-d.append('labelloc=t; fontsize=18; label="CRP/lac network v3: lac switch wired into the CRP network";}')
+    lab = NCBI_LAB.get((e.source, e.target), '')
+    if lab and e.source == 'CRP': lab = f', headlabel="{lab}", labeldistance=7, labelangle=28, labelfontname="Helvetica-Bold", labelfontsize=12, labelfontcolor="#4a148c"'
+    elif lab: lab = f', label="{lab}", fontname="Helvetica-Bold", fontsize=12, fontcolor="#4a148c"'
+    d.append(f'"{e.source}" -> "{e.target}" [color="{c}", style={st}, penwidth={w}, arrowhead={head(sg)}{lab}];')
+d.append('legend [shape=plaintext, fillcolor=white, label=<<TABLE BORDER="0" CELLSPACING="2"><TR><TD ALIGN="LEFT"><FONT COLOR="%s"><B>green/red thick</B></FONT> = proven cause (our A2 test or Kuhlman experiment)</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#888888">thin</FONT> = curated database (RegulonDB) or literature</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="%s"><B>blue</B></FONT> = new link: CRP helps LacI shut lac OFF</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="%s"><B>orange dashed</B></FONT> = our data and the database disagree on sign</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#4a148c"><B>purple label</B></FONT> = number from NCBI RNA-seq (19 IPTG-induced MG1655 samples, SRA PRJEB36111)</TD></TR><TR><TD ALIGN="LEFT">arrow = switches on, bar = switches off</TD></TR></TABLE>>];' % (ACT, NEW, CONF))
+d.append('labelloc=t; fontsize=18; label="CRP/lac gene network: the lac switch wired into the CRP network (A2 + RegulonDB 14.5.1 + Kuhlman 2007 + Ozbudak 2004 + NCBI RNA-seq)";}')
 open('fig_network_v3_full.dot','w').write('\n'.join(d))
 subprocess.run(['dot','-Tpng','-Gdpi=150','fig_network_v3_full.dot','-o','fig_network_v3_full.png'],check=True)
 print('ok', len(nodes), 'nodes', len(F), 'edges drawn')
