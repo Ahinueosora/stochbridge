@@ -69,7 +69,7 @@ data/curated/        hand-curated inputs, in git: RegulonDB evidence per CRP edg
 src/                 code (entry points per task below)
 config/              crp_lac_circuit.yaml (A3 human-readable spec), precise1k_condition_map.yaml (A6)
 notebooks/           01 ... 05, one per task, executed
-outputs/             one folder per task: a1/ ... a6/ (index: outputs/README.md); Student B reads a5/ and a6/
+outputs/             one folder per task: a1/ ... a6/, each with a README explaining every figure and file (index: outputs/README.md)
 tests/               pytest, fixed seeds (38 tests)
 ```
 
